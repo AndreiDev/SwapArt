@@ -19,7 +19,6 @@ end
 
 puts 'SETTING UP DEFAULT Administrator User'
 admin = User.new(email: 'andrei.averkin@gmail.com', first_name: 'Andrei', last_name: 'Averkin',
-                 gender: 'Male',
                  password: Rails.application.secrets.admin_pass, password_confirmation: Rails.application.secrets.admin_pass)
 admin.skip_confirmation!
 admin.save!

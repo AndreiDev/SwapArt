@@ -5,7 +5,6 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
 
   include User::AuthDefinitions
-  include User::Genders
 
   has_one :identity
 
@@ -25,21 +24,6 @@ class User < ActiveRecord::Base
   def full_name
     "#{first_name} #{last_name}"
   end
-
-
-  # GENDER
-  def self.get_gender(gender)
-    if AppConfig.genders.to_a.include? gender
-      gender
-    else
-      AppConfig.default_gender
-    end
-  end
-
-  def set_gender(gender)
-    self.gender = User.get_gender(gender)
-  end
-
 
   # ROLE
   def set_def_role

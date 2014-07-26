@@ -20,7 +20,6 @@
 
 <p>User: <%= @user.full_name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
-<p>Gender: <%= @user.gender if @user.gender %></p>
 <p>Roles: <%= @user.get_user_roles_name if @user.roles %></p>
 
 <% unless @user.identity.nil? %>

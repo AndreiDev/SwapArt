@@ -56,7 +56,6 @@ module User::AuthDefinitions
 
         if omniauth.extra
           if omniauth.extra.raw_info
-            self.gender = omniauth.extra.raw_info.gender.to_a if omniauth.extra.raw_info.gender
             self.birthday = DateTime.strptime(omniauth.extra.raw_info.birthday, "%m/%d/%Y") if omniauth.extra.raw_info.birthday
           end
         end

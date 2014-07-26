@@ -25,7 +25,6 @@ class Identity < ActiveRecord::Base
 
       if omniauth.extra
         if omniauth.extra.raw_info
-          identity.gender = omniauth.extra.raw_info.gender if omniauth.extra.raw_info.gender
           identity.birthday = DateTime.strptime(omniauth.extra.raw_info.birthday, "%m/%d/%Y") if omniauth.extra.raw_info.birthday
         end
       end
@@ -58,7 +57,6 @@ class Identity < ActiveRecord::Base
       self.user.provider    ||= self.provider
       self.user.birthday    ||= self.birthday
 
-      self.user.set_gender(self.user.gender)
       self.user.set_def_role #Default role association
 
       self.user.skip_confirmation!
@@ -83,7 +81,6 @@ class Identity < ActiveRecord::Base
           uid: self.uid,
           birthday: self.birthday,
           provider: self.provider,
-          genders: User.get_gender(self.gender)
       )
       self.user.set_def_role #Default role association
       self.user.skip_confirmation!

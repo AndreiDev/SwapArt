@@ -63,7 +63,6 @@ he:
     username: "Username"
     firstUser: "Created by"
     lastUser: "Modified by"
-    gender: "Gender"
     userRole: "Associated role"
     version: "Version"
     history: "History"

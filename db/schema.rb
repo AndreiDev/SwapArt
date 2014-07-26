@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 20140502103055) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "nickname"
-    t.string   "gender"
     t.string   "image"
     t.date     "birthday"
     t.integer  "user_id"
@@ -69,7 +68,6 @@ ActiveRecord::Schema.define(version: 20140502103055) do
     t.string   "last_name"
     t.string   "nickname"
     t.date     "birthday"
-    t.string   "gender"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

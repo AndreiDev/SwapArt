@@ -12,7 +12,6 @@ class CreateIdentities < ActiveRecord::Migration
       t.string :first_name
       t.string :last_name
       t.string :nickname
-      t.string :gender
       t.string :image
       t.date :birthday
 
