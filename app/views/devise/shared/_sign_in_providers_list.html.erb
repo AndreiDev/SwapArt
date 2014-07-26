@@ -1,0 +1,9 @@
+<%= render "shared/page_title", page_title: t('model.messages.sign_in_title') %>
+
+<%= link_to image_tag('facebook_64.png'), omniauth_authorize_path(resource_name, :facebook) %>
+
+<!--<a data-toggle="modal" href="#modal_login" class="btn btn-mini btn-primary" type="button">Kerberos</a>-->
+<%= link_to image_tag('kerberos_128.jpg', size: "64x64", alt: 'Kerberos'), "sign_in#modal_login", :data => {:toggle => "modal"} %>
+<%= render 'devise/shared/modal_login' %>
+
+<p>&nbsp;</p>

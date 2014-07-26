@@ -1,0 +1,109 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  editAccount: "Edit account"
+  myAccount: "My account"
+  login: "Login"
+  logout: "Logout"
+  legalsAndAbout: "Legals & About"
+  contacts: "Contacts"
+  reportProblem: "Report a Problem"
+  notAvailableAbbr: "---"
+  invalidNumber: "Invalid number"
+
+  menu:
+    home: "Home"
+    legalAndAbout: "Legals & About"
+    userRole: "Associated role"
+    users: "Users"
+    copy: "Copy"
+    addAnother: " Add another"
+    parentId: "Part of"
+
+  model:
+    id: "#id"
+    name: "Name"
+    flgStatus: "Registry status"
+    createdAt: "Creation date"
+    updatedAt: "Last modification date"
+    description: "Description"
+    email: "Email"
+    provider: "Provider"
+    uid: "UID"
+    currentSignInAt: "Current sign in date"
+    lastSignInAt: "Last sign in date"
+    signInCount: "Visits"
+    currentSignInIp: "Current access IP"
+    lastSignInIp: "Last access IP"
+    parentId: "Part of"
+    childrenId: "Contains"
+    title: "Title"
+    firstName: "First Name"
+    lastName: "Last Name"
+    fullName: "Full Name"
+    username: "Username"
+    firstUser: "Created by"
+    lastUser: "Modified by"
+    gender: "Gender"
+    userRole: "Associated role"
+    version: "Version"
+    history: "History"
+
+    values:
+      flgStatus:
+        active: "Active"
+        inactive: "Inactive"
+      flgResponsible:
+        yes: "Yes"
+        no: "No"
+      flgYesNo:
+        yes: "Yes"
+        no: "No"
+
+    buttons:
+      save: "Save"
+      saveAndAddAnother: "Save and add another"
+      backToRegistry: "Cancel and go to registry"
+
+    messages:
+      urlError: "Link must start with 'http://', 'https://' or 'ftp://' and can't have whitespaces."
+      emailError: "This is not a valid email address."
+      registryCreation: "Registry creation"
+      sign_in_kerberos_title: "Sign In with Local credentials"
+      sign_in_local_title: "Sign In with your account"
+      sign_in_title: "Sign In with one of your accounts"
+
+      hint:
+        dateHint: "date format: 1985/01/20"
+        parentIdHint: "Only if this is a composite item"
+        imageHint: "Upload image or indicate image URL"
+
+      errors:
+        extension_white_list_error: "You can only upload files with the allowed types: .jpg .jpeg .gif .png"
+
+  api:
+    messages:
+      must_be_json: "The request must be json"
+      require_email_password: "The request must contain the user email and password."
+      invalid_email_password: "Invalid email or password."
+      invalid_token: "Invalid authentication token."
+      invalid_param_id: "Parameter id is not correct."

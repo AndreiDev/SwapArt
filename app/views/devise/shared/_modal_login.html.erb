@@ -1,0 +1,25 @@
+<!-- Modal -->
+<div id="modal_login" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <%= simple_form_for '', {url: AppConfig.kerberos_callback_path} do |f| %>
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 class="modal-title"><%= t('model.messages.sign_in_kerberos_title') %></h3>
+          </div>
+
+          <div class="modal-body">
+            <%= render 'devise/shared/login_form_fields', f: f, identifier: :username %>
+          </div>
+
+          <div class="modal-footer">
+            <%= f.button :submit, "Sign In", :class => "btn btn-primary" %>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

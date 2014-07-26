@@ -1,0 +1,19 @@
+<%
+   if user.nil?
+     selected_option = AppConfig.default_gender
+   else
+     if user.gender.nil?
+       selected_option = AppConfig.default_gender
+     else
+       selected_option = user.gender
+     end
+   end
+%>
+
+<%= f.input :gender,
+            label: t('model.gender'), #false,
+            collection: AppConfig.genders,
+            as: :radio_buttons,
+            label_method: lambda { |r| r.titleize },
+            item_wrapper_class: 'inline',
+            checked: selected_option %>

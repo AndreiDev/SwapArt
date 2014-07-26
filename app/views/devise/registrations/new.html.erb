@@ -1,0 +1,14 @@
+<% if session[:omniauth].nil? %>
+
+    <%= render 'devise/shared/sign_in_providers_list' %>
+
+    <%= render "shared/page_title", page_title: 'Sign up' %>
+    <%= render 'devise/registrations/form' %>
+    <%= render "devise/shared/links" %>
+
+<% else %>
+
+    <%= render "shared/page_title", page_title: 'Complete your ' + resource_name.to_s.humanize + ' information' %>
+    <%= render 'devise/registrations/form' %>
+
+<% end %>

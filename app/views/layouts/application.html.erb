@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <!--<head>-->
+    <%= render 'layouts/head' %>
+    <!--</head>-->
+
+    <body class="<%= controller_name %> <%= action_name %>">
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+        <!-- Top navigation menu -->
+        <%= render 'layouts/navigation_top' %>
+
+        <div id="main" role="main" class="container">
+
+          <%= render 'layouts/messages' %>
+          <%= render 'layouts/content' %>
+
+          <!--<footer>-->
+          <%= render 'layouts/navigation_footer' %>
+          <!--</footer>-->
+
+        </div>
+    </body>
+</html>
