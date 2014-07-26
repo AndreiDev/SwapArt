@@ -5,7 +5,7 @@ defaults: &defaults
     - 'other or decline to state'
   default_gender: 'other or decline to state'
   omniauth_path_prefix: "/auth"
-  kerberos_callback_path: "/users/auth/kerberos/callback"
+  #kerberos_callback_path: "/users/auth/kerberos/callback"
   site_domain: "http://localhost:3000/"
   site_name: "SwapArt"
   author: "Andrei Averkin"
