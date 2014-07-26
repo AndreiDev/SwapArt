@@ -235,7 +235,7 @@ Devise.setup do |config|
   #config.omniauth :linkedin, "APP_ID", "APP_SECRET",
   #                scope: 'r_fullprofile r_emailaddress'
 
-  config.omniauth :kerberos, title: 'Local Registry'
+  #config.omniauth :kerberos, title: 'Local Registry'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

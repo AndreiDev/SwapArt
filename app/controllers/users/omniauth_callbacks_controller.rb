@@ -36,7 +36,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   #alias_method :github, :all
   #alias_method :google_oauth2, :all
   #alias_method :linkedin, :all
-  alias_method :kerberos, :all
+  #alias_method :kerberos, :all
 
   protected
 

@@ -112,11 +112,6 @@ GEM
       rack (~> 1.0)
     omniauth-facebook (1.6.0)
       omniauth-oauth2 (~> 1.1)
-    omniauth-kerberos (0.2.0)
-      omniauth-multipassword
-      timfel-krb5-auth (~> 0.8)
-    omniauth-multipassword (0.4.1)
-      omniauth (~> 1.0)
     omniauth-oauth2 (1.2.0)
       faraday (>= 0.8, < 0.10)
       multi_json (~> 1.3)
@@ -189,7 +184,6 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
-    timfel-krb5-auth (0.8)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -224,7 +218,6 @@ DEPENDENCIES
   mysql2
   nested_form
   omniauth-facebook
-  omniauth-kerberos
   rails (= 4.1.0)
   rolify
   rspec-rails

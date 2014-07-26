@@ -59,7 +59,7 @@ gem 'omniauth-facebook'
 #gem 'omniauth-github'
 #gem "omniauth-google-oauth2"
 #gem 'omniauth-linkedin-oauth2'
-gem 'omniauth-kerberos'
+#gem 'omniauth-kerberos'
 
 # Static pages
 gem 'high_voltage'
