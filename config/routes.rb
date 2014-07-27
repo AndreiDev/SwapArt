@@ -14,9 +14,9 @@ Tur::Application.routes.draw do
   }
 
   # Needs this block to allow the integration of the Kerberos login form into the Devise::session Views
-  devise_scope :user do
-    match '/users/auth/:provider/callback', to: 'devise/sessions#create', via: :post, :as => :auth_callback
-  end
+  #devise_scope :user do
+  #  match '/users/auth/:provider/callback', to: 'devise/sessions#create', via: :post, :as => :auth_callback
+  #end
 
   # high_voltage
   get '/home', to: redirect('/')

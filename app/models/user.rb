@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   validates_associated :roles
   validates_presence_of :email, :first_name, :last_name
 
-  validates_uniqueness_of :email, case_sensitive: false, scope: :provider
+  validates_uniqueness_of :email, case_sensitive: false
   validates :email, length: {minimum: 7, maximum: 50}
   validates_format_of :email, with: /\A(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6})\z/i,
                       allow_blank: true,

@@ -14,7 +14,7 @@ module User::AuthDefinitions
     # new function to determine whether a password has been set
     def has_no_password?
       #super
-      self.encrypted_password.blank? || (self.uid && self.provider)
+      self.encrypted_password.blank? || self.uid
     end
 
 
@@ -41,7 +41,6 @@ module User::AuthDefinitions
 
     def from_omniauth(omniauth)
       if omniauth
-        self.provider = omniauth.provider
         self.uid = omniauth.uid
 
         if omniauth.info
@@ -60,8 +59,6 @@ module User::AuthDefinitions
           end
         end
 
-      else
-        self.provider = 'local'
       end
     end
 

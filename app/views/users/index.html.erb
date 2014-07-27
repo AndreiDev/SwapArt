@@ -19,8 +19,6 @@
       <th>Username</th>
       <th>
         Email
-        <br/>
-        Provider
       </th>
       <th>Registered</th>
       <th>Role</th>
@@ -35,8 +33,6 @@
           <td><%= link_to user.full_name, user %></td>
           <td>
             <%= user.email %>
-            <br/>
-            <%= user.provider %>
           </td>
           <td><%= user.created_at.to_date %></td>
           <td><%= user.get_user_roles_name %></td>
