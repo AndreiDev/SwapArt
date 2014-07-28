@@ -8,7 +8,7 @@ module User::AuthDefinitions
     # :lockable, :timeoutable and :omniauthable
     devise :database_authenticatable, :registerable,
            :recoverable, :rememberable, :trackable, :validatable,
-           :confirmable, :lockable, :omniauthable
+           :confirmable, :omniauthable
 
 
     # new function to determine whether a password has been set
