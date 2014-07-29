@@ -23,9 +23,6 @@ class Identity < ActiveRecord::Base
         identity.image = omniauth.info.image if omniauth.info.image
       end
 
-      #related_user = User.find_by_email(identity.email)
-      #identity.user = related_user if related_user.present?
-
       if omniauth.extra
         if omniauth.extra.raw_info
           identity.birthday = DateTime.strptime(omniauth.extra.raw_info.birthday, "%m/%d/%Y") if omniauth.extra.raw_info.birthday
