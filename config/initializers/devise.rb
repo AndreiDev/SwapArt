@@ -227,7 +227,7 @@ Devise.setup do |config|
                    client_options: {ssl: {ca_path: 'APP_PATH/site'}}}
 
   #config.omniauth :twitter, 'APP_ID', 'APP_SECRET',
-  #                scope: 'email,user_birthday,read_stream'
+  #                scope: 'email,read_stream'
 
   #config.omniauth :google_oauth2, "APP_ID", "APP_SECRET",
   #                {access_type: "offline", approval_prompt: ""}

@@ -23,12 +23,6 @@ class Identity < ActiveRecord::Base
         identity.image = omniauth.info.image if omniauth.info.image
       end
 
-      if omniauth.extra
-        if omniauth.extra.raw_info
-          identity.birthday = DateTime.strptime(omniauth.extra.raw_info.birthday, "%m/%d/%Y") if omniauth.extra.raw_info.birthday
-        end
-      end
-
     end
     identity.save!
 
@@ -54,7 +48,6 @@ class Identity < ActiveRecord::Base
       self.user.first_name  ||= self.first_name
       self.user.last_name   ||= self.last_name
       self.user.uid         ||= self.uid
-      self.user.birthday    ||= self.birthday
 
       self.user.set_def_role #Default role association
 
@@ -78,7 +71,6 @@ class Identity < ActiveRecord::Base
           first_name: self.first_name,
           last_name: self.last_name,
           uid: self.uid,
-          birthday: self.birthday,
       )
       self.user.set_def_role #Default role association
       self.user.skip_confirmation!

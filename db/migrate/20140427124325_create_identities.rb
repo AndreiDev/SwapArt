@@ -13,7 +13,6 @@ class CreateIdentities < ActiveRecord::Migration
       t.string :last_name
       t.string :nickname
       t.string :image
-      t.date :birthday
 
       t.references :user
     end

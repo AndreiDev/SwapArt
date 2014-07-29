@@ -53,12 +53,6 @@ module User::AuthDefinitions
           self.nickname ||= omniauth.info.username if omniauth.info.username
         end
 
-        if omniauth.extra
-          if omniauth.extra.raw_info
-            self.birthday = DateTime.strptime(omniauth.extra.raw_info.birthday, "%m/%d/%Y") if omniauth.extra.raw_info.birthday
-          end
-        end
-
       end
     end
 
