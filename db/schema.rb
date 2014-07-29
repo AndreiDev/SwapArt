@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(version: 20140502103055) do
 
   create_table "identities", force: true do |t|
+    t.integer  "user_id"
     t.string   "uid"
     t.string   "provider"
     t.string   "token"
@@ -25,7 +26,9 @@ ActiveRecord::Schema.define(version: 20140502103055) do
     t.string   "last_name"
     t.string   "nickname"
     t.string   "image"
-    t.integer  "user_id"
+    t.string   "phone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "roles", force: true do |t|
@@ -57,11 +60,10 @@ ActiveRecord::Schema.define(version: 20140502103055) do
     t.string   "unconfirmed_email"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "uid"
-    t.string   "name"
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "nickname"
+    t.string   "image"
+    t.string   "phone"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

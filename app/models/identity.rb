@@ -21,6 +21,7 @@ class Identity < ActiveRecord::Base
         identity.secret = omniauth.credentials.secret if omniauth.credentials.secret
         identity.expires_at = omniauth.credentials.expires_at if omniauth.credentials.expires_at
         identity.image = omniauth.info.image if omniauth.info.image
+
       end
 
     end
@@ -43,11 +44,9 @@ class Identity < ActiveRecord::Base
       self.user = current_user
       Rails.logger.info "This is user with updating identity #{self.user} PT2 #{self.inspect} PT3 #{self.user.inspect}"
       self.user.email       ||= self.email
-      self.user.name        ||= self.name
-      self.user.nickname    ||= self.nickname
       self.user.first_name  ||= self.first_name
       self.user.last_name   ||= self.last_name
-      self.user.uid         ||= self.uid
+      self.user.image       ||= self.image
 
       self.user.set_def_role #Default role association
 
@@ -66,11 +65,9 @@ class Identity < ActiveRecord::Base
       Rails.logger.info "This is a new user not associated with identity #{self.inspect}"
       self.build_user(
           email: self.email,
-          name: self.name,
-          nickname: self.nickname,
           first_name: self.first_name,
           last_name: self.last_name,
-          uid: self.uid,
+          image: self.image,
       )
       self.user.set_def_role #Default role association
       self.user.skip_confirmation!

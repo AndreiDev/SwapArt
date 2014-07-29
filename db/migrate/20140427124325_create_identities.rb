@@ -1,6 +1,8 @@
 class CreateIdentities < ActiveRecord::Migration
   def change
     create_table(:identities) do |t|
+      t.references :user
+
       t.string :uid
       t.string :provider
       t.string :token
@@ -13,8 +15,10 @@ class CreateIdentities < ActiveRecord::Migration
       t.string :last_name
       t.string :nickname
       t.string :image
+      t.string :phone
 
-      t.references :user
+      t.timestamps
+
     end
   end
 end
