@@ -38,6 +38,14 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   #alias_method :linkedin, :all
   #alias_method :kerberos, :all
 
+  def after_sign_in_path_for(resource)
+    if resource.phone.present?
+      super resource
+    else
+      finish_signup_path(resource)
+    end
+  end
+
   protected
 
   def auth_hash

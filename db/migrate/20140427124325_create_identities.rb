@@ -15,7 +15,6 @@ class CreateIdentities < ActiveRecord::Migration
       t.string :last_name
       t.string :nickname
       t.string :image
-      t.string :phone
 
       t.timestamps
 

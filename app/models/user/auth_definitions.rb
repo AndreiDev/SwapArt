@@ -14,7 +14,7 @@ module User::AuthDefinitions
     # new function to determine whether a password has been set
     def has_no_password?
       #super
-      self.encrypted_password.blank? || self.uid
+      self.encrypted_password.blank? || self.identity
     end
 
 

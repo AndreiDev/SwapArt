@@ -22,7 +22,10 @@ Tur::Application.routes.draw do
   get '/home', to: redirect('/')
   get '/about' => 'high_voltage/pages#show', id: 'about'
 
+  match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
+
   resources :users
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

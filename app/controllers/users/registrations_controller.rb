@@ -33,6 +33,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       # If omniauth is not set execute default Devise create action
       super
+      @user.set_def_role #Default role association
     end
   end
 

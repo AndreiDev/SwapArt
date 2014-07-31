@@ -15,6 +15,17 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def ensure_signup_complete(current_user)
+    # Ensure we don't go into an infinite loop
+    return if action_name == 'finish_signup'
+
+    # Redirect to the 'finish_signup' page if the user
+    # phone is missing
+    if current_user && !current_user.phone.present?
+      redirect_to finish_signup_path(current_user)
+    end
+  end
+
   private
 
   def check_registration
