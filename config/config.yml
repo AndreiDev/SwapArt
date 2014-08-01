@@ -14,4 +14,4 @@ test:
 
 production:
   <<: *defaults
-  "http://shielded-everglades-2939.herokuapp.com/"
+  site_domain: "http://shielded-everglades-2939.herokuapp.com/"
