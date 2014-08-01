@@ -31,7 +31,7 @@ module User::AuthDefinitions
 
 
     def update_with_password(params, *options)
-      if encrypted_password.blank?
+      if encrypted_password.blank? || self.identity.present?
         update_attributes(params, *options)
       else
         super
@@ -41,18 +41,12 @@ module User::AuthDefinitions
 
     def from_omniauth(omniauth)
       if omniauth
-        self.uid = omniauth.uid
-
         if omniauth.info
           self.email = omniauth.info.email if omniauth.info.email
-          self.name = omniauth.info.name if omniauth.info.name
           self.first_name = omniauth.info.first_name if omniauth.info.first_name
           self.last_name = omniauth.info.last_name if omniauth.info.last_name
-
-          self.nickname = omniauth.info.nickname if omniauth.info.nickname
-          self.nickname ||= omniauth.info.username if omniauth.info.username
+          self.image = omniauth.info.image if omniauth.info.image
         end
-
       end
     end
 

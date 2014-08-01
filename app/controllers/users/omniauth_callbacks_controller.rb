@@ -9,9 +9,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if user.nil?
       identity = Identity.from_omniauth(omniauth)
 
-      if identity.email.nil? || identity.nickname.nil?
+      if !User.find_by_email(identity.email).present? || !User.find_by_email(identity.email).phone
         session[:omniauth] = omniauth.except('extra')
         session[:omniauth_provider] = omniauth.provider
+        flash.notice = "Please provide a phone number :)"
         redirect_to new_user_registration_url
       else
         current_user = User.find_by_email(identity.email)
@@ -38,6 +39,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   #alias_method :linkedin, :all
   #alias_method :kerberos, :all
 
+=begin
   def after_sign_in_path_for(resource)
     if resource.phone.present?
       super resource
@@ -45,6 +47,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       finish_signup_path(resource)
     end
   end
+=end
 
   protected
 

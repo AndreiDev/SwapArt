@@ -53,6 +53,7 @@ class UsersController < ApplicationController
     respond_with(@user)
   end
 
+=begin
   # GET/PATCH /users/:id/finish_signup
   def finish_signup
     authorize! :update, @user, :message => 'Not authorized as an administrator.'
@@ -67,6 +68,7 @@ class UsersController < ApplicationController
       end
     end
   end
+=end
 
   private
   # Use callbacks to share common setup or constraints between actions.

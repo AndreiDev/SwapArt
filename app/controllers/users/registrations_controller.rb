@@ -21,7 +21,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       user = build_resource
       user.assign_attributes(sign_up_params)
 
-      identity = Identity.where(provider: omniauth[:provider], uid: omniauth[:uid]).first
+      identity = Identity.where(uid: omniauth[:uid]).first
       identity.user = identity.find_or_create_user(user)
 
       session[:omniauth] = nil
