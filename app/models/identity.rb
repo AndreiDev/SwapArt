@@ -12,9 +12,7 @@ class Identity < ActiveRecord::Base
         identity.name = omniauth.info.name if omniauth.info.name
         identity.first_name = omniauth.info.first_name if omniauth.info.first_name
         identity.last_name = omniauth.info.last_name if omniauth.info.last_name
-
-        identity.nickname = omniauth.info.nickname if omniauth.info.nickname
-        identity.nickname ||= omniauth.info.username if omniauth.info.username
+        identity.link = omniauth.extra.raw_info.link if omniauth.extra.raw_info.link
 
         identity.token = omniauth.credentials.token
         identity.secret = omniauth.credentials.secret if omniauth.credentials.secret
