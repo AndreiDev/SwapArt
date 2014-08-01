@@ -14,7 +14,7 @@ module User::AuthDefinitions
     # new function to determine whether a password has been set
     def has_no_password?
       #super
-      self.encrypted_password.blank? || self.identity
+      self.encrypted_password.blank? || self.identity.present?
     end
 
 
@@ -45,7 +45,6 @@ module User::AuthDefinitions
           self.email = omniauth.info.email if omniauth.info.email
           self.first_name = omniauth.info.first_name if omniauth.info.first_name
           self.last_name = omniauth.info.last_name if omniauth.info.last_name
-          self.image = omniauth.info.image if omniauth.info.image
         end
       end
     end

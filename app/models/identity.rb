@@ -45,7 +45,6 @@ class Identity < ActiveRecord::Base
       self.user.email       ||= self.email
       self.user.first_name  ||= self.first_name
       self.user.last_name   ||= self.last_name
-      self.user.image       ||= self.image
 
       self.user.set_def_role #Default role association
 
@@ -66,7 +65,6 @@ class Identity < ActiveRecord::Base
           email: self.email,
           first_name: self.first_name,
           last_name: self.last_name,
-          image: self.image,
       )
       self.user.set_def_role #Default role association
       self.user.skip_confirmation!

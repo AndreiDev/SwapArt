@@ -53,23 +53,6 @@ class UsersController < ApplicationController
     respond_with(@user)
   end
 
-=begin
-  # GET/PATCH /users/:id/finish_signup
-  def finish_signup
-    authorize! :update, @user, :message => 'Not authorized as an administrator.'
-
-    if request.patch? && params[:user][:phone] #&& params[:user][:email]
-      if @user.update(phone: params[:user][:phone])
-        @user.skip_reconfirmation!
-        sign_in(@user, :bypass => true)
-        redirect_to root_path, notice: 'Your profile was successfully updated.'
-      else
-        @show_errors = true
-      end
-    end
-  end
-=end
-
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_user
@@ -78,7 +61,7 @@ class UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:email, :first_name, :last_name, :image, :phone, :role_ids => [])
+    params.require(:user).permit(:email, :first_name, :last_name, :phone, :role_ids => [])
   end
 
 end

@@ -33,21 +33,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   alias_method :facebook, :all
-  #alias_method :twitter, :all
-  #alias_method :github, :all
-  #alias_method :google_oauth2, :all
-  #alias_method :linkedin, :all
-  #alias_method :kerberos, :all
-
-=begin
-  def after_sign_in_path_for(resource)
-    if resource.phone.present?
-      super resource
-    else
-      finish_signup_path(resource)
-    end
-  end
-=end
 
   protected
 

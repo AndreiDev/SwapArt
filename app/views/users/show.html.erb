@@ -22,10 +22,10 @@
 <p>Email: <%= @user.email if @user.email %></p>
 <p>Phone: <%= @user.phone if @user.phone %></p>
 <p>Roles: <%= @user.get_user_roles_name if @user.roles %></p>
-<%= image_tag @user.image if @user.image%>
 
 <% unless @user.identity.nil? %>
     <p>Provider: <%= @user.identity.provider %></p>
+    <%= image_tag @user.identity.image if @user.identity.image%>
 <% end %>
 
 

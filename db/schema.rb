@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(version: 20140502103055) do
     t.datetime "updated_at"
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "image"
     t.string   "phone"
   end
 

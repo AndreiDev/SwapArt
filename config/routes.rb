@@ -22,8 +22,6 @@ Tur::Application.routes.draw do
   get '/home', to: redirect('/')
   get '/about' => 'high_voltage/pages#show', id: 'about'
 
-  #match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
-
   resources :users
 
 
