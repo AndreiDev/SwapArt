@@ -8,11 +8,11 @@ defaults: &defaults
 
 development:
   <<: *defaults
+  site_name: "SwapArt - development"
 
 test:
   <<: *defaults
 
 production:
   <<: *defaults
-  site_name: "SwapArt - development"
   site_domain: "http://shielded-everglades-2939.herokuapp.com/"
