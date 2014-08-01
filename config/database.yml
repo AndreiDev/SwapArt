@@ -39,10 +39,10 @@ production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: SwapArt_prod
+  database: heroku_d25276f8ff24108
   pool: 5
-  username: andreii_prod
-  password: 81Xmsar5248_prod
-  host: www.swapart.com
+  username: b1d97f457cd07c
+  password: ee62e0d0
+  host: us-cdbr-iron-east-01.cleardb.net
   port: 3306
   socket: /tmp/mysql.sock
