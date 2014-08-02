@@ -69,6 +69,6 @@ class SwapsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def swap_params
-      params.require(:swap).permit(:user_id, :user_id, :user1_items, :user2_items)
+      params.require(:swap).permit(:user1_id, :user2_id, :user1_items, :user2_items)
     end
 end

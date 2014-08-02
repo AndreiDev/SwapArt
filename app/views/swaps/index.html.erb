@@ -3,8 +3,8 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
-      <th>User</th>
+      <th>User1</th>
+      <th>User2</th>
       <th>User1 items</th>
       <th>User2 items</th>
       <th colspan="3"></th>
@@ -14,8 +14,8 @@
   <tbody>
     <% @swaps.each do |swap| %>
       <tr>
-        <td><%= swap.user %></td>
-        <td><%= swap.user %></td>
+        <td><%= swap.user1_id %></td>
+        <td><%= swap.user2_id %></td>
         <td><%= swap.user1_items %></td>
         <td><%= swap.user2_items %></td>
         <td><%= link_to 'Show', swap %></td>
