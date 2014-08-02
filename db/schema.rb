@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20140802102734) do
     t.integer  "user_id"
     t.integer  "type_id"
     t.string   "description"
+    t.string   "image_url"
     t.integer  "original_price"
     t.integer  "height"
     t.integer  "width"
