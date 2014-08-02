@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @item.user %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @item.type %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @item.description %>
+</p>
+
+<p>
+  <strong>Original price:</strong>
+  <%= @item.original_price %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @item.height %>
+</p>
+
+<p>
+  <strong>Width:</strong>
+  <%= @item.width %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @item.age %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @item.state %>
+</p>
+
+<p>
+  <strong>Is active?:</strong>
+  <%= @item.is_active? %>
+</p>
+
+<p>
+  <strong>Is blocked?:</strong>
+  <%= @item.is_blocked? %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

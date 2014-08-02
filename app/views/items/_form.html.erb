@@ -1,0 +1,20 @@
+<%= simple_form_for(@item) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :user %>
+    <%= f.association :type %>
+    <%= f.input :description %>
+    <%= f.input :original_price %>
+    <%= f.input :height %>
+    <%= f.input :width %>
+    <%= f.association :age %>
+    <%= f.association :state %>
+    <%= f.input :is_active? %>
+    <%= f.input :is_blocked? %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

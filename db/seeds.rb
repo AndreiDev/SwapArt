@@ -64,3 +64,11 @@ user = User.new(email: "john.doe@gmail.com", password: "johndoe7", encrypted_pas
 user.skip_confirmation!
 user.save!
 user.add_role 'user'
+
+puts 'Adding some items'
+Item.create!([
+                 {user_id: 1,type_id: 3,description: 'a very nice picture',original_price: '300',height: '100',width: '80',age_id: 1,state_id: 2},
+                 {user_id: 1,type_id: 1,description: 'a cool picture',original_price: '200',height: '50',width: '80',age_id: 2,state_id: 1},
+                 {user_id: 2,type_id: 2,description: 'none',original_price: '150',height: '400',width: '180',age_id: 3,state_id: 2},
+                 {user_id: 2,type_id: 1,description: 'daaaaaa',original_price: '1500',height: '550',width: '810',age_id: 3,state_id: 4}
+             ])

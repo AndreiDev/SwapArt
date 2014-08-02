@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140802082744) do
+ActiveRecord::Schema.define(version: 20140802091452) do
 
   create_table "ages", force: true do |t|
     t.string   "description"
@@ -35,6 +35,26 @@ ActiveRecord::Schema.define(version: 20140802082744) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "items", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "type_id"
+    t.string   "description"
+    t.integer  "original_price"
+    t.integer  "height"
+    t.integer  "width"
+    t.integer  "age_id"
+    t.integer  "state_id"
+    t.boolean  "is_active?",     default: true,  null: false
+    t.boolean  "is_blocked?",    default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "items", ["age_id"], name: "index_items_on_age_id", using: :btree
+  add_index "items", ["state_id"], name: "index_items_on_state_id", using: :btree
+  add_index "items", ["type_id"], name: "index_items_on_type_id", using: :btree
+  add_index "items", ["user_id"], name: "index_items_on_user_id", using: :btree
 
   create_table "regions", force: true do |t|
     t.string   "description"
