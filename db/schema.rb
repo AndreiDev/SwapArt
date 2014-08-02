@@ -11,13 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140802092533) do
+ActiveRecord::Schema.define(version: 20140802094746) do
 
   create_table "ages", force: true do |t|
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "blocks", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "item_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "blocks", ["item_id"], name: "index_blocks_on_item_id", using: :btree
+  add_index "blocks", ["user_id"], name: "index_blocks_on_user_id", using: :btree
 
   create_table "identities", force: true do |t|
     t.integer  "user_id"
@@ -138,5 +148,16 @@ ActiveRecord::Schema.define(version: 20140802092533) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
+
+  create_table "wants", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "item_id"
+    t.boolean  "extra_mile?"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "wants", ["item_id"], name: "index_wants_on_item_id", using: :btree
+  add_index "wants", ["user_id"], name: "index_wants_on_user_id", using: :btree
 
 end
