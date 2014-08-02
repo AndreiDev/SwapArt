@@ -1,4 +1,14 @@
 Tur::Application.routes.draw do
+  resources :tags
+
+  resources :types
+
+  resources :states
+
+  resources :ages
+
+  resources :regions
+
   authenticated :user do
     root to: 'high_voltage/pages#show', id: 'home', as: :authenticated_root
   end
