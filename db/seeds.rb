@@ -72,3 +72,14 @@ Item.create!([
                  {user_id: 2,type_id: 2,description: 'none',original_price: '150',height: '400',width: '180',age_id: 3,state_id: 2},
                  {user_id: 2,type_id: 1,description: 'daaaaaa',original_price: '1500',height: '550',width: '810',age_id: 3,state_id: 4}
              ])
+puts 'Adding some taggings'
+Tagging.create!([
+                    {item_id: 1, tag_id: 3},
+                    {item_id: 1, tag_id: 1},
+                    {item_id: 1, tag_id: 2},
+                    {item_id: 2, tag_id: 4},
+                    {item_id: 3, tag_id: 1},
+                    {item_id: 3, tag_id: 6},
+                    {item_id: 4, tag_id: 7},
+                    {item_id: 4, tag_id: 8},
+                ])

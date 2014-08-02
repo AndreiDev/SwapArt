@@ -1,4 +1,6 @@
 Tur::Application.routes.draw do
+  resources :taggings
+
   resources :items
 
   resources :tags

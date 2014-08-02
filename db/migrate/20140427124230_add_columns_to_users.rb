@@ -12,5 +12,4 @@ class AddColumnsToUsers < ActiveRecord::Migration
     add_column :users, :is_blocked?, :boolean, :null => false, :default => false
 
   end
-
 end
