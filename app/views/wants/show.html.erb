@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @want.user %>
+</p>
+
+<p>
+  <strong>Item:</strong>
+  <%= @want.item %>
+</p>
+
+<p>
+  <strong>Extra mile?:</strong>
+  <%= @want.extra_mile? %>
+</p>
+
+<%= link_to 'Edit', edit_want_path(@want) %> |
+<%= link_to 'Back', wants_path %>

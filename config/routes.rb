@@ -1,4 +1,6 @@
 Tur::Application.routes.draw do
+  resources :wants
+
   resources :blocks
 
   resources :taggings

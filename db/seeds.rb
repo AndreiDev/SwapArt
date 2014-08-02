@@ -83,6 +83,11 @@ Tagging.create!([
                     {item_id: 4, tag_id: 7},
                     {item_id: 4, tag_id: 8},
                 ])
+puts 'Adding some blocks'
 Block.create!([
                   {user_id: 1, item_id: 4}
               ])
+puts 'Adding some wants'
+Want.create!([
+                 {user_id: 2, item_id: 1, extra_mile?: true}
+             ])
