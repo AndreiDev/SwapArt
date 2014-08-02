@@ -48,6 +48,7 @@ class UsersController < ApplicationController
     authorize! :destroy, @user, :message => 'Not authorized as an administrator.'
 
     @user.destroy
+    @user.identity.destroy if @user.identity.present?
 
     flash[:notice] = 'User was successfully destroyed.'
     respond_with(@user)

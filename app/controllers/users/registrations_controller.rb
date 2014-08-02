@@ -37,6 +37,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def destroy
+    super
+    @user.identity.destroy if @user.identity.present?
+  end
 
   def build_resource(*args)
     super
