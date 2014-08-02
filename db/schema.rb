@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140802094746) do
+ActiveRecord::Schema.define(version: 20140802102734) do
 
   create_table "ages", force: true do |t|
     t.string   "description"
@@ -89,6 +89,18 @@ ActiveRecord::Schema.define(version: 20140802094746) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "swaps", force: true do |t|
+    t.integer  "user1_id"
+    t.integer  "user2_id"
+    t.text     "user1_items"
+    t.text     "user2_items"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "swaps", ["user1_id"], name: "index_swaps_on_user1_id", using: :btree
+  add_index "swaps", ["user2_id"], name: "index_swaps_on_user2_id", using: :btree
 
   create_table "taggings", force: true do |t|
     t.integer  "item_id"

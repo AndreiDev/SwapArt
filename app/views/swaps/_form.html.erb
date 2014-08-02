@@ -1,0 +1,14 @@
+<%= simple_form_for(@swap) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :user %>
+    <%= f.association :user %>
+    <%= f.input :user1_items %>
+    <%= f.input :user2_items %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

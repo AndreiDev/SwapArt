@@ -1,4 +1,6 @@
 Tur::Application.routes.draw do
+  resources :swaps
+
   resources :wants
 
   resources :blocks

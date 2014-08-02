@@ -16,29 +16,38 @@ puts 'SETTING UP DEFAULT ROLES'
   Role.create(role)
 end
 
+puts 'Adding some regions'
 Region.create!([
                    {description: "All Israel"},
                    {description: "Zafon"},
                    {description: "Merkaz"},
                    {description: "Darom"}
                ])
+
+puts 'Adding some ages'
 Age.create!([
                 {description: '0-1'},
                 {description: '1-3'},
                 {description: '3-10'},
                 {description: '10-20'}
             ])
+
+puts 'Adding some states'
 State.create!([
                   {description: 'new'},
                   {description: 'very good'},
                   {description: 'good'},
                   {description: 'old'}
               ])
+
+puts 'Adding some types'
 Type.create!([
                  {description: 'canvas'},
                  {description: 'painting'},
                  {description: 'photo'},
              ])
+
+puts 'Adding some tags'
 Tag.create!([
                 {description: 'salon'},
                 {description: 'bedroom'},
@@ -67,10 +76,10 @@ user.add_role 'user'
 
 puts 'Adding some items'
 Item.create!([
-                 {user_id: 1,type_id: 3,description: 'a very nice picture',original_price: '300',height: '100',width: '80',age_id: 1,state_id: 2},
-                 {user_id: 1,type_id: 1,description: 'a cool picture',original_price: '200',height: '50',width: '80',age_id: 2,state_id: 1},
-                 {user_id: 2,type_id: 2,description: 'none',original_price: '150',height: '400',width: '180',age_id: 3,state_id: 2},
-                 {user_id: 2,type_id: 1,description: 'daaaaaa',original_price: '1500',height: '550',width: '810',age_id: 3,state_id: 4}
+                 {user_id: 1,type_id: 3,description: 'a very nice picture', image_url: 'img1.jpg', original_price: '300',height: '100',width: '80',age_id: 1,state_id: 2},
+                 {user_id: 1,type_id: 1,description: 'a cool picture', image_url: 'img2.jpg',original_price: '200',height: '50',width: '80',age_id: 2,state_id: 1},
+                 {user_id: 2,type_id: 2,description: 'none', image_url: 'img3.jpg',original_price: '150',height: '400',width: '180',age_id: 3,state_id: 2},
+                 {user_id: 2,type_id: 1,description: 'daaaaaa', image_url: 'img4.jpg',original_price: '1500',height: '550',width: '810',age_id: 3,state_id: 4}
              ])
 puts 'Adding some taggings'
 Tagging.create!([
@@ -90,4 +99,8 @@ Block.create!([
 puts 'Adding some wants'
 Want.create!([
                  {user_id: 2, item_id: 1, extra_mile?: true}
+             ])
+puts 'Adding some swaps'
+Swap.create!([
+                 {user1_id: 1, user2_id: 2, user1_items: '2', user2_items: '3'}
              ])
