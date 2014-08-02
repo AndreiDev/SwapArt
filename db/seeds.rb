@@ -83,3 +83,6 @@ Tagging.create!([
                     {item_id: 4, tag_id: 7},
                     {item_id: 4, tag_id: 8},
                 ])
+Block.create!([
+                  {user_id: 1, item_id: 4}
+              ])

@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
   belongs_to :region
   has_many :items
 
+  has_many :blocks
+  has_many :items, :through => :blocks
+
   has_and_belongs_to_many :roles, join_table: :users_roles
   accepts_nested_attributes_for :roles, allow_destroy: false
 
