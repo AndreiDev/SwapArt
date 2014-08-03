@@ -76,10 +76,10 @@ user.add_role 'user'
 
 puts 'Adding some items'
 Item.create!([
-                 {user_id: 1,type_id: 3,description: 'a very nice picture', image_url: 'img1.jpg', original_price: '300',height: '100',width: '80',age_id: 1,state_id: 2},
-                 {user_id: 1,type_id: 1,description: 'a cool picture', image_url: 'img2.jpg',original_price: '200',height: '50',width: '80',age_id: 2,state_id: 1},
-                 {user_id: 2,type_id: 2,description: 'none', image_url: 'img3.jpg',original_price: '150',height: '400',width: '180',age_id: 3,state_id: 2},
-                 {user_id: 2,type_id: 1,description: 'daaaaaa', image_url: 'img4.jpg',original_price: '1500',height: '550',width: '810',age_id: 3,state_id: 4}
+                 {user_id: 1,type_id: 3,description: 'a very nice picture', image: '', original_price: '300',height: '100',width: '80',age_id: 1,state_id: 2},
+                 {user_id: 1,type_id: 1,description: 'a cool picture', image: '',original_price: '200',height: '50',width: '80',age_id: 2,state_id: 1},
+                 {user_id: 2,type_id: 2,description: 'none', image: '',original_price: '150',height: '400',width: '180',age_id: 3,state_id: 2},
+                 {user_id: 2,type_id: 1,description: 'daaaaaa', image: '',original_price: '1500',height: '550',width: '810',age_id: 3,state_id: 4}
              ])
 puts 'Adding some taggings'
 Tagging.create!([

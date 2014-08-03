@@ -16,8 +16,10 @@
 </p>
 
 <p>
-  <strong>Image Url:</strong>
-  <%= @item.image_url %>
+  <strong>Image:</strong>
+  <%= image_tag @item.image.url %>
+  <!--%= image_tag @item.image.url(:medium) %-->
+
 </p>
 
 <p>

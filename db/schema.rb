@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140802102734) do
+ActiveRecord::Schema.define(version: 20140803185257) do
 
   create_table "ages", force: true do |t|
     t.string   "description"
@@ -50,16 +50,19 @@ ActiveRecord::Schema.define(version: 20140802102734) do
     t.integer  "user_id"
     t.integer  "type_id"
     t.string   "description"
-    t.string   "image_url"
     t.integer  "original_price"
     t.integer  "height"
     t.integer  "width"
     t.integer  "age_id"
     t.integer  "state_id"
-    t.boolean  "is_active",      default: true,  null: false
-    t.boolean  "is_blocked",     default: false, null: false
+    t.boolean  "is_active",          default: true,  null: false
+    t.boolean  "is_blocked",         default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "items", ["age_id"], name: "index_items_on_age_id", using: :btree

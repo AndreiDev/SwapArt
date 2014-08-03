@@ -6,7 +6,7 @@ RSpec.describe "items/new", :type => :view do
       :user => nil,
       :type => nil,
       :description => "MyString",
-      :image_url => "/image.jpg",
+      :image => "/image.jpg",
       :original_price => 1,
       :height => 1,
       :width => 1,
@@ -28,7 +28,7 @@ RSpec.describe "items/new", :type => :view do
 
       assert_select "input#item_description[name=?]", "item[description]"
 
-      assert_select "input#item_image_url[name=?]", "item[image_url]"
+      assert_select "input#item_image[name=?]", "item[image]"
 
       assert_select "input#item_original_price[name=?]", "item[original_price]"
 

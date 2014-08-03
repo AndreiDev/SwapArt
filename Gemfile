@@ -74,3 +74,5 @@ gem 'bootstrap-sass' #, '~> 3.1.1.1'
 gem "font-awesome-sass-rails"
 
 gem 'mail'
+
+gem "paperclip", "~> 4.1"
