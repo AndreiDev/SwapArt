@@ -13,8 +13,8 @@
   <tbody>
     <% @wants.each do |want| %>
       <tr>
-        <td><%= want.user %></td>
-        <td><%= want.item %></td>
+        <td><%= want.user.full_name %></td>
+        <td><%= want.item.description %></td>
         <td><%= want.extra_mile? %></td>
         <td><%= link_to 'Show', want %></td>
         <td><%= link_to 'Edit', edit_want_path(want) %></td>

@@ -12,8 +12,8 @@
   <tbody>
     <% @taggings.each do |tagging| %>
       <tr>
-        <td><%= tagging.item %></td>
-        <td><%= tagging.tag %></td>
+        <td><%= tagging.item.description %></td>
+        <td><%= tagging.tag.description %></td>
         <td><%= link_to 'Show', tagging %></td>
         <td><%= link_to 'Edit', edit_tagging_path(tagging) %></td>
         <td><%= link_to 'Destroy', tagging, method: :delete, data: { confirm: 'Are you sure?' } %></td>

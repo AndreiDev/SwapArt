@@ -2,12 +2,12 @@
 
 <p>
   <strong>User:</strong>
-  <%= @block.user %>
+  <%= @block.user.full_name %>
 </p>
 
 <p>
   <strong>Item:</strong>
-  <%= @block.item %>
+  <%= @block.item.description %>
 </p>
 
 <%= link_to 'Edit', edit_block_path(@block) %> |

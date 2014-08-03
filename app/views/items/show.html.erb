@@ -2,12 +2,12 @@
 
 <p>
   <strong>User:</strong>
-  <%= @item.user %>
+  <%= @item.user.full_name %>
 </p>
 
 <p>
   <strong>Type:</strong>
-  <%= @item.type %>
+  <%= @item.type.description %>
 </p>
 
 <p>
@@ -37,12 +37,12 @@
 
 <p>
   <strong>Age:</strong>
-  <%= @item.age %>
+  <%= @item.age.description %>
 </p>
 
 <p>
   <strong>State:</strong>
-  <%= @item.state %>
+  <%= @item.state.description %>
 </p>
 
 <p>

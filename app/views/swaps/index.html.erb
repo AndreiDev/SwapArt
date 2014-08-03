@@ -14,8 +14,8 @@
   <tbody>
     <% @swaps.each do |swap| %>
       <tr>
-        <td><%= swap.user1_id %></td>
-        <td><%= swap.user2_id %></td>
+        <td><%= swap.user1.full_name %></td>
+        <td><%= swap.user2.full_name %></td>
         <td><%= swap.user1_items %></td>
         <td><%= swap.user2_items %></td>
         <td><%= link_to 'Show', swap %></td>

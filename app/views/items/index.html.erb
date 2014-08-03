@@ -20,15 +20,15 @@
   <tbody>
     <% @items.each do |item| %>
       <tr>
-        <td><%= item.user %></td>
-        <td><%= item.type %></td>
+        <td><%= item.user.full_name %></td>
+        <td><%= item.type.description %></td>
         <td><%= item.description %></td>
         <td><%= item.image_url %></td>
         <td><%= item.original_price %></td>
         <td><%= item.height %></td>
         <td><%= item.width %></td>
-        <td><%= item.age %></td>
-        <td><%= item.state %></td>
+        <td><%= item.age.description %></td>
+        <td><%= item.state.description %></td>
         <td><%= item.is_active %></td>
         <td><%= item.is_blocked %></td>
         <td><%= link_to 'Show', item %></td>

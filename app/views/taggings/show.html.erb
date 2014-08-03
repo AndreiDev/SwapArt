@@ -2,12 +2,12 @@
 
 <p>
   <strong>Item:</strong>
-  <%= @tagging.item %>
+  <%= @tagging.item.description %>
 </p>
 
 <p>
   <strong>Tag:</strong>
-  <%= @tagging.tag %>
+  <%= @tagging.tag.description %>
 </p>
 
 <%= link_to 'Edit', edit_tagging_path(@tagging) %> |

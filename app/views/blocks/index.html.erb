@@ -12,8 +12,8 @@
   <tbody>
     <% @blocks.each do |block| %>
       <tr>
-        <td><%= block.user %></td>
-        <td><%= block.item %></td>
+        <td><%= block.user.full_name %></td>
+        <td><%= block.item.description %></td>
         <td><%= link_to 'Show', block %></td>
         <td><%= link_to 'Edit', edit_block_path(block) %></td>
         <td><%= link_to 'Destroy', block, method: :delete, data: { confirm: 'Are you sure?' } %></td>
