@@ -21,6 +21,10 @@
 <p>User: <%= @user.full_name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
 <p>Phone: <%= @user.phone if @user.phone %></p>
+<p>Region: <%= @user.region.description if @user.region.description %></p>
+<p>Is Active?: <%= @user.is_active.to_s %></p>
+<p>Is Blocked?: <%= @user.is_blocked.to_s %></p>
+<p>Phone: <%= @user.phone if @user.phone %></p>
 <p>Roles: <%= @user.get_user_roles_name if @user.roles %></p>
 
 <% unless @user.identity.nil? %>

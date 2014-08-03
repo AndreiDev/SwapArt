@@ -12,8 +12,8 @@ RSpec.describe "items/show", :type => :view do
       :width => 3,
       :age => nil,
       :state => nil,
-      :is_active? => false,
-      :is_blocked? => false
+      :is_active => false,
+      :is_blocked => false
     ))
   end
 

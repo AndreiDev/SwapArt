@@ -2,8 +2,8 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :user1 %>
-    <%= f.association :user2 %>
+    <%= f.association :user1, label_method: :full_name, value_method: :id %>
+    <%= f.association :user2, label_method: :full_name, value_method: :id %>
     <%= f.input :user1_items %>
     <%= f.input :user2_items %>
   </div>

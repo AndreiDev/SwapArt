@@ -2,8 +2,8 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :user %>
-    <%= f.association :item %>
+    <%= f.association :user, label_method: :full_name, value_method: :id %>
+    <%= f.association :item, label_method: :description, value_method: :id %>
     <%= f.input :extra_mile? %>
   </div>
 

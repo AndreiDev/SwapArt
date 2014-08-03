@@ -12,8 +12,8 @@ RSpec.describe "items/new", :type => :view do
       :width => 1,
       :age => nil,
       :state => nil,
-      :is_active? => false,
-      :is_blocked? => false
+      :is_active => false,
+      :is_blocked => false
     ))
   end
 
@@ -40,9 +40,9 @@ RSpec.describe "items/new", :type => :view do
 
       assert_select "input#item_state_id[name=?]", "item[state_id]"
 
-      assert_select "input#item_is_active?[name=?]", "item[is_active?]"
+      assert_select "input#item_is_active[name=?]", "item[is_active]"
 
-      assert_select "input#item_is_blocked?[name=?]", "item[is_blocked?]"
+      assert_select "input#item_is_blocked[name=?]", "item[is_blocked]"
     end
   end
 end

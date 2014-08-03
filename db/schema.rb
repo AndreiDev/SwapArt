@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(version: 20140802102734) do
     t.integer  "width"
     t.integer  "age_id"
     t.integer  "state_id"
-    t.boolean  "is_active?",     default: true,  null: false
-    t.boolean  "is_blocked?",    default: false, null: false
+    t.boolean  "is_active",      default: true,  null: false
+    t.boolean  "is_blocked",     default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -146,8 +146,8 @@ ActiveRecord::Schema.define(version: 20140802102734) do
     t.string   "last_name"
     t.string   "phone"
     t.integer  "region_id",              default: 1,     null: false
-    t.boolean  "is_active?",             default: true,  null: false
-    t.boolean  "is_blocked?",            default: false, null: false
+    t.boolean  "is_active",              default: true,  null: false
+    t.boolean  "is_blocked",             default: false, null: false
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

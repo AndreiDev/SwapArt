@@ -13,8 +13,8 @@ RSpec.describe "items/index", :type => :view do
         :width => 3,
         :age => nil,
         :state => nil,
-        :is_active? => false,
-        :is_blocked? => false
+        :is_active => false,
+        :is_blocked => false
       ),
       Item.create!(
         :user => nil,
@@ -26,8 +26,8 @@ RSpec.describe "items/index", :type => :view do
         :width => 3,
         :age => nil,
         :state => nil,
-        :is_active? => false,
-        :is_blocked? => false
+        :is_active => false,
+        :is_blocked => false
       )
     ])
   end

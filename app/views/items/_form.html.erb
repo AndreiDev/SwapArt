@@ -2,17 +2,17 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :user %>
-    <%= f.association :type %>
+    <%= f.association :user, label_method: :full_name, value_method: :id %>
+    <%= f.association :type, label_method: :description, value_method: :id %>
     <%= f.input :description %>
     <%= f.input :image_url %>
     <%= f.input :original_price %>
     <%= f.input :height %>
     <%= f.input :width %>
-    <%= f.association :age %>
-    <%= f.association :state %>
-    <%= f.input :is_active? %>
-    <%= f.input :is_blocked? %>
+    <%= f.association :age, label_method: :description, value_method: :id %>
+    <%= f.association :state, label_method: :description, value_method: :id %>
+    <%= f.input :is_active %>
+    <%= f.input :is_blocked %>
   </div>
 
   <div class="form-actions">

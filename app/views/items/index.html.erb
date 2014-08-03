@@ -29,8 +29,8 @@
         <td><%= item.width %></td>
         <td><%= item.age %></td>
         <td><%= item.state %></td>
-        <td><%= item.is_active? %></td>
-        <td><%= item.is_blocked? %></td>
+        <td><%= item.is_active %></td>
+        <td><%= item.is_blocked %></td>
         <td><%= link_to 'Show', item %></td>
         <td><%= link_to 'Edit', edit_item_path(item) %></td>
         <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
