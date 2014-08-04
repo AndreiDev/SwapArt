@@ -14,16 +14,16 @@ class Ability
       can :manage, :all
     else
       if user.get_user_roles_name == 'moderator'
-        can :read, User
-        can :update, User
-        cannot :destroy, User
-        cannot :create, User
-
-        #cannot :manage, Client
+        can :manage, Block
+        can :update, Item
+      else
+        if user.get_user_roles_name == 'user'
+          can :manage, Item, :user_id => user.id
+          can :update, User, :id => user.id
+        else
+          cannot :index, Item
+        end
       end
-
-      can :read, :all
-      can :manage, User
     end
 
 
