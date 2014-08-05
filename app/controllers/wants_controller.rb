@@ -1,6 +1,8 @@
 class WantsController < ApplicationController
   before_action :set_want, only: [:show, :edit, :update, :destroy]
 
+  load_and_authorize_resource
+
   # GET /wants
   # GET /wants.json
   def index
@@ -69,6 +71,6 @@ class WantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def want_params
-      params.require(:want).permit(:user_id, :item_id, :extra_mile?)
+      params.require(:want).permit(:user_id, :item_id, :extra_mile)
     end
 end

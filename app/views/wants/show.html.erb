@@ -12,7 +12,7 @@
 
 <p>
   <strong>Extra mile?:</strong>
-  <%= @want.extra_mile? %>
+  <%= @want.extra_mile.to_s %>
 </p>
 
 <%= link_to 'Edit', edit_want_path(@want) %> |

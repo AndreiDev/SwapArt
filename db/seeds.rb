@@ -98,7 +98,7 @@ Block.create!([
               ])
 puts 'Adding some wants'
 Want.create!([
-                 {user_id: 2, item_id: 1, extra_mile?: true}
+                 {user_id: 2, item_id: 1, extra_mile: true}
              ])
 puts 'Adding some swaps'
 Swap.create!([

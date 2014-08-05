@@ -5,7 +5,7 @@ RSpec.describe "wants/show", :type => :view do
     @want = assign(:want, Want.create!(
       :user => nil,
       :item => nil,
-      :extra_mile? => false
+      :extra_mile => false
     ))
   end
 

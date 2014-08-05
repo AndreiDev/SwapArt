@@ -1,6 +1,8 @@
 class AgesController < ApplicationController
   before_action :set_age, only: [:show, :edit, :update, :destroy]
 
+  load_and_authorize_resource
+
   # GET /ages
   # GET /ages.json
   def index

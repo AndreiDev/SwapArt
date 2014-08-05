@@ -3,7 +3,7 @@ class CreateWants < ActiveRecord::Migration
     create_table :wants do |t|
       t.references :user, index: true
       t.references :item, index: true
-      t.boolean :extra_mile?
+      t.boolean :extra_mile
 
       t.timestamps
     end

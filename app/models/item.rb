@@ -12,8 +12,8 @@ class Item < ActiveRecord::Base
   has_many :tags, :through => :taggings
 
   has_many :blocks
-  has_many :users, :through => :blocks
+  has_many :block_users, :through => :blocks, :source => :user
 
   has_many :wants
-  has_many :users, :through => :wants
+  has_many :want_users, :through => :wants, :source => :user
 end

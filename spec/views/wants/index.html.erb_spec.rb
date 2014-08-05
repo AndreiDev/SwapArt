@@ -6,12 +6,12 @@ RSpec.describe "wants/index", :type => :view do
       Want.create!(
         :user => nil,
         :item => nil,
-        :extra_mile? => false
+        :extra_mile => false
       ),
       Want.create!(
         :user => nil,
         :item => nil,
-        :extra_mile? => false
+        :extra_mile => false
       )
     ])
   end

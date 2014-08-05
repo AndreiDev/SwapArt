@@ -17,7 +17,7 @@
           <tr>
             <td><%= want.user.full_name %></td>
             <td><%= want.item.description %></td>
-            <td><%= want.extra_mile? %></td>
+            <td><%= want.extra_mile %></td>
             <td><%= link_to 'Show', want %></td>
             <td><%= link_to 'Edit', edit_want_path(want) %></td>
             <td><%= link_to 'Destroy', want, method: :delete, data: { confirm: 'Are you sure?' } %></td>

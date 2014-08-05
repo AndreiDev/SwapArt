@@ -5,7 +5,7 @@ RSpec.describe "wants/new", :type => :view do
     assign(:want, Want.new(
       :user => nil,
       :item => nil,
-      :extra_mile? => false
+      :extra_mile => false
     ))
   end
 
@@ -18,7 +18,7 @@ RSpec.describe "wants/new", :type => :view do
 
       assert_select "input#want_item_id[name=?]", "want[item_id]"
 
-      assert_select "input#want_extra_mile?[name=?]", "want[extra_mile?]"
+      assert_select "input#want_extra_mile[name=?]", "want[extra_mile]"
     end
   end
 end

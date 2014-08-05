@@ -1,6 +1,8 @@
 class SwapsController < ApplicationController
   before_action :set_swap, only: [:show, :edit, :update, :destroy]
 
+  load_and_authorize_resource
+
   # GET /swaps
   # GET /swaps.json
   def index
@@ -71,4 +73,5 @@ class SwapsController < ApplicationController
     def swap_params
       params.require(:swap).permit(:user1_id, :user2_id, :user1_items, :user2_items)
     end
+
 end

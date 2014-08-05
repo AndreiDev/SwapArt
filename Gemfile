@@ -49,7 +49,7 @@ gem 'capybara', group: :test
 
 # Authentication / Authorization
 gem 'devise'
-gem 'cancan'
+gem 'cancancan'
 gem 'rolify'
 #OMNIAUTH
 #gem "omniauth"

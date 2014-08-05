@@ -168,7 +168,7 @@ ActiveRecord::Schema.define(version: 20140803185257) do
   create_table "wants", force: true do |t|
     t.integer  "user_id"
     t.integer  "item_id"
-    t.boolean  "extra_mile?"
+    t.boolean  "extra_mile"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

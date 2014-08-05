@@ -11,10 +11,10 @@ class User < ActiveRecord::Base
   has_many :items
 
   has_many :blocks
-  has_many :items, :through => :blocks
+  has_many :block_items, :through => :blocks, :source => :item
 
   has_many :wants
-  has_many :items, :through => :wants
+  has_many :want_items, :through => :wants, :source => :item
 
   has_and_belongs_to_many :roles, join_table: :users_roles
   accepts_nested_attributes_for :roles, allow_destroy: false

@@ -1,6 +1,8 @@
 class TagsController < ApplicationController
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
 
+  load_and_authorize_resource
+
   # GET /tags
   # GET /tags.json
   def index
