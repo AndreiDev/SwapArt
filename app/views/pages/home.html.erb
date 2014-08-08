@@ -1,6 +1,6 @@
 <% provide(:welcome, '
-      <p><i>נמאס לך מהתמונה בסלון?<br>
-      התמונות בחדר הילדים כבר לא מתאימות?</p></i>
+      <p>נמאס לך מהתמונה בסלון?<br>
+      התמונות בחדר הילדים כבר לא מתאימות?</p>
 <h2>בוא להחליף תמונות עם אנשים כמוך</h2>
 '.html_safe) %>
 
@@ -8,7 +8,7 @@
   <hr style="background: white; width: 85%; height: 3px;">
   <a href="/users/auth/facebook" class="btn btn-lg btn-primary"><i class="fa fa-facebook"></i> | הכנס עם פייסבוק </a>
   <a href="/users/sign_up" class="btn btn-lg btn-warning pull-left"> אני רוצה להירשם!</a>
-    <h3>למי שכבר רשום:</h3>
+    <h3>משתמשים רשומים:</h3>
     <div>
       <%= simple_form_for(:user, :url => user_session_path) do |f| %>
         <div class="inputs">
