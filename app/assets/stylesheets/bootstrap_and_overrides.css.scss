@@ -16,6 +16,13 @@ body {
   padding-bottom: 60px;
 }
 
-//.well {
-//  background-color: rgba(245, 245, 245, 0.4);
-//}
+body {
+  direction: rtl;
+}
+
+.jumbotron {
+  padding: 10px;
+  margin: 10px;
+  margin-top: 0px;
+  padding-bottom: 20px;
+}
