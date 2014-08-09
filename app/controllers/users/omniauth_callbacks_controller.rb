@@ -12,7 +12,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       if !User.find_by_email(identity.email).present? || !User.find_by_email(identity.email).phone
         session[:omniauth] = omniauth.except('extra')
         session[:omniauth_provider] = omniauth.provider
-        flash.notice = "Please provide a phone number :)"
+        flash.notice = t('devise.registrations.add_phone')
         redirect_to new_user_registration_url
       else
         current_user = User.find_by_email(identity.email)
@@ -22,7 +22,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     unless user.nil?
       if user.valid?
-        flash.notice = "Signed in!"
+        flash.notice = t('devise.sessions.signed_in')
         sign_in_and_redirect user
       else
         sign_in user

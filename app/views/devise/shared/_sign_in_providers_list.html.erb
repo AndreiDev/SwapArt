@@ -1,5 +1,4 @@
-<%= render "shared/page_title", page_title: t('model.messages.sign_in_title') %>
+<%= render "shared/page_title", page_title: t('sign_in.title') %>
 
-<%= link_to image_tag('facebook_64.png'), omniauth_authorize_path(resource_name, :facebook) %>
-
-<p>&nbsp;</p>
+<a href="/users/auth/facebook" class="btn btn-lg btn-primary"><i class="fa fa-facebook"></i><%= t('sign_in.facebook') %></a>
+<a href="/users/sign_up" class="btn btn-lg btn-warning pull-left"><%= t('sign_in.with_email') %></a>

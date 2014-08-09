@@ -20,34 +20,36 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 he:
-  editAccount: "Edit account"
-  myAccount: "My account"
-  login: "Login"
-  logout: "Logout"
-  legalsAndAbout: "Legals & About"
-  contacts: "Contacts"
-  reportProblem: "Report a Problem"
+  editAccount: "עריכת פרטי משתמש"
+  myAccount: "פרטי החשבון שלי"
+  login: "התחברות"
+  logout: "התנתקות"
+  legalsAndAbout: "אודות"
+  contacts: "צור קשר"
+  reportProblem: "דווח על בעיה"
   notAvailableAbbr: "---"
-  invalidNumber: "Invalid number"
+  invalidNumber: "מספר שגוי"
 
   menu:
-    home: "Home"
-    legalAndAbout: "Legals & About"
+    home: "בית"
+    legalAndAbout: "אודות"
     userRole: "Associated role"
-    users: "Users"
+    users: "משתמשים"
     copy: "Copy"
-    addAnother: " Add another"
+    addAnother: " הוסף עוד"
     parentId: "Part of"
 
   model:
     id: "#id"
-    name: "Name"
+    name: "שם"
     flgStatus: "Registry status"
-    createdAt: "Creation date"
-    updatedAt: "Last modification date"
-    description: "Description"
-    email: "Email"
-    provider: "Provider"
+    createdAt: "מועד יצירה"
+    updatedAt: "מועד עדכון"
+    description: "תיאור"
+    email: "מייל"
+    phone: "מס. טלפון"
+    region: "איזור מגורים"
+    provider: "ספק חשבון"
     uid: "UID"
     currentSignInAt: "Current sign in date"
     lastSignInAt: "Last sign in date"
@@ -57,47 +59,47 @@ he:
     parentId: "Part of"
     childrenId: "Contains"
     title: "Title"
-    firstName: "First Name"
-    lastName: "Last Name"
-    fullName: "Full Name"
+    firstName: "שם פרטי"
+    lastName: "שם משפחה"
+    fullName: "שם מלא"
     username: "Username"
-    firstUser: "Created by"
-    lastUser: "Modified by"
+    firstUser: "נוצר על ידי"
+    lastUser: "שונה על ידי"
     userRole: "Associated role"
     version: "Version"
     history: "History"
 
     values:
       flgStatus:
-        active: "Active"
-        inactive: "Inactive"
+        active: "פעיל"
+        inactive: "רדום"
       flgResponsible:
-        yes: "Yes"
-        no: "No"
+        yes: "כן"
+        no: "לא"
       flgYesNo:
-        yes: "Yes"
-        no: "No"
+        yes: "כן"
+        no: "לא"
 
     buttons:
-      save: "Save"
-      saveAndAddAnother: "Save and add another"
-      backToRegistry: "Cancel and go to registry"
+      save: "שמור"
+      saveAndAddAnother: "שמור והוסך עוד"
+      backToRegistry: "בטל וחזור אחורה"
 
     messages:
-      urlError: "Link must start with 'http://', 'https://' or 'ftp://' and can't have whitespaces."
-      emailError: "This is not a valid email address."
+      urlError: "לינק לא תקני"
+      emailError: "כתובת מייל לא תקנית"
       registryCreation: "Registry creation"
       #sign_in_kerberos_title: "Sign In with Local credentials"
-      sign_in_local_title: "Sign In with your account"
-      sign_in_title: "Sign In with one of your accounts"
+      sign_in_local_title: "התחבר עם החשבון שלך"
+      sign_in_title: "התחבר עם אחד החשבונות שלך"
 
       hint:
-        dateHint: "date format: 1985/01/20"
+        dateHint: "פורמט תאריך: 1985/01/20"
         parentIdHint: "Only if this is a composite item"
-        imageHint: "Upload image or indicate image URL"
+        imageHint: "העלה תמונה או לינק לתמונה"
 
       errors:
-        extension_white_list_error: "You can only upload files with the allowed types: .jpg .jpeg .gif .png"
+        extension_white_list_error: "ניתן להעלות תמונות מהסוגים הבאים: .jpg .jpeg .gif .png"
 
   api:
     messages:
@@ -106,3 +108,20 @@ he:
       invalid_email_password: "Invalid email or password."
       invalid_token: "Invalid authentication token."
       invalid_param_id: "Parameter id is not correct."
+  welcome:
+    question1: "נמאס לך מהתמונה בסלון?"
+    question2: "התמונות בחדר הילדים כבר לא לגילם?"
+    answer: "בוא להחליף תמונות עם אנשים כמוך"
+
+  sign_in:
+    title: "ניתן להתחבר בקלות עם פייסבוק או מייל"
+    facebook: " | הכנס עם פייסבוק "
+    with_email: " אני רוצה להירשם!"
+    signed_in_users: "משתמשים רשומים:"
+    forgot_password: "שכחתי סיסמא"
+    no_confirmation_email: "לא קיבלתי מייל רישום"
+
+  navigation:
+    admin: "ממשק ניהול"
+    edit_account: "ערוך פרטי משתמש"
+    register: "רישום לאתר"

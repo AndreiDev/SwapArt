@@ -15,14 +15,14 @@
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
             <% if current_user.has_role? :admin %>
-                <%= render 'layouts/menu_option', option_path: users_path, option_name: 'Admin' %>
+                <%= render 'layouts/menu_option', option_path: users_path, option_name: t('navigation.admin') %>
             <% end %>
-            <%= render 'layouts/menu_option', option_path: edit_user_registration_path, option_name: 'Edit account' %>
-            <%= render 'layouts/menu_option', option_path: destroy_user_session_path, option_name: 'Logout', option_method: 'delete' %>
+            <%= render 'layouts/menu_option', option_path: edit_user_registration_path, option_name: t('navigation.edit_account') %>
+            <%= render 'layouts/menu_option', option_path: destroy_user_session_path, option_name: t('logout'), option_method: 'delete' %>
 
         <% else %>
-            <%= render 'layouts/menu_option', option_path: new_user_registration_path, option_name: 'Register' %>
-            <%= render 'layouts/menu_option', option_path: new_user_session_path, option_name: 'Login' %>
+            <%= render 'layouts/menu_option', option_path: new_user_registration_path, option_name: t('navigation.register') %>
+            <%= render 'layouts/menu_option', option_path: new_user_session_path, option_name: t('login') %>
         <% end %>
       </ul>
     </div>

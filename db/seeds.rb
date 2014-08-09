@@ -18,10 +18,10 @@ end
 
 puts 'Adding some regions'
 Region.create!([
-                   {id:1, description: "All Israel"},
-                   {id:11, description: "Zafon"},
-                   {id:21, description: "Merkaz"},
-                   {id:31, description: "Darom"}
+                   {id:1, description: "כל הארץ"},
+                   {id:11, description: "צפון"},
+                   {id:21, description: "מרכז"},
+                   {id:31, description: "דרום"}
                ])
 
 puts 'Adding some ages'
@@ -34,29 +34,29 @@ Age.create!([
 
 puts 'Adding some states'
 State.create!([
-                  {id:1, description: 'new'},
-                  {id:11, description: 'very good'},
-                  {id:21, description: 'good'},
-                  {id:31, description: 'old'}
+                  {id:1, description: 'כמו חדש'},
+                  {id:11, description: 'טוב מאוד'},
+                  {id:21, description: 'טוב'},
+                  {id:31, description: 'ישן'}
               ])
 
 puts 'Adding some types'
 Type.create!([
-                 {id:1, description: 'canvas'},
-                 {id:11, description: 'painting'},
-                 {id:21, description: 'photo'},
+                 {id:1, description: 'קנבס'},
+                 {id:11, description: 'ציור'},
+                 {id:21, description: 'צילום'},
              ])
 
 puts 'Adding some tags'
 Tag.create!([
-                {id:1, description: 'salon'},
-                {id:11, description: 'bedroom'},
-                {id:21, description: 'kids'},
-                {id:31, description: 'cartoon'},
-                {id:41, description: 'funny'},
-                {id:51, description: 'reproduction'},
-                {id:61, description: 'modern'},
-                {id:71, description: 'artistic'},
+                {id:1, description: 'סלון'},
+                {id:11, description: 'חדר שינה'},
+                {id:21, description: 'חדר ילדים'},
+                {id:31, description: 'מצויר'},
+                {id:41, description: 'מצחיק'},
+                {id:51, description: 'העתק של ציור מפורסם'},
+                {id:61, description: 'מודרני'},
+                {id:71, description: 'אומנותי'},
             ])
 
 puts 'SETTING UP DEFAULT Administrator User'

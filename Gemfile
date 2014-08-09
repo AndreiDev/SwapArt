@@ -78,3 +78,4 @@ gem 'mail'
 gem "paperclip", "~> 4.1"
 
 gem 'rails_12factor', group: :production
+gem 'rails-i18n', '~> 4.0.0' # For 4.0.x

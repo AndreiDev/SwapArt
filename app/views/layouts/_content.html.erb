@@ -1,19 +1,21 @@
-<% if current_page?(root_path) && !user_signed_in?%>
+<% if !user_signed_in? %>
   <div class="row">
-  <div class="col-lg-6 col-md-offset-3">
-  <div class="jumbotron">
-    <% if content_for?(:welcome) %>
-      <div class="welcome">
-        <%= yield :welcome %>
+    <div class="col-lg-6 col-md-offset-3">
+      <div class="jumbotron">
+        <% if current_page?(root_path) %>
+          <% if content_for?(:welcome) %>
+            <div class="welcome">
+              <%= yield :welcome %>
+            </div>
+          <% end %>
+        <% end %>
+        <% if content_for?(:login) %>
+          <div class="login">
+            <%= yield :login %>
+          </div>
+        <% end %>
       </div>
-    <% end %>
-    <% if content_for?(:login) %>
-      <div class="login">
-        <%= yield :login %>
-      </div>
-    <% end %>
-  </div>
-  </div>
+    </div>
   </div>
 
 <% else %>
