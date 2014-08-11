@@ -1,0 +1,7 @@
+<p style="direction: rtl">שלום <%= @email %>!</p>
+
+<p style="direction: rtl">חשבונך ננעל עקב מספר רב של ניסיונות לחיבור</p>
+
+<p style="direction: rtl">לחיצה על הלינק הבא תסיר את הנעילה:</p>
+
+<p style="direction: rtl"><%= link_to 'הסר נעילה', unlock_url(@resource, unlock_token: @token) %></p>

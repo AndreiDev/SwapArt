@@ -1,0 +1,5 @@
+<p style="direction: rtl">שלום <%= @email %>!</p>
+
+<p style="direction: rtl">באפשרותך לאשר את הרישום לאתר בלחיצה על הלינק הבא:</p>
+
+<p style="direction: rtl"><%= link_to 'אשר את הרישום', confirmation_url(@resource, confirmation_token: @token) %></p>

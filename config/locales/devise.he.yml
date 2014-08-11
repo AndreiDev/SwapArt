@@ -3,7 +3,7 @@
 he:
   devise:
     confirmations:
-      confirmed: "הרישום מאושר. ברוכים הבאים!"
+      confirmed: "הרישום לאתר מאושר. נא להזין מייל וסיסמא לכניסה לאתר"
       send_instructions: "בעוד מספר דקות יישלח אליך מייל לאישור הרישום שלך לאתר"
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions about how to confirm your account in a few minutes."
       confirmation_title: "שליחת מייל חוזר לאישור הרישום"
