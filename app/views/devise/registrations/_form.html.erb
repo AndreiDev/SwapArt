@@ -7,9 +7,9 @@
     <% if current_user %>
         <!-- Editing user with local password -->
         <% if !current_user.has_no_password? %>
-            <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %>
+            <%= f.input :password, :autocomplete => "off", :hint => t('devise.registrations.password_hint'), :required => false %>
             <%= f.input :password_confirmation, :required => false %>
-            <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
+            <%= f.input :current_password, :hint => t('devise.registrations.current_password'), :required => true %>
         <% end %>
 
         <%= f.button :submit, t('helpers.submit.user.update'), :class => 'btn-primary' %>

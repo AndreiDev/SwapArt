@@ -18,9 +18,9 @@ class ApplicationController < ActionController::Base
   private
 
   def check_registration
-    if current_user && !current_user.valid?
-      flash[:warning] = "Please finish your #{view_context.link_to "registration", edit_user_registration_url }  before continuing.".html_safe
-    end
+    #if current_user && !current_user.valid?
+    #  flash[:warning] = "Please finish your #{view_context.link_to "registration", edit_user_registration_url }  before continuing.".html_safe
+    #end
   end
 
   protected

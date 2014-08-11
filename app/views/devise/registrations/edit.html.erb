@@ -1,11 +1,9 @@
-<% content_for :login do %>
-
+<div class="col-lg-6 col-md-offset-3">
+  <div class="jumbotron">
   <%= render "shared/page_title", page_title: t('devise.registrations.update') %>
   <%= render 'devise/registrations/form' %>
 
-
-  <%= render "shared/page_title", page_title: 'Cancel my account' %>
-  <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => {:confirm => "Are you sure?"}, :method => :delete %>
-  .</p>
-
-<% end %>
+  <br>
+  <%= link_to t('devise.registrations.delete'), registration_path(resource_name), :data => {:confirm => "Are you sure?"}, :method => :delete %>
+  </div>
+</div>

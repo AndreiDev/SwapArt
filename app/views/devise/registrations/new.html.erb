@@ -4,11 +4,13 @@
 
     <%= render "shared/page_title", page_title: t('devise.registrations.sign_up') %>
     <%= render 'devise/registrations/form' %>
+    <a href="/users/auth/facebook"><%= t('sign_in.facebook_link') %></a><br />
+
     <%= render "devise/shared/links" %>
 
   <% else %>
 
-    <%= render "shared/page_title", page_title: 'Complete your ' + resource_name.to_s.humanize + ' information' %>
+    <%= render "shared/page_title", page_title: t('devise.registrations.complete') %>
     <%= render 'devise/registrations/form' %>
 
   <% end %>
