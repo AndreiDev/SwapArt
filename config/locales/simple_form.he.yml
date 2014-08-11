@@ -15,6 +15,7 @@ he:
       defaults:
         password: 'סיסמא'
         password_confirmation: 'הסיסמא פעם נוספת'
+        current_password: 'סיסמא נוכחית'
         email: 'כתובת מייל'
         remember_me: 'זכור אותי'
 
