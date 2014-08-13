@@ -6,24 +6,29 @@
     <!--</head>-->
 
     <body class="<%= controller_name %> <%= action_name %>">
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <%= javascript_include_tag "jquery.backstretch.min" %>
-        <script>    $.backstretch("../assets/background.jpg");
-        </script>
-
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      <%= javascript_include_tag "jquery.backstretch.min" %>
+      <script>    $.backstretch("../assets/background.jpg");
+      </script>
+      <div id="wrapper">
         <!-- Top navigation menu -->
-        <%= render 'layouts/navigation_top' %>
+        <div id="header">
+          <%= render 'layouts/navigation_top' %>
+        </div>
 
+        <div id="content"></div>
         <div id="main" role="main" class="container">
-
           <%= render 'layouts/messages' %>
           <%= render 'layouts/content' %>
+        </div>
 
+        <div id="footer">
           <!--<footer>-->
           <%= render 'layouts/navigation_footer' %>
           <!--</footer>-->
-
         </div>
+      </div>
+      </div>
     </body>
 </html>
