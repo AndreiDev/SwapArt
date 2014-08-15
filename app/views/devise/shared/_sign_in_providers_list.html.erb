@@ -1,10 +1,12 @@
-<%= render "shared/page_title", page_title: t('sign_in.title') %>
+<% if !current_page?(root_path) %>
+  <%= render "shared/page_title", page_title: t('sign_in.title') %>
+<% end %>
 <div class="row">
-  <div class="col-xs-6">
+  <div class="col-sm-6 text-center" style="padding-top: 5px;">
 
-<a href="/users/auth/facebook" class="btn btn-lg btn-primary"><i class="fa fa-facebook"></i><%= t('sign_in.facebook') %></a>
+<a href="/users/auth/facebook" class="btn btn-lg btn-primary"><i class="fa fa-facebook"></i> | <%= t('sign_in.facebook') %></a>
   </div>
-<div class="col-xs-6">
+<div class="col-sm-6 text-center" style="padding-top: 5px;">
 <a href="/users/sign_up" class="btn btn-lg btn-warning"><%= t('sign_in.with_email') %></a>
   </div>
 </div>

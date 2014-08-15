@@ -111,13 +111,13 @@ he:
   welcome:
     question1: "נמאס לך מהתמונה בסלון?"
     question2: "התמונות בחדר הילדים כבר לא לגילם?"
-    answer: "בוא להחליף תמונות עם אנשים כמוך"
+    answer: "כאן אנשים כמוך מחליפים תמונות"
 
   sign_in:
     title: "ניתן להתחבר בקלות עם פייסבוק או מייל"
-    facebook: " | הכנס עם פייסבוק "
+    facebook: " לכניסה עם פייסבוק "
     facebook_link: "ניתן להירשם גם עם פייסבוק"
-    with_email: " אני רוצה להירשם!"
+    with_email: "לרישום עם מייל"
     signed_in_users: "משתמשים רשומים:"
     forgot_password: "שכחתי סיסמא"
     no_confirmation_email: "לא קיבלתי מייל רישום"
