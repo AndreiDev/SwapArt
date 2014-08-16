@@ -29,6 +29,9 @@ he:
   reportProblem: "דווח על בעיה"
   notAvailableAbbr: "---"
   invalidNumber: "מספר שגוי"
+  areYouSure: "רוצה למחוק את התמונה?"
+  Edit: "עריכה"
+  Destroy: "מחיקה"
 
   menu:
     home: "בית"

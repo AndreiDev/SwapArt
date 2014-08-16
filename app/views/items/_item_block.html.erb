@@ -1,0 +1,13 @@
+  <li class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+    <div class="thumbnail">
+      <img height=500px width=300px src= <%= locals[:item].image.url(:thumb) %> alt="">
+      <div class="caption">
+        <h4><%= locals[:item].type.description %></h4>
+        <p><%= locals[:item].user.full_name %></p>
+        <p>
+          <%= link_to t('Edit'), edit_item_path(locals[:item]), :class => "btn btn-info btn-xs" %>
+          <%= link_to t('Destroy'), locals[:item], method: :delete, data: { confirm: t('areYouSure') }, :class => "btn btn-info btn-xs" %>
+        </p>
+      </div>
+    </div>
+  </li>
