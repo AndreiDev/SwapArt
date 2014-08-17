@@ -26,11 +26,16 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
+    if item_params['image'].blank?
+      redirect_to :back, notice: t('errors.messages.no_image')
+      return
+    end
     @item = Item.new(item_params)
+    @item['user_id'] = current_user.id if item_params['user_id'].blank?
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
+        format.html { redirect_to @item, notice: t('simple_form.labels.item.item_create') }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }
@@ -44,7 +49,7 @@ class ItemsController < ApplicationController
   def update
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
+        format.html { redirect_to @item, notice: t('model.item_update') }
         format.json { render :show, status: :ok, location: @item }
       else
         format.html { render :edit }
@@ -58,7 +63,7 @@ class ItemsController < ApplicationController
   def destroy
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
+      format.html { redirect_to items_url, notice: t('model.item_destroy') }
       format.json { head :no_content }
     end
   end

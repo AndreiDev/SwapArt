@@ -32,6 +32,8 @@ he:
   areYouSure: "רוצה למחוק את התמונה?"
   Edit: "עריכה"
   Destroy: "מחיקה"
+  NewItem: "תמונה חדשה"
+  Back: "חזרה"
 
   menu:
     home: "בית"
@@ -71,6 +73,8 @@ he:
     userRole: "Associated role"
     version: "Version"
     history: "History"
+    item: "תמונה"
+    item_destroy: "התמונה הוסרה בהצלחה"
 
     values:
       flgStatus:
@@ -129,3 +133,9 @@ he:
     admin: "ממשק ניהול"
     edit_account: "ערוך פרטי משתמש"
     register: "רישום לאתר"
+
+  errors:
+    messages:
+      in_between: "גודל התמונה צריך להיות בין %{min} and %{max}"
+      spoofed_media_type: "נראה שסוג הקובץ לא תואם את תוכנו"
+      no_image: "נא להעלות תמונה"

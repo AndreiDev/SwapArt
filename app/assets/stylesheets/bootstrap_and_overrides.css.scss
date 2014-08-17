@@ -49,9 +49,11 @@ body {
 }
 #header {
   padding:30px;
+  padding-bottom: 5px;
 }
 #content {
   padding:10px;
+  padding-top: 20px;
   padding-bottom:30px;   /* Height of the footer element */
 }
 #footer {
@@ -67,4 +69,7 @@ body {
 }
 p, label, h1, h2, h3, h4, h5,th, td {
   color: #BBBBBB;
+}
+.navbar {
+  height: 50px;
 }

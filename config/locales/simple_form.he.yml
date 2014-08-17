@@ -19,6 +19,19 @@ he:
         email: 'כתובת מייל'
         remember_me: 'זכור אותי'
 
+      item:
+        user: "משתמש"
+        type: "סוג תמונה"
+        description: "תיאור קצר"
+        original_price: "מחיר במקור"
+        height: "גובה התמונה"
+        width: "רוחב התמונה"
+        age: "נקנה לפני"
+        state: "מצב התמונה"
+        image: "העלה תמונה"
+        item_create: "התמונה התווספה בהצלחה"
+        item_update: "פרטי התמונה עודכנו בהצלחה"
+
     #   user:
     #     new:
     #       email: 'E-mail to sign in.'

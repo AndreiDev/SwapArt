@@ -2,17 +2,21 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :user, label_method: :full_name, value_method: :id %>
+    <% if current_user.has_role? :admin %>
+      <%= f.association :user, label_method: :full_name, value_method: :id %>
+      <%= f.input :is_active %>
+      <%= f.input :is_blocked %>
+    <% end %>
+    <%= f.label :image%>
+    <%= f.file_field :image, required: true %>
+    <br/>
     <%= f.association :type, label_method: :description, value_method: :id %>
     <%= f.input :description %>
-    <%= f.file_field :image %>
     <%= f.input :original_price %>
     <%= f.input :height %>
     <%= f.input :width %>
     <%= f.association :age, label_method: :description, value_method: :id %>
     <%= f.association :state, label_method: :description, value_method: :id %>
-    <%= f.input :is_active %>
-    <%= f.input :is_blocked %>
   </div>
 
   <div class="form-actions">
