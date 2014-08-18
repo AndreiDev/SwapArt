@@ -26,10 +26,6 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
-    if item_params['image'].blank?
-      redirect_to :back, notice: t('errors.messages.no_image')
-      return
-    end
     @item = Item.new(item_params)
     @item['user_id'] = current_user.id if item_params['user_id'].blank?
 

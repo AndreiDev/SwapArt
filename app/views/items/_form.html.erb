@@ -1,4 +1,4 @@
-<%= simple_form_for(@item) do |f| %>
+<%= simple_form_for(@item, :html => { :class => 'form-inline' }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -20,6 +20,7 @@
   </div>
 
   <div class="form-actions">
+    <br/>
     <%= f.button :submit %>
   </div>
 <% end %>

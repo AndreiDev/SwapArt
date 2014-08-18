@@ -117,8 +117,8 @@ he:
       invalid_param_id: "Parameter id is not correct."
   welcome:
     question1: "נמאס לך מהתמונה בסלון?"
-    question2: "התמונות בחדר הילדים כבר לא לגילם?"
-    answer: "כאן אנשים כמוך מחליפים תמונות"
+    question2: "הילדים רוצים תמונות חדשות בחדר?"
+    answer: "כאן מחליפים תמונות קיר"
 
   sign_in:
     title: "ניתן להתחבר בקלות עם פייסבוק או מייל"
