@@ -1,7 +1,8 @@
-<h3><%= t('NewItem') %></h3>
-  <div class="col-lg-6 col-md-offset-3">
-    <div class="jumbotron">
-      <%= render 'form' %>
-    </div>
+<%= link_to t('model.all_items'), items_path, class: "btn btn-primary btn-lg" %>
+<%= render "shared/page_title", page_title: t('NewItem') %>
+<div class="col-lg-6 col-md-offset-3">
+  <br/>
+  <div class="jumbotron">
+    <%= render 'form' %>
   </div>
-<%= link_to t('Back'), items_path %>
+</div>

@@ -1,10 +1,12 @@
-
-<ul class="row">
-  <% @items.each do |item| %>
-    <%= render 'item_block', locals: {item: item}%>
+<%= link_to t('model.new_item'), new_item_path, class: "btn btn-primary btn-lg" %>
+<%= render "shared/page_title", page_title: t('model.my_items') %>
+<div class="gallery">
+  <br/>
+  <ul class="row">
+    <% @items.each do |item| %>
+      <li class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+        <%= render 'item_block', locals: {item: item}%>
+      </li>
   <% end %>
-</ul>
-
-<br>
-
-<%= link_to 'New Item', new_item_path %>
+  </ul>
+</div>

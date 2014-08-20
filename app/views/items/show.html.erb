@@ -1,61 +1,6 @@
-<p id="notice"><%= notice %></p>
+<%= link_to t('model.all_items'), items_path, class: "btn btn-primary btn-lg" %>
+<%= render "shared/page_title", page_title: t('model.show_item') %>
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 col-lg-offset-4 col-md-offset-4 col-sm-offset-3">
+  <%= render 'item_block', locals: {item: @item}%>
+</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @item.user.full_name %>
-</p>
-
-<p>
-  <strong>Type:</strong>
-  <%= @item.type.description %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @item.description %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @item.image.url %>
-  <!--%= image_tag @item.image.url(:medium) %-->
-
-</p>
-
-<p>
-  <strong>Original price:</strong>
-  <%= @item.original_price %>
-</p>
-
-<p>
-  <strong>Height:</strong>
-  <%= @item.height %>
-</p>
-
-<p>
-  <strong>Width:</strong>
-  <%= @item.width %>
-</p>
-
-<p>
-  <strong>Age:</strong>
-  <%= @item.age.description %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @item.state.description %>
-</p>
-
-<p>
-  <strong>Is active?:</strong>
-  <%= @item.is_active %>
-</p>
-
-<p>
-  <strong>Is blocked?:</strong>
-  <%= @item.is_blocked %>
-</p>
-
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>

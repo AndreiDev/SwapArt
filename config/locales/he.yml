@@ -33,7 +33,9 @@ he:
   Edit: "עריכה"
   Destroy: "מחיקה"
   NewItem: "תמונה חדשה"
+  EditItem: "עריכת פרטי תמונה"
   Back: "חזרה"
+  index_gallery: "כל התמונות להחלפה"
 
   menu:
     home: "בית"
@@ -75,6 +77,12 @@ he:
     history: "History"
     item: "תמונה"
     item_destroy: "התמונה הוסרה בהצלחה"
+    item_update: "פרטי התמונה נשמרו בהצלחה"
+    new_item: "תמונה חדשה"
+    show_item: "תצוגה מקדימה"
+    edit_item: "ערוך פרטי תמונה"
+    all_items: "כל התמונות שלי"
+    my_items: "התמונות שלי"
 
     values:
       flgStatus:
@@ -121,7 +129,7 @@ he:
     answer: "כאן מחליפים תמונות קיר"
 
   sign_in:
-    title: "ניתן להתחבר בקלות עם פייסבוק או מייל"
+    title: "ניתן להתחבר עם פייסבוק או מייל"
     facebook: " לכניסה עם פייסבוק "
     facebook_link: "ניתן להירשם גם עם פייסבוק"
     with_email: "לרישום עם מייל"
@@ -131,8 +139,9 @@ he:
 
   navigation:
     admin: "ממשק ניהול"
-    edit_account: "ערוך פרטי משתמש"
+    edit_account: "עריכת פרטי משתמש"
     register: "רישום לאתר"
+    items: "ניהול התמונות שלי"
 
   errors:
     messages:
