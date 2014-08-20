@@ -6,15 +6,6 @@
 
 <%= render template: 'devise/sessions/new' %>
 
-<%= render "shared/page_title", page_title: t('index_gallery') %>
-<div class="gallery">
-  <br/>
-  <ul class="row">
-    <% @items.each do |item| %>
-      <li class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-        <%= render 'item_block', locals: {item: item}%>
-      </li>
-    <% end %>
-  </ul>
-</div>
+<h1>Signed in!!!</h1>
+
 
