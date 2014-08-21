@@ -1,11 +1,18 @@
     <div class="thumbnail">
       <img height=500px width=300px src= <%= locals[:item].image.url(:thumb) %> alt="">
       <div class="caption">
-        <h4><%= locals[:item].type.description %></h4>
-        <p><%= locals[:item].user.full_name %></p>
+        <h3><%= locals[:item].user.full_name %></h3>
+        <h4><%= locals[:item].user.region.description %></h4>
+        <p><%= locals[:item].type.description %></p>
+        <p><%= locals[:item].age.description %> <%=t('years')%></p>
+        <p><%= locals[:item].type.description %></p>
         <p>
-          <%= link_to t('Edit'), edit_item_path(locals[:item]), :class => "btn btn-info btn-xs" %>
-          <%= link_to t('Destroy'), locals[:item], method: :delete, data: { confirm: t('areYouSure') }, :class => "btn btn-info btn-xs" %>
+          <% if locals[:item].user == current_user %>
+            <%= link_to t('Edit'), edit_item_path(locals[:item]), :class => "btn btn-info btn-xs" %>
+            <%= link_to t('Destroy'), locals[:item], method: :delete, data: { confirm: t('areYouSure') }, :class => "btn btn-info btn-xs" %>
+          <% else %>
+            <%= link_to t('want'), want_path(locals[:item]), :class => "btn btn-info btn-xs" %>
+        <% end %>
         </p>
       </div>
     </div>
