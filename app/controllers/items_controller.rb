@@ -26,6 +26,7 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
+    item_params[:user_id] ||= current_user.id
     @item = Item.new(item_params)
     @item['user_id'] = current_user.id if item_params['user_id'].blank?
 
