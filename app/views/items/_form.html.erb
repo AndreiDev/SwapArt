@@ -10,13 +10,13 @@
     <%= f.label :image%>
     <%= f.file_field :image %>
     <br/>
-    <%= f.input :description %> <br/>
-    <%= f.association :price, label_method: :description, value_method: :id, selected: 11 %><br/>
-    <%= f.input :height %>
-    <%= f.input :width %>
-    <%= f.association :type, label_method: :description, value_method: :id, selected: 11  %>
-    <%= f.association :age, label_method: :description, value_method: :id, selected: 11 %>
-    <%= f.association :state, label_method: :description, value_method: :id, selected: 11 %>
+    <%= f.input :description, input_html: { maxlength: 50 } %> <br/>
+    <%= f.association :type, input_html: { class: 'short_box' }, label_method: :description, value_method: :id, selected: 11  %>
+    <%= f.association :price, input_html: { class: 'short_box' }, label_method: :description, value_method: :id, selected: 11 %><br/>
+    <%= f.input :height, input_html: { class: 'short_box', min:30 ,max: 300 } %>
+    <%= f.input :width, input_html: { class: 'short_box', min:30 ,max: 300 } %><br/>
+    <%= f.association :age, input_html: { class: 'short_box' }, label_method: :description, value_method: :id, selected: 11 %>
+    <%= f.association :state, input_html: { class: 'short_box' }, label_method: :description, value_method: :id, selected: 11 %>
   </div>
 
   <div class="form-actions">

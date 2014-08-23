@@ -26,10 +26,10 @@ Region.create!([
 
 puts 'Adding some ages'
 Age.create!([
-                {id:1, description: '0-1'},
-                {id:11, description: '1-3'},
-                {id:21, description: '3-10'},
-                {id:31, description: '10-20'}
+                {id:1, description: 'פחות משנה'},
+                {id:11, description: '1-3 שנים'},
+                {id:21, description: '3-10 שנים'},
+                {id:31, description: 'מעל 10 שנה'}
             ])
 puts 'Adding some ages'
 Price.create!([

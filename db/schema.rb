@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20140803185257) do
   end
 
   add_index "items", ["age_id"], name: "index_items_on_age_id", using: :btree
+  add_index "items", ["price_id"], name: "index_items_on_price_id", using: :btree
   add_index "items", ["state_id"], name: "index_items_on_state_id", using: :btree
   add_index "items", ["type_id"], name: "index_items_on_type_id", using: :btree
   add_index "items", ["user_id"], name: "index_items_on_user_id", using: :btree
