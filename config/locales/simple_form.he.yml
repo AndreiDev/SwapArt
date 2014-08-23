@@ -9,7 +9,9 @@ he:
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
     error_notification:
-      default_message: "נא לתקן את השדות הבאים"
+      default_message: "נא להשלים את המידע"
+      image: "נא להעלות תמונה"
+
     # Examples
     labels:
       defaults:

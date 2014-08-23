@@ -1,4 +1,4 @@
-<%= simple_form_for(@item, :html => { :class => 'form-inline' }) do |f| %>
+<%= simple_form_for(@item, validate: true, :html => { :class => 'form-inline' }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -8,13 +8,13 @@
       <%= f.input :is_blocked %>
     <% end %>
     <%= f.label :image%>
-    <%= f.file_field :image, required: true %>
+    <%= f.file_field :image %>
     <br/>
-    <%= f.association :type, label_method: :description, value_method: :id %>
-    <%= f.input :description %>
-    <%= f.input :original_price %>
+    <%= f.input :description %> <br/>
+    <%= f.input :original_price%><br/>
     <%= f.input :height %>
     <%= f.input :width %>
+    <%= f.association :type, label_method: :description, value_method: :id %>
     <%= f.association :age, label_method: :description, value_method: :id %>
     <%= f.association :state, label_method: :description, value_method: :id %>
   </div>
