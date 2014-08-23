@@ -25,7 +25,7 @@ he:
         user: "משתמש"
         type: "סוג תמונה"
         description: "תיאור קצר"
-        original_price: "מחיר במקור"
+        price: "מחיר במקור"
         height: "גובה התמונה"
         width: "רוחב התמונה"
         age: "גיל התמונה בשנים"

@@ -11,7 +11,7 @@
     <%= f.file_field :image %>
     <br/>
     <%= f.input :description %> <br/>
-    <%= f.input :original_price%><br/>
+    <%= f.association :price, label_method: :description, value_method: :id %><br/>
     <%= f.input :height %>
     <%= f.input :width %>
     <%= f.association :type, label_method: :description, value_method: :id %>

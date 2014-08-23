@@ -31,7 +31,13 @@ Age.create!([
                 {id:21, description: '3-10'},
                 {id:31, description: '10-20'}
             ])
-
+puts 'Adding some ages'
+Price.create!([
+                {id:1, description: 'פחות ממאה שקל'},
+                {id:11, description: '100-200 ש״ח'},
+                {id:21, description: '200-400 ש״ח'},
+                {id:31, description: 'מעל 400 ש״ח'}
+            ])
 puts 'Adding some states'
 State.create!([
                   {id:1, description: 'כמו חדש'},
@@ -75,12 +81,18 @@ user.save!
 user.add_role 'user'
 
 puts 'Adding some items'
-Item.create!([
-                 {id:1, user_id: 1,type_id: 21,description: 'a very nice picture', image: '', original_price: '300',height: '100',width: '80',age_id: 1,state_id: 11},
-                 {id:11, user_id: 1,type_id: 1,description: 'a cool picture', image: '',original_price: '200',height: '50',width: '80',age_id: 11,state_id: 1},
-                 {id:21, user_id: 11,type_id: 11,description: 'none', image: '',original_price: '150',height: '400',width: '180',age_id: 21,state_id: 11},
-                 {id:31, user_id: 11,type_id: 1,description: 'daaaaaa', image: '',original_price: '1500',height: '550',width: '810',age_id: 21,state_id: 31}
-             ])
+i1 = Item.new({id:1, user_id: 1,type_id: 21,description: 'a very nice picture', price_id: 1,height: '100',width: '80',age_id: 1,state_id: 11})
+i11 = Item.new({id:11, user_id: 1,type_id: 1,description: 'a cool picture',price_id: 11,height: '50',width: '80',age_id: 11,state_id: 1})
+i21 = Item.new({id:21, user_id: 11,type_id: 11,description: 'none',price_id: 21,height: '400',width: '180',age_id: 21,state_id: 11})
+i31 = Item.new({id:31, user_id: 11,type_id: 1,description: 'daaaaaa',price_id: 1,height: '550',width: '810',age_id: 21,state_id: 31})
+i1.image = open("http://images.fineartamerica.com/images-medium-large-5/winter-sparkle-original-madart-painting-megan-duncanson.jpg")
+i11.image = open("http://www.osnatfineart.com/paintings/07-09/07-09-sunrise-painting-3680.jpg")
+i21.image = open("http://webneel.com/daily/sites/default/files/images/daily/10-2013/5-tree-painting.jpg")
+i31.image = open("http://www.galleryoilpainting.com/images/tree_of_life_painting_modern_art_01.jpg")
+i1.save!
+i21.save!
+i31.save!
+
 puts 'Adding some taggings'
 Tagging.create!([
                     {id:1, item_id: 1, tag_id: 21},

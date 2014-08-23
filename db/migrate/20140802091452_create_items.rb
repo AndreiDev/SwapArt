@@ -4,7 +4,7 @@ class CreateItems < ActiveRecord::Migration
       t.references :user, index: true
       t.references :type, index: true
       t.string :description
-      t.integer :original_price
+      t.references :price, index: true
       t.integer :height
       t.integer :width
       t.references :age, index: true

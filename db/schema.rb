@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20140803185257) do
     t.integer  "user_id"
     t.integer  "type_id"
     t.string   "description"
-    t.integer  "original_price"
+    t.integer  "price_id"
     t.integer  "height"
     t.integer  "width"
     t.integer  "age_id"
@@ -69,6 +69,12 @@ ActiveRecord::Schema.define(version: 20140803185257) do
   add_index "items", ["state_id"], name: "index_items_on_state_id", using: :btree
   add_index "items", ["type_id"], name: "index_items_on_type_id", using: :btree
   add_index "items", ["user_id"], name: "index_items_on_user_id", using: :btree
+
+  create_table "prices", force: true do |t|
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "regions", force: true do |t|
     t.string   "description"
