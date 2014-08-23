@@ -51,6 +51,7 @@ Type.create!([
                  {id:1, description: 'קנבס'},
                  {id:11, description: 'ציור'},
                  {id:21, description: 'צילום'},
+                 {id:31, description: 'תמונה לחדר ילדים'}
              ])
 
 puts 'Adding some tags'
