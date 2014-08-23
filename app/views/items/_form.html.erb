@@ -11,12 +11,12 @@
     <%= f.file_field :image %>
     <br/>
     <%= f.input :description %> <br/>
-    <%= f.association :price, label_method: :description, value_method: :id %><br/>
+    <%= f.association :price, label_method: :description, value_method: :id, selected: 11 %><br/>
     <%= f.input :height %>
     <%= f.input :width %>
-    <%= f.association :type, label_method: :description, value_method: :id %>
-    <%= f.association :age, label_method: :description, value_method: :id %>
-    <%= f.association :state, label_method: :description, value_method: :id %>
+    <%= f.association :type, label_method: :description, value_method: :id, selected: 11  %>
+    <%= f.association :age, label_method: :description, value_method: :id, selected: 11 %>
+    <%= f.association :state, label_method: :description, value_method: :id, selected: 11 %>
   </div>
 
   <div class="form-actions">

@@ -1,5 +1,7 @@
     <div class="thumbnail">
-      <img height=500px width=300px src= <%= locals[:item].image.url(:thumb) %> alt="">
+      <div class="thumbnail-image-div">
+        <img src= <%= locals[:item].image.url(:thumb) %> alt="">
+      </div>
       <div class="caption">
         <h3><%= locals[:item].user.full_name %></h3>
         <h4><%= locals[:item].user.region.description %></h4>
