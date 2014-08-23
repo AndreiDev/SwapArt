@@ -1,5 +1,6 @@
     <div class="thumbnail">
       <div class="thumbnail-image-div">
+        <p class="thumbnail_image_size"><%= locals[:item].width  %>X<%= locals[:item].height %></p>
         <img src= <%= locals[:item].image.url(:thumb) %> alt="">
       </div>
       <div class="caption">

@@ -32,8 +32,11 @@
   height: 100%;
 }
 
-#ex1Slider .slider-selection {
-  background: #BABABA;
+.thumbnail_image_size {
+  position: absolute;
+  color: #222222;
+  background-color: #eeeeee;
+  padding: 2px;
 }
 
 .short_box {
