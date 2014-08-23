@@ -18,9 +18,9 @@ end
 
 puts 'Adding some regions'
 Region.create!([
-                   {id:1, description: "כל הארץ"},
-                   {id:11, description: "צפון"},
-                   {id:21, description: "מרכז"},
+                   {id:1, description: "גוש דן"},
+                   {id:11, description: "שפלה"},
+                   {id:21, description: "צפון"},
                    {id:31, description: "דרום"}
                ])
 
@@ -81,10 +81,10 @@ user.save!
 user.add_role 'user'
 
 puts 'Adding some items'
-i1 = Item.new({id:1, user_id: 1,type_id: 21,description: 'a very nice picture', price_id: 1,height: '100',width: '80',age_id: 1,state_id: 11})
-i11 = Item.new({id:11, user_id: 1,type_id: 1,description: 'a cool picture',price_id: 11,height: '50',width: '80',age_id: 11,state_id: 1})
-i21 = Item.new({id:21, user_id: 11,type_id: 11,description: 'none',price_id: 21,height: '400',width: '180',age_id: 21,state_id: 11})
-i31 = Item.new({id:31, user_id: 11,type_id: 1,description: 'daaaaaa',price_id: 1,height: '550',width: '810',age_id: 21,state_id: 31})
+i1 = Item.new({id:1, user_id: 1,type_id: 21,description: 'תמונה מה זה מדליקה!!!', price_id: 1,height: '100',width: '80',age_id: 1,state_id: 11})
+i11 = Item.new({id:11, user_id: 1,type_id: 1,description: 'התמונה הייתה בחדר שינה - מאוד אלגנטית',price_id: 11,height: '50',width: '80',age_id: 11,state_id: 1})
+i21 = Item.new({id:21, user_id: 11,type_id: 11,description: 'משרה אווירה רומנטית ומיוחדת',price_id: 21,height: '400',width: '180',age_id: 21,state_id: 11})
+i31 = Item.new({id:31, user_id: 11,type_id: 1,description: 'אין לי מה לכתוב על התמונה...',price_id: 1,height: '550',width: '810',age_id: 21,state_id: 31})
 i1.image = open("http://images.fineartamerica.com/images-medium-large-5/winter-sparkle-original-madart-painting-megan-duncanson.jpg")
 i11.image = open("http://www.osnatfineart.com/paintings/07-09/07-09-sunrise-painting-3680.jpg")
 i21.image = open("http://webneel.com/daily/sites/default/files/images/daily/10-2013/5-tree-painting.jpg")

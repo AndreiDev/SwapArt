@@ -3,12 +3,9 @@
         <img src= <%= locals[:item].image.url(:thumb) %> alt="">
       </div>
       <div class="caption">
-        <h3><%= locals[:item].user.full_name %></h3>
-        <h4><%= locals[:item].user.region.description %></h4>
-        <p><%= locals[:item].type.description %></p>
-        <p><%= locals[:item].age.description %> <%=t('years')%></p>
-        <p><%= locals[:item].type.description %></p>
-        <p>
+        <p><%= locals[:item].description %></p>
+        <p><%= locals[:item].type.description %> במצב   <%= locals[:item].state.description %> נקנה לפני  <%= locals[:item].age.description %> ב<%= locals[:item].price.description %></p>
+        <p><%= locals[:item].user.first_name %> (<%= locals[:item].user.region.description %>)</p>
           <% if locals[:item].user == current_user %>
             <%= link_to t('Edit'), edit_item_path(locals[:item]), :class => "btn btn-info btn-xs" %>
             <%= link_to t('Destroy'), locals[:item], method: :delete, data: { confirm: t('areYouSure') }, :class => "btn btn-info btn-xs" %>
