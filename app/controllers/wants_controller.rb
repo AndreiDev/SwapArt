@@ -1,5 +1,6 @@
 class WantsController < ApplicationController
   before_action :set_want, only: [:show, :edit, :update, :destroy]
+  before_action :want_params, only: [:toggle]
 
   load_and_authorize_resource
 
@@ -63,6 +64,18 @@ class WantsController < ApplicationController
     end
   end
 
+  def toggle
+    @want = Want.find_or_initialize_by(user_id: @want_params['user_id'], item_id: @want_params['item_id'])
+    if @want.persisted?
+      @want.destroy!
+    else
+      @want.save!
+    end
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_want
@@ -71,6 +84,7 @@ class WantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def want_params
-      params.require(:want).permit(:user_id, :item_id, :extra_mile)
+      @want_params = params.require(:want).permit(:user_id, :item_id, :extra_mile)
+      @want_params['user_id'] ||= current_user.id
     end
 end

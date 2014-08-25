@@ -36,7 +36,9 @@ he:
   EditItem: "עריכת פרטי תמונה"
   Back: "חזרה"
   index_gallery: "כל התמונות להחלפה"
-  want: "רוצה להחליף"
+  want: "בוא נתחלף!"
+  dont_want: "בטל החלפה"
+  block: "חסום תמונה"
   years: "שנים"
 
   menu:

@@ -1,0 +1,7 @@
+<% if @want.persisted? %>
+  $('a[data-want-item-id="<%= @want.item_id %>"]').addClass('btn-success');
+  $('a[data-want-item-id="<%= @want.item_id %>"]').removeClass('btn-default');
+<% else %>
+  $('a[data-want-item-id="<%= @want.item_id %>"]').removeClass('btn-success');
+  $('a[data-want-item-id="<%= @want.item_id %>"]').addClass('btn-default');
+<% end %>
