@@ -6,20 +6,28 @@
 
 <%= render template: 'devise/sessions/new' %>
 
-<%= render "shared/page_title", page_title: t('index_gallery') %>
+<% content_for :content do %>
 
-<% @items = Item.where.not(:user => current_user)
-  .where(:is_blocked => false)
-  .where(:is_active => true)
-  .where.not(id: current_user.block_items.pluck(:id))
-%>
+  <% if user_signed_in? %>
 
-<div class="gallery">
-  <br/>
-  <ul class="row">
-  <% @items.each do |item| %>
-    <%= render 'items/item_block', locals: {item: item}%>
+  <%= render "shared/page_title", page_title: t('index_gallery') %>
+
+  <%
+    @items = Item.where.not(:user => current_user)
+    .where(:is_blocked => false)
+    .where(:is_active => true)
+    .where.not(id: current_user.block_items.pluck(:id))
+  %>
+
+  <div class="gallery">
+    <br/>
+    <ul class="row">
+    <% @items.each do |item| %>
+      <%= render 'items/item_block', locals: {item: item}%>
+    <% end %>
+    </ul>
+  </div>
+
   <% end %>
-  </ul>
-</div>
 
+<% end %>
