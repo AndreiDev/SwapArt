@@ -7,7 +7,11 @@ Tur::Application.routes.draw do
     end
   end
 
-  resources :blocks
+  resources :blocks do
+    collection do
+      post 'apply'
+    end
+  end
 
   resources :taggings
 

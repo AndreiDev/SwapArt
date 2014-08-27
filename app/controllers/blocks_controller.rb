@@ -1,5 +1,6 @@
 class BlocksController < ApplicationController
   before_action :set_block, only: [:show, :edit, :update, :destroy]
+  before_action :block_params, only: [:apply]
 
   load_and_authorize_resource
 
@@ -63,6 +64,13 @@ class BlocksController < ApplicationController
     end
   end
 
+  def apply
+    @block = Block.find_or_create_by(user_id: @block_params['user_id'], item_id: @block_params['item_id'])
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_block
@@ -71,6 +79,7 @@ class BlocksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def block_params
-      params.require(:block).permit(:user_id, :item_id)
+      @block_params = params.require(:block).permit(:user_id, :item_id)
+      @block_params['user_id'] ||= current_user.id
     end
 end

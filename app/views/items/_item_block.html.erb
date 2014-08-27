@@ -1,4 +1,5 @@
-    <div class="thumbnail">
+<li class="col-lg-3 col-md-4 col-sm-6 col-xs-12" data-item-id = "<%= locals[:item].id %>">
+  <div class="thumbnail">
       <div class="thumbnail-image-div">
         <p class="thumbnail_image_size"><%= locals[:item].width  %>X<%= locals[:item].height %></p>
         <img src= <%= locals[:item].image.url(:thumb) %> alt="">
@@ -12,12 +13,13 @@
             <%= link_to t('Destroy'), locals[:item], method: :delete, data: { confirm: t('areYouSure') }, :class => "btn btn-info" %>
           <% else %>
             <% if locals[:item].want_users.include?(current_user) %>
-              <%= link_to t('want'), toggle_wants_path(want: {item_id: locals[:item].id}),:data => { :'want_item_id' => locals[:item].id }, format: :json, remote: true, method: :post, :class => "btn btn-success" %>
+              <%= link_to t('want'), toggle_wants_path(want: {item_id: locals[:item].id}), format: :json, remote: true, method: :post, :class => "btn btn-success want_btn" %>
             <% else %>
-              <%= link_to t('want'), toggle_wants_path(want: {item_id: locals[:item].id}),:data => { :'want_item_id' => locals[:item].id }, format: :json, remote: true, method: :post, :class => "btn btn-default" %>
+              <%= link_to t('want'), toggle_wants_path(want: {item_id: locals[:item].id}), format: :json, remote: true, method: :post, :class => "btn btn-default want_btn" %>
             <% end %>
-            <%= link_to t('block'), blocks_path(want: {item_id: locals[:item].id}), format: :json, remote: true, method: :post, :class => "btn btn-danger pull-left" %>
+            <%= link_to t('block'), apply_blocks_path(block: {item_id: locals[:item].id}), format: :json, remote: true, method: :post, :class => "btn btn-danger pull-left" %>
           <% end %>
         </p>
       </div>
     </div>
+</li>
