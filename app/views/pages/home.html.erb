@@ -36,9 +36,12 @@
   <div class="gallery">
     <br/>
     <ul class="row">
-    <% @items_want_mine.each do |item| %>
-      <%= render 'items/item_block', locals: {item: item}%>
-    <% end %>
+      <% @items_want_mine.each do |item| %>
+        <%= render 'items/item_block', locals: {item: item, type: :want_mine}%>
+      <% end %>
+      <% @items_dont_want_mine.each do |item| %>
+        <%= render 'items/item_block', locals: {item: item, type: :dont_want_mine}%>
+      <% end %>
     </ul>
   </div>
 
