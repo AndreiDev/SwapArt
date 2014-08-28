@@ -6,14 +6,14 @@
 
 <%= render template: 'devise/sessions/new' %>
 
-<% content_for :content do %>
+<% content_for :gallery do %>
 
   <% if user_signed_in? %>
 
   <%= render "shared/page_title", page_title: t('index_gallery') %>
 
   <%
-    user_that_like_my_items = User.find_by_sql ["SELECT DISTINCT users.*
+    users_that_like_my_items = User.find_by_sql ["SELECT DISTINCT users.*
     FROM users
     LEFT JOIN wants on users.id = wants.user_id
     LEFT JOIN items on wants.item_id = items.id
@@ -24,13 +24,13 @@
     .where(:is_blocked => false)
     .where(:is_active => true)
     .where.not(id: current_user.block_items.pluck(:id))
-    .where(user_id: user_that_like_my_items)
+    .where(user_id: users_that_like_my_items)
 
     @items_dont_want_mine= Item.where.not(:user => current_user)
     .where(:is_blocked => false)
     .where(:is_active => true)
     .where.not(id: current_user.block_items.pluck(:id))
-    .where.not(user_id: user_that_like_my_items)
+    .where.not(user_id: users_that_like_my_items)
   %>
 
   <div class="gallery">
