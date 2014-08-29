@@ -1,7 +1,9 @@
 <% if @want.persisted? %>
   $('li[data-item-id="<%= @want.item_id %>"] .want_btn').addClass('btn-success');
-  $('li[data-item-id="<%= @want.item_id %>"] .want_btn').removeClass('btn-default');
+  $('li[data-item-id="<%= @want.item_id %>"] .want_btn').removeClass('btn-warning');
+  $('li[data-item-id="<%= @want.item_id %>"] .want_btn').text("בטל החלפה");
 <% else %>
   $('li[data-item-id="<%= @want.item_id %>"] .want_btn').removeClass('btn-success');
-  $('li[data-item-id="<%= @want.item_id %>"] .want_btn').addClass('btn-default');
+  $('li[data-item-id="<%= @want.item_id %>"] .want_btn').addClass('btn-warning');
+  $('li[data-item-id="<%= @want.item_id %>"] .want_btn').text("הצע החלפה");
 <% end %>

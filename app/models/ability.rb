@@ -19,7 +19,10 @@ class Ability
       else
         if user.get_user_roles_name == 'user'
           can :manage, Item, :user_id => user.id
-          can [:read, :update], User, :id => user.id
+
+          can [:read, :update, :modal], User, :id => user.id
+
+          can [:modal], User
 
           can :index, [Age, Region, State, Tag, Type]
 

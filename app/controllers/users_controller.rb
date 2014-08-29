@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :modal]
 
   load_and_authorize_resource
-  respond_to :html #, :json
+  # respond_to :html, :json
 
   # GET /users
   # GET /users.json
@@ -80,6 +80,13 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
     #respond_with(@user)
+  end
+
+  def modal
+    @user_items = @user.items.where(is_active: true).where(is_blocked: false)
+    respond_to do |format|
+      format.js
+    end
   end
 
   private
