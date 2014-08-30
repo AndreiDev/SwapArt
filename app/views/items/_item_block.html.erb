@@ -18,7 +18,11 @@
       <% if locals[:item].user == current_user || locals[:item].user.items.length == 1 || locals[:type] == :modal %>
         <%= locals[:item].user.first_name %> (<%= locals[:item].user.region.description %>)
       <% else %>
-        <%= link_to "%s (%s)" % [locals[:item].user.first_name, locals[:item].user.region.description], modal_users_path(id: locals[:item].user_id, type: locals[:type]), format: :json, remote: true, :class => "btn btn-default btn-sm" %>
+        <% if locals[:type] == :want_mine %>
+          <%= link_to "%s (%s)" % [locals[:item].user.first_name, locals[:item].user.region.description], "/", format: :json, remote: true, :class => "btn btn-default btn-sm" %>
+        <% else %>
+          <%= link_to "%s (%s)" % [locals[:item].user.first_name, locals[:item].user.region.description], modal_users_path(id: locals[:item].user_id, type: locals[:type]), format: :json, remote: true, :class => "btn btn-default btn-sm" %>
+        <% end %>
       <% end %>
       <% if locals[:type] == :want_mine %>
         <span class="want_mine">שרוצה תמונה שלי</span>
