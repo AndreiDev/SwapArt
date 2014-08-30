@@ -1,10 +1,16 @@
 $('#modal-injection').empty();
+$('#my-area').empty();
 <% @from = " מ" %>
 <% @swapping_with = "החלפת תמונות עם" %>
 $('#UserModalLabel').text("<%= @swapping_with %> <%= @user.first_name %> <%= @from %><%= @user.region.description %>")
-$("<%= escape_javascript render(:file => 'items/_my_items', locals: {locals: {user: @user, type: :modal, my_items_user_wants: @my_items_user_wants}}) %>").prependTo('.modal-body');
+$("<%= escape_javascript render(:file => 'items/_my_items', locals: {locals: {user: @user, type: :swap_modal_my, my_items_user_wants: @my_items_user_wants}}) %>").appendTo('#my-area');
 <% @user_items.each do |item| %>
-  $("<%= escape_javascript render(:file => 'items/_item_block', locals: {locals: {item: item, type: :modal}}) %>").appendTo('#modal-injection');
+  $("<%= escape_javascript render(:file => 'items/_item_block', locals: {locals: {item: item, type: :swap_modal}}) %>").appendTo('#modal-injection');
 <% end %>
-
+var is_valid = $('li[data-item-type="swap_modal"]').find(".want-btn").hasClass('btn-success');
+if (is_valid) {
+  $('#swap-btn').show();
+} else {
+  $('#swap-btn').hide();
+}
 $('#UserModal').modal();

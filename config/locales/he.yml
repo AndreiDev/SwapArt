@@ -36,7 +36,7 @@ he:
   EditItem: "עריכת פרטי תמונה"
   Back: "חזרה"
   index_gallery: "כל התמונות להחלפה"
-  want: "הצע החלפה"
+  want: "החלפה"
   trade: "התחלף עכשיו!"
   dont_want: "בטל החלפה"
   block: "חסום תמונה"
@@ -45,6 +45,7 @@ he:
   my_items_user_wants_2: "רוצה"
   items_i_want_1: "תמונות של "
   items_i_want_2: "שאני רוצה"
+  swap_now: "בצע החלפה!"
 
   menu:
     home: "בית"

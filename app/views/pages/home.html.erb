@@ -52,13 +52,15 @@
           <h4 class="modal-title" id="UserModalLabel"></h4>
         </div>
         <div class="modal-body">
+          <div id="my-area"></div>
           <div class="gallery">
             <ul class="row" id="modal-injection">
             </ul>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">סגור</button>
+          <%= link_to t('swap_now'), "/", format: :json, remote: true, method: :post, :id => "swap-btn", :class => "btn btn-lg btn-success" %>
+          <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal">סגור</button>
         </div>
       </div>
     </div>
