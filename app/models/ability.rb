@@ -22,7 +22,7 @@ class Ability
 
           can [:read, :update], User, :id => user.id
 
-          can [:modal], User
+          can [:modal, :modal_swap], User
 
           can :index, [Age, Region, State, Tag, Type]
 

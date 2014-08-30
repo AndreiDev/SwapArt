@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :modal]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :modal, :modal_swap]
 
   load_and_authorize_resource
   # respond_to :html, :json
@@ -83,6 +83,13 @@ class UsersController < ApplicationController
   end
 
   def modal
+    @user_items = @user.items.where(is_active: true).where(is_blocked: false)
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def modal_swap
     @user_items = @user.items.where(is_active: true).where(is_blocked: false)
     respond_to do |format|
       format.js

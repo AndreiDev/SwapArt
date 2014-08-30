@@ -53,6 +53,7 @@ Tur::Application.routes.draw do
   resources :users do
     collection do
       get 'modal'
+      get 'modal_swap'
     end
   end
 

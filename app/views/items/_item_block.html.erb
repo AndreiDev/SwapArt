@@ -19,7 +19,7 @@
         <%= locals[:item].user.first_name %> (<%= locals[:item].user.region.description %>)
       <% else %>
         <% if locals[:type] == :want_mine %>
-          <%= link_to "%s (%s)" % [locals[:item].user.first_name, locals[:item].user.region.description], "/", format: :json, remote: true, :class => "btn btn-default btn-sm" %>
+          <%= link_to "%s (%s)" % [locals[:item].user.first_name, locals[:item].user.region.description], modal_swap_users_path(id: locals[:item].user_id, type: locals[:type]), format: :json, remote: true, :class => "btn btn-default btn-sm" %>
         <% else %>
           <%= link_to "%s (%s)" % [locals[:item].user.first_name, locals[:item].user.region.description], modal_users_path(id: locals[:item].user_id, type: locals[:type]), format: :json, remote: true, :class => "btn btn-default btn-sm" %>
         <% end %>
@@ -34,7 +34,7 @@
         <%= link_to t('Destroy'), locals[:item], method: :delete, data: { confirm: t('areYouSure') }, :class => "btn btn-info" %>
       <% else %>
         <% if locals[:type] == :want_mine %>
-          <%= link_to t('trade'), '/', format: :json, remote: true, method: :post, :class => "btn btn-info want_btn" %>
+          <%= link_to t('trade'), modal_swap_users_path(id: locals[:item].user_id, type: locals[:type]), format: :json, remote: true, :class => "btn btn-info want_btn" %>
         <% else %>
           <% if locals[:item].want_users.include?(current_user) %>
             <%= link_to t('dont_want'), toggle_wants_path(want: {item_id: locals[:item].id}), format: :json, remote: true, method: :post, :class => "btn btn-success want_btn" %>
