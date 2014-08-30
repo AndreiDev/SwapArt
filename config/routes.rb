@@ -27,12 +27,6 @@ Tur::Application.routes.draw do
 
   resources :regions
 
-  resources :users do
-    collection do
-      get 'modal'
-    end
-  end
-
   authenticated :user do
     root to: 'high_voltage/pages#show', id: 'home', as: :authenticated_root
   end
@@ -55,6 +49,12 @@ Tur::Application.routes.draw do
   # high_voltage
   get '/home', to: redirect('/')
   get '/about' => 'high_voltage/pages#show', id: 'about'
+
+  resources :users do
+    collection do
+      get 'modal'
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
