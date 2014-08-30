@@ -1,4 +1,5 @@
-$('#UserModalLabel').text("התמונות של <%= @user.first_name %>");
+$('#modal-injection').empty();
+$('#UserModalLabel').text("התמונות של <%= @user.first_name %> מ<%= @user.region.description %> ");
 <% @user_items.each do |item| %>
   $("<%= escape_javascript render(:file => 'users/_modal_item_block', locals: {locals: {item: item}}) %>").appendTo('#modal-injection');
 <% end %>
