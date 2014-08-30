@@ -2,8 +2,9 @@ $('#modal-injection').empty();
 <% @from = " מ" %>
 <% @swapping_with = "החלפת תמונות עם" %>
 $('#UserModalLabel').text("<%= @swapping_with %> <%= @user.first_name %> <%= @from %><%= @user.region.description %>")
+$("<%= escape_javascript render(:file => 'items/_my_items', locals: {locals: {user: @user, type: :modal, my_items_user_wants: @my_items_user_wants}}) %>").prependTo('.modal-body');
 <% @user_items.each do |item| %>
-$("<%= escape_javascript render(:file => 'items/_item_block', locals: {locals: {item: item, type: :modal}}) %>").appendTo('#modal-injection');
+  $("<%= escape_javascript render(:file => 'items/_item_block', locals: {locals: {item: item, type: :modal}}) %>").appendTo('#modal-injection');
 <% end %>
 
 $('#UserModal').modal();

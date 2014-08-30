@@ -91,6 +91,12 @@ class UsersController < ApplicationController
 
   def modal_swap
     @user_items = @user.items.where(is_active: true).where(is_blocked: false)
+    @my_items_user_wants = Item.find_by_sql ["SELECT DISTINCT items.*
+    FROM users
+    LEFT JOIN wants on users.id = wants.user_id
+    LEFT JOIN items on wants.item_id = items.id
+    WHERE users.id = '?' AND items.user_id = '?'", @user.id, current_user.id]
+
     respond_to do |format|
       format.js
     end

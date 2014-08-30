@@ -41,6 +41,10 @@ he:
   dont_want: "בטל החלפה"
   block: "חסום תמונה"
   years: "שנים"
+  my_items_user_wants_1: "תמונות שלי ש"
+  my_items_user_wants_2: "רוצה"
+  items_i_want_1: "תמונות של "
+  items_i_want_2: "שאני רוצה"
 
   menu:
     home: "בית"
