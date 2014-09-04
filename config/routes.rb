@@ -1,4 +1,7 @@
 Tur::Application.routes.draw do
+
+  get 'gallery/index'
+
   resources :swaps
 
   resources :wants do
@@ -28,7 +31,8 @@ Tur::Application.routes.draw do
   resources :regions
 
   authenticated :user do
-    root to: 'high_voltage/pages#show', id: 'home', as: :authenticated_root
+    # root to: 'high_voltage/pages#show', id: 'home', as: :authenticated_root
+    root to: 'gallery#index', as: :authenticated_root
   end
 
   unauthenticated do

@@ -65,11 +65,30 @@ class WantsController < ApplicationController
   end
 
   def toggle
-    @want = Want.find_or_initialize_by(user_id: @want_params['user_id'], item_id: @want_params['item_id'])
-    if @want.persisted?
-      @want.destroy!
-    else
-      @want.save!
+    @item = Item.find @want_params['item_id']
+    user_wants_item = @item.want_users.include? current_user
+    users_that_want_my_items = User.find_by_sql ["SELECT DISTINCT users.*
+    FROM users
+    LEFT JOIN wants on users.id = wants.user_id
+    LEFT JOIN items on wants.item_id = items.id
+    WHERE users.is_active = 1 AND users.is_blocked = 0
+    AND items.user_id = '?'", current_user.id]
+    item_owner_wants_users_item = users_that_want_my_items.include? @item.user
+    case [user_wants_item, item_owner_wants_users_item]
+      when [false, false] # state_1
+        @want = Want.create(user_id: @want_params['user_id'], item_id: @want_params['item_id'])
+        @state = 2
+      when [true, false] # state_2
+        @want = Want.where(user_id: @want_params['user_id'], item_id: @want_params['item_id']).delete_all
+        @item_id = @want_params['item_id']
+        @state = 1
+      when [false, true] # state_3
+        @want = Want.create(user_id: @want_params['user_id'], item_id: @want_params['item_id'])
+        @state = 4
+      when [true, true] # state_4
+        @want = Want.where(user_id: @want_params['user_id'], item_id: @want_params['item_id']).delete_all
+        @item_id = @want_params['item_id']
+        @state = 3
     end
     respond_to do |format|
       format.js
