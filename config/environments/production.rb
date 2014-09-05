@@ -15,6 +15,15 @@ Tur::Application.configure do
 
   Paperclip.options[:command_path] = "/usr/bin/"
 
+  config.paperclip_defaults = {
+      :storage => :s3,
+      :s3_credentials => {
+          :bucket => Rails.application.secrets.S3_BUCKET_NAME,
+          :access_key_id => Rails.application.secrets.AWS_ACCESS_KEY_ID,
+          :secret_access_key => Rails.application.secrets.AWS_SECRET_ACCESS_KEY
+      }
+  }
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 

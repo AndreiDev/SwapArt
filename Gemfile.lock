@@ -43,6 +43,11 @@ GEM
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
     authbuttons-rails (0.1.2)
+    aws-sdk (1.52.0)
+      aws-sdk-v1 (= 1.52.0)
+    aws-sdk-v1 (1.52.0)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
     bcrypt (3.1.7)
     bootstrap-sass (3.2.0.0)
       sass (~> 3.2)
@@ -246,6 +251,7 @@ PLATFORMS
 
 DEPENDENCIES
   authbuttons-rails
+  aws-sdk
   bootstrap-sass
   cancancan
   capybara
