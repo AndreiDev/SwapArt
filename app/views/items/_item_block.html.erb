@@ -16,11 +16,18 @@
       <% else %>
         <%= link_to "%s (%s)" % [locals[:item].user.first_name, locals[:item].user.region.description], modal_users_path(id: locals[:item].user_id), format: :json, remote: true, :class => "user_modal_link" %>
       <% end %>
-      <% if locals[:state] == 3 %>
-        <span>שרוצה תמונה שלי</span>
-      <% elsif locals[:state] == 4 %>
-        <span>שרוצה תמונה שלי</span>
-        <span class="user_info"><%=	locals[:item].user.email %></span>
+      <% if locals[:state] == 3 || locals[:state] == 4 %>
+        <span class="wants_to_swap">רוצה להתחלף!</span>
+        <% end %>
+      <% if locals[:state] == 4 %>
+        <p class="user_info">
+        <% if locals[:item].user.email.present? %>
+          <%=	locals[:item].user.email %> <br/>
+        <% end %>
+        <% if locals[:item].user.phone.present? %>
+          <%=	locals[:item].user.phone %>
+        <% end %>
+        </p>
       <% end %>
       </p>
       <p>
