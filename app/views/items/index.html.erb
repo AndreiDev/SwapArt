@@ -1,6 +1,6 @@
 <%= link_to t('model.new_item'), new_item_path, class: "btn btn-primary btn-lg" %>
 <%= render "shared/page_title", page_title: t('model.my_items') %>
-<div class="gallery">
+<div class="gallery_thumbnail">
   <br/>
   <ul class="row">
     <% @items.each do |item| %>

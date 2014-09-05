@@ -1,7 +1,7 @@
 <% content_for :gallery do %>
   <%= render "shared/page_title", page_title: t('index_gallery') %>
 
-  <div class="gallery">
+  <div class="gallery_thumbnail">
     <br/>
     <ul class="row">
       <% @items.each do |item| %>
@@ -21,7 +21,7 @@
         </div>
         <div class="modal-body">
           <div id="my-area"></div>
-          <div class="gallery">
+          <div class="gallery_thumbnail">
             <ul class="row" id="modal-injection">
             </ul>
           </div>
