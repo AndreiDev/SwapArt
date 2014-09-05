@@ -18,10 +18,13 @@
       <% if locals[:item].user == current_user || locals[:item].user.items.length == 1 || locals[:type] == :modal || locals[:type] == :swap_modal %>
         <%= locals[:item].user.first_name %> (<%= locals[:item].user.region.description %>)
       <% else %>
-        <%= link_to "%s (%s)" % [locals[:item].user.first_name, locals[:item].user.region.description], modal_users_path(id: locals[:item].user_id, type: locals[:type]), format: :json, remote: true %>
+        <%= link_to "%s (%s)" % [locals[:item].user.first_name, locals[:item].user.region.description], modal_users_path(id: locals[:item].user_id), format: :json, remote: true %>
       <% end %>
-      <% if locals[:type] == :want_mine %>
-        <span class="want_mine">שרוצה תמונה שלי</span>
+      <% if locals[:state] == 3 %>
+        <span>שרוצה תמונה שלי</span>
+      <% elsif locals[:state] == 4 %>
+        <span>שרוצה תמונה שלי</span>
+        <span class="user_info"><%=	locals[:item].user.email %></span>
       <% end %>
       </p>
       <p>
@@ -29,7 +32,7 @@
         <%= link_to t('Edit'), edit_item_path(locals[:item]), :class => "btn btn-info" %>
         <%= link_to t('Destroy'), locals[:item], method: :delete, data: { confirm: t('areYouSure') }, :class => "btn btn-info" %>
       <% else %>
-        <% if locals[:item].want_users.include?(current_user) %>
+        <% if locals[:state] == 2 || locals[:state] == 4  %>
           <%= link_to t('want'), toggle_wants_path(want: {item_id: locals[:item].id}), format: :json, remote: true, method: :post, :class => "btn btn-success want-btn" %>
         <% else %>
           <%= link_to t('want'), toggle_wants_path(want: {item_id: locals[:item].id}), format: :json, remote: true, method: :post, :class => "btn btn-default want-btn" %>

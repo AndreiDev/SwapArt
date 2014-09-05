@@ -4,14 +4,14 @@
   <div class="gallery">
     <br/>
     <ul class="row">
-      <% @items_want_mine.each do |item| %>
-        <%= render 'items/item_block', locals: {item: item, type: :want_mine}%>
-      <% end %>
-      <% @items_dont_want_mine.each do |item| %>
-        <%= render 'items/item_block', locals: {item: item, type: :dont_want_mine}%>
+      <% @items.each do |item| %>
+        <%= render 'items/item_block', locals: {item: item, state: @states[item.id]}%>
       <% end %>
     </ul>
   </div>
+
+
+  <!--***** MODAL *****-->
   <div class="modal fade" id="UserModal" tabindex="-1" role="dialog" aria-labelledby="UserModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -27,7 +27,6 @@
           </div>
         </div>
         <div class="modal-footer">
-          <%= link_to t('swap_now'), "/", format: :json, remote: true, method: :post, :id => "swap-btn", :class => "btn btn-lg btn-success" %>
           <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal">סגור</button>
         </div>
       </div>
