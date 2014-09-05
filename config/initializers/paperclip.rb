@@ -1,3 +1,3 @@
 Paperclip::Attachment.default_options[:url] = ':s3_domain_url'
-Paperclip::Attachment.default_options[:path] = Rails.env + '/:style/:filename'
+Paperclip::Attachment.default_options[:path] = Rails.env + '/:id_partition/:style/:filename'
 Paperclip::Attachment.default_options[:s3_host_name] = 's3-us-west-2.amazonaws.com'
