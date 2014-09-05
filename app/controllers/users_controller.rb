@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :modal, :modal_swap]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :modal]
 
   load_and_authorize_resource
   # respond_to :html, :json
@@ -83,27 +83,19 @@ class UsersController < ApplicationController
   end
 
   def modal
-    @user_items = @user.items.where(is_active: true).where(is_blocked: false)
-    @item_id = params[:id]
+
+    @items = @user.items
+    .where(:is_blocked => false)
+    .where(:is_active => true)
+    .where.not(id: current_user.block_items.pluck(:id))
+
+    @states = get_states(@items)
+
     @my_items_user_wants = Item.find_by_sql ["SELECT DISTINCT items.*
     FROM users
     LEFT JOIN wants on users.id = wants.user_id
     LEFT JOIN items on wants.item_id = items.id
     WHERE users.id = '?' AND items.user_id = '?'", @user.id, current_user.id]
-    respond_to do |format|
-      format.js
-    end
-  end
-
-  def modal_swap
-    @user_items = @user.items.where(is_active: true).where(is_blocked: false)
-    @item_id = params[:id]
-    @my_items_user_wants = Item.find_by_sql ["SELECT DISTINCT items.*
-    FROM users
-    LEFT JOIN wants on users.id = wants.user_id
-    LEFT JOIN items on wants.item_id = items.id
-    WHERE users.id = '?' AND items.user_id = '?'", @user.id, current_user.id]
-
     respond_to do |format|
       format.js
     end

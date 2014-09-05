@@ -28,3 +28,10 @@ $(document).ready(function () {
     }, 1500);
 
 });
+
+function adjustModalThumbnail() {
+    $('#modal-injection li').removeClass('col-lg-3 col-md-4');
+    $('#modal-injection li').addClass('col-lg-6 col-md-6');
+    var text = $('#modal-injection li .user_modal_link')[0].text;
+    $('#modal-injection li .user_modal_link').replaceWith(text);
+};

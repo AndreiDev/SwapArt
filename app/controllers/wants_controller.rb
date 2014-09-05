@@ -66,6 +66,7 @@ class WantsController < ApplicationController
 
   def toggle
     @item = Item.find @want_params['item_id']
+
     user_wants_item = @item.want_users.include? current_user
     users_that_want_my_items = User.find_by_sql ["SELECT DISTINCT users.*
     FROM users
@@ -80,14 +81,12 @@ class WantsController < ApplicationController
         @state = 2
       when [true, false] # state_2
         @want = Want.where(user_id: @want_params['user_id'], item_id: @want_params['item_id']).delete_all
-        @item_id = @want_params['item_id']
         @state = 1
       when [false, true] # state_3
         @want = Want.create(user_id: @want_params['user_id'], item_id: @want_params['item_id'])
         @state = 4
       when [true, true] # state_4
         @want = Want.where(user_id: @want_params['user_id'], item_id: @want_params['item_id']).delete_all
-        @item_id = @want_params['item_id']
         @state = 3
     end
     respond_to do |format|

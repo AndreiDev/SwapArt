@@ -1,13 +1,2 @@
-<% if @state == 1 || @state == 3 %>
-  $('li[data-item-id="<%= @item_id %>"] .want-btn').removeClass('btn-success');
-  $('li[data-item-id="<%= @item_id %>"] .want-btn').addClass('btn-default');
-<% else %>
-  $('li[data-item-id="<%= @want.item_id %>"] .want-btn').addClass('btn-success');
-  $('li[data-item-id="<%= @want.item_id %>"] .want-btn').removeClass('btn-default');
-<% end %>
-var is_valid = $('li[data-item-type="swap_modal"]').find(".want-btn").hasClass('btn-success');
-if (is_valid) {
-  $('#swap-btn').show()
-} else {
-  $('#swap-btn').hide()
-}
+$("<%= escape_javascript render(:file => 'items/_item_block', locals: {locals: {item: @item, state: @state}}) %>").replaceAll('li[data-item-id="<%= @item.id %>"]');
+adjustModalThumbnail();
