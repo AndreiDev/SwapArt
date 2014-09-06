@@ -16,7 +16,8 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
-    #@item = Item.new
+    @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: 201, acl: :public_read)
+    @item = Item.new
   end
 
   # GET /items/1/edit
@@ -73,6 +74,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:user_id, :type_id, :description, :image, :price_id, :height, :width, :age_id, :state_id, :is_active, :is_blocked)
+      params.require(:item).permit(:user_id, :type_id, :description, :image_url, :price_id, :height, :width, :age_id, :state_id, :is_active, :is_blocked)
     end
 end

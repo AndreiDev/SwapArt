@@ -13,18 +13,6 @@ Tur::Application.configure do
       :authentication => 'plain',
       :enable_starttls_auto => true}
 
-
-  Paperclip.options[:command_path] = "/usr/local/bin/"
-
-  config.paperclip_defaults = {
-      :storage => :s3,
-      :s3_credentials => {
-          :bucket => Rails.application.secrets.S3_BUCKET_NAME,
-          :access_key_id => Rails.application.secrets.AWS_ACCESS_KEY_ID,
-          :secret_access_key => Rails.application.secrets.AWS_SECRET_ACCESS_KEY
-      }
-  }
-
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.

@@ -55,14 +55,11 @@ ActiveRecord::Schema.define(version: 20140803185257) do
     t.integer  "width"
     t.integer  "age_id"
     t.integer  "state_id"
-    t.boolean  "is_active",          default: true,  null: false
-    t.boolean  "is_blocked",         default: false, null: false
+    t.string   "image_url"
+    t.boolean  "is_active",   default: true,  null: false
+    t.boolean  "is_blocked",  default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
   end
 
   add_index "items", ["age_id"], name: "index_items_on_age_id", using: :btree
