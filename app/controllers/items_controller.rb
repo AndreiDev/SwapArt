@@ -22,6 +22,7 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
+    @s3_direct_post = S3_BUCKET.presigned_post(key: "#{SecureRandom.uuid}_${filename}", success_action_status: 201, acl: :public_read)
   end
 
   # POST /items
@@ -33,7 +34,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: t('simple_form.labels.item.item_create') }
+        format.html { redirect_to items_path, notice: t('simple_form.labels.item.item_create') }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }
