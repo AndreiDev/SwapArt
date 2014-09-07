@@ -28,6 +28,7 @@
 <script>
   $(function() {
     $('.directUpload').find("input:file").each(function(i, elem) {
+      debugger;
       var fileInput    = $(elem);
       var form         = $(fileInput.parents('form:first'));
       var submitButton = form.find('input[type="submit"]');
@@ -65,8 +66,11 @@
           var url   = '//<%= @s3_direct_post.url.host %>/' + key;
 
           // create hidden field
+          debugger;
           var input = $("<input />", { type:'hidden', name: fileInput.attr('name'), value: url })
           form.append(input);
+
+          $("[name='item[image_url]']")[0].remove();
         },
         fail: function(e, data) {
           submitButton.prop('disabled', false);
