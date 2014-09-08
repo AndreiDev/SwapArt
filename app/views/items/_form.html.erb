@@ -7,7 +7,7 @@
       <%= f.input :is_active %>
       <%= f.input :is_blocked %>
     <% end %>
-    <%= f.label :image%>
+    <%= f.label :image_url %>
     <%= f.file_field :image_url %>
     <br/>
     <%= f.input :description, input_html: { maxlength: 50 } %> <br/>
@@ -28,7 +28,6 @@
 <script>
   $(function() {
     $('.directUpload').find("input:file").each(function(i, elem) {
-      debugger;
       var fileInput    = $(elem);
       var form         = $(fileInput.parents('form:first'));
       var submitButton = form.find('input[type="submit"]');
@@ -50,6 +49,7 @@
         },
         start: function (e) {
           submitButton.prop('disabled', true);
+          $("[name='item[image_url]']").hide();
 
           progressBar.
               css('background', 'green').
@@ -66,14 +66,14 @@
           var url   = '//<%= @s3_direct_post.url.host %>/' + key;
 
           // create hidden field
-          debugger;
-          var input = $("<input />", { type:'hidden', name: fileInput.attr('name'), value: url })
+          var input = $("<input />", { type:'hidden', name: fileInput.attr('name'), value: key })
           form.append(input);
 
           $("[name='item[image_url]']")[0].remove();
         },
         fail: function(e, data) {
           submitButton.prop('disabled', false);
+          $("[name='item[image_url]']").show();
 
           progressBar.
               css("background", "red").

@@ -1,6 +1,6 @@
 class Item < ActiveRecord::Base
 
-  validates :image_url, :presence => {:message => ""}
+  validates :image_url, :presence => {:message => "יש להעלות תמונה"}
   validates :price, :presence => {:message => ""}
   validates :height, :presence => {:message => ""}
   validates :width, :presence => {:message => ""}

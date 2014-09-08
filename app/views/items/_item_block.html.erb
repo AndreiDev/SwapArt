@@ -5,7 +5,7 @@
       <% unless locals[:item].user == current_user %>
         <%= link_to 'X', apply_blocks_path(block: {item_id: locals[:item].id}), format: :json, remote: true, method: :post, :class => "btn btn-danger thumbnail_close" %>
       <% end %>
-      <img src= <%= locals[:item].image_url %> alt="">
+      <img src= <%= S3_PATH + locals[:item].image_url %> alt="">
     </div>
     <div class="caption">
       <p><%= locals[:item].description %></p>

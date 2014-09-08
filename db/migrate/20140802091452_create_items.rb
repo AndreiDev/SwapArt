@@ -5,8 +5,8 @@ class CreateItems < ActiveRecord::Migration
       t.references :type, index: true
       t.string :description
       t.references :price, index: true
-      t.integer :height
-      t.integer :width
+      t.integer :height, :null => false
+      t.integer :width, :null => false
       t.references :age, index: true
       t.references :state, index: true
       t.boolean :is_active, :null => false, :default => true

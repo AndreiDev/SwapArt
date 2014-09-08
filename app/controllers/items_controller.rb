@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_s3_direct_post
 
   load_and_authorize_resource
 
@@ -16,13 +17,11 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
-    @s3_direct_post = S3_BUCKET.presigned_post(key: "#{SecureRandom.uuid}_${filename}", success_action_status: 201, acl: :public_read)
     @item = Item.new
   end
 
   # GET /items/1/edit
   def edit
-    @s3_direct_post = S3_BUCKET.presigned_post(key: "#{SecureRandom.uuid}_${filename}", success_action_status: 201, acl: :public_read)
   end
 
   # POST /items
@@ -47,8 +46,10 @@ class ItemsController < ApplicationController
   # PATCH/PUT /items/1.json
   def update
     respond_to do |format|
+      old_image_url = @item.image_url
       if @item.update(item_params)
-        format.html { redirect_to @item, notice: t('model.item_update') }
+        S3_BUCKET.objects[old_image_url].delete if old_image_url != @item.image_url
+        format.html { redirect_to items_path, notice: t('model.item_update') }
         format.json { render :show, status: :ok, location: @item }
       else
         format.html { render :edit }
@@ -60,6 +61,7 @@ class ItemsController < ApplicationController
   # DELETE /items/1
   # DELETE /items/1.json
   def destroy
+    S3_BUCKET.objects[@item.image_url].delete
     @item.destroy
     respond_to do |format|
       format.html { redirect_to items_url, notice: t('model.item_destroy') }
@@ -76,5 +78,9 @@ class ItemsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
       params.require(:item).permit(:user_id, :type_id, :description, :image_url, :price_id, :height, :width, :age_id, :state_id, :is_active, :is_blocked)
+    end
+
+    def set_s3_direct_post
+      @s3_direct_post = S3_BUCKET.presigned_post(key: "#{SecureRandom.uuid}_${filename}", success_action_status: 201, acl: :public_read)
     end
 end

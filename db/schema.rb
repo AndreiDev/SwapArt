@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(version: 20140803185257) do
     t.integer  "type_id"
     t.string   "description"
     t.integer  "price_id"
-    t.integer  "height"
-    t.integer  "width"
+    t.integer  "height",                      null: false
+    t.integer  "width",                       null: false
     t.integer  "age_id"
     t.integer  "state_id"
     t.string   "image_url"

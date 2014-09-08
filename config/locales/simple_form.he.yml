@@ -10,7 +10,7 @@ he:
       # html: '<abbr title="required">*</abbr>'
     error_notification:
       default_message: "נא להשלים את המידע"
-      image: "נא להעלות תמונה"
+      image_url: "נא להעלות תמונה"
 
     # Examples
     labels:
@@ -30,7 +30,7 @@ he:
         width: "רוחב התמונה (סמ׳)"
         age: "גיל התמונה"
         state: "מצב התמונה"
-        image: "העלה תמונה"
+        image_url: "העלה תמונה"
         item_create: "התמונה התווספה בהצלחה"
         item_update: "פרטי התמונה עודכנו בהצלחה"
 
