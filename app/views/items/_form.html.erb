@@ -21,7 +21,11 @@
 
   <div class="form-actions">
     <br/>
-    <%= f.button :submit %>
+    <%	if @item.image_url.present? && @item.height.present? && @item.width.present? %>
+      <%= f.button :submit %>
+    <% else %>
+      <%= f.button :submit, disabled: true%>
+    <% end %>
   </div>
 <% end %>
 
@@ -43,6 +47,21 @@
         paramName:        'file', // S3 does not like nested name fields i.e. name="user[avatar_url]"
         dataType:         'XML',  // S3 returns XML if success_action_status is set to 201
         replaceFileInput: false,
+        add: function(e, data) {
+          var uploadErrors = [];
+          var acceptFileTypes = /^image\/(gif|jpe?g|png)$/i;
+          if(data.originalFiles[0]['type'].length && !acceptFileTypes.test(data.originalFiles[0]['type'])) {
+            uploadErrors.push('סוג קובץ לא מוכר');
+          }
+          if(data.originalFiles[0]['size'] && data.originalFiles[0]['size'] > 5000000) {
+            uploadErrors.push('גודל הקובץ חורג מ-5 מגה בייט');
+          }
+          if(uploadErrors.length > 0) {
+            alert(uploadErrors.join("\n"));
+          } else {
+            data.submit();
+          }
+        },
         progressall: function (e, data) {
           var progress = parseInt(data.loaded / data.total * 100, 10);
           progressBar.css('width', progress + '%')
@@ -55,11 +74,11 @@
               css('background', 'green').
               css('display', 'block').
               css('width', '0%').
-              text("Loading...");
+              text("מעלה את הקובץ...");
         },
         done: function(e, data) {
           submitButton.prop('disabled', false);
-          progressBar.text("Uploading done");
+          progressBar.text("הקובץ הועלה בהצלחה");
 
           // extract key and generate URL from response
           var key   = $(data.jqXHR.responseXML).find("Key").text();
@@ -77,7 +96,7 @@
 
           progressBar.
               css("background", "red").
-              text("Failed");
+              text("העלאת הקובץ נכשלה");
         }
       });
     });
