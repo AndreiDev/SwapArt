@@ -76,27 +76,27 @@ puts 'SETTING UP DEFAULT Administrator User role'
 admin.add_role 'admin'
 
 puts 'Adding some users'
-user = User.new(id:11, email: "netanyahu@gmail.com", password: "johndoe7", encrypted_password: "$2a$10$vlDuYtxF8DWxxvoDyRQoXe8zW1xqPVoGvlEEY0cIv09.o136BtXmK", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-07-20 19:16:19", last_sign_in_at: "2014-07-20 19:16:19", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", confirmation_token: nil, confirmed_at: "2014-07-20 19:16:19", confirmation_sent_at: nil, unconfirmed_email: nil, first_name: "בנימין", last_name: "נתניהו", is_active: true, is_blocked: false, region_id: 11, phone: "0559977332")
+user = User.new(id:11, email: "netanyahu@gmail.com", password: "password", encrypted_password: "$2a$10$Ox2XG9aEo9TtAmrkl2rtBOMgwwcePwH9qfWW03F5yXWcIWrEFxEKO", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-07-20 19:16:19", last_sign_in_at: "2014-07-20 19:16:19", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", confirmation_token: nil, confirmed_at: "2014-07-20 19:16:19", confirmation_sent_at: nil, unconfirmed_email: nil, first_name: "בנימין", last_name: "נתניהו", is_active: true, is_blocked: false, region_id: 11, phone: "0559977332")
 user.skip_confirmation!
 user.save!
 user.add_role 'user'
 
-user = User.new(id:21, email: "lapid@gmail.com", password: "johndoe7", encrypted_password: "$2a$10$vlDuYtxF8DWxxvoDyRQoXe8zW1xqPVoGvlEEY0cIv09.o136BtXmK", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-07-20 19:16:19", last_sign_in_at: "2014-07-20 19:16:19", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", confirmation_token: nil, confirmed_at: "2014-07-20 19:16:19", confirmation_sent_at: nil, unconfirmed_email: nil, first_name: "יאיר", last_name: "לפיד", is_active: true, is_blocked: false, region_id: 21, phone: "0511232322")
+user = User.new(id:21, email: "lapid@gmail.com", password: "password", encrypted_password: "$2a$10$Ox2XG9aEo9TtAmrkl2rtBOMgwwcePwH9qfWW03F5yXWcIWrEFxEKO", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-07-20 19:16:19", last_sign_in_at: "2014-07-20 19:16:19", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", confirmation_token: nil, confirmed_at: "2014-07-20 19:16:19", confirmation_sent_at: nil, unconfirmed_email: nil, first_name: "יאיר", last_name: "לפיד", is_active: true, is_blocked: false, region_id: 21, phone: "0511232322")
 user.skip_confirmation!
 user.save!
 user.add_role 'user'
 
-user = User.new(id:31, email: "yechimovich@gmail.com", password: "johndoe7", encrypted_password: "$2a$10$vlDuYtxF8DWxxvoDyRQoXe8zW1xqPVoGvlEEY0cIv09.o136BtXmK", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-07-20 19:16:19", last_sign_in_at: "2014-07-20 19:16:19", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", confirmation_token: nil, confirmed_at: "2014-07-20 19:16:19", confirmation_sent_at: nil, unconfirmed_email: nil, first_name: "שלי", last_name: "יחימוביץ׳", is_active: true, is_blocked: false, region_id: 31, phone: "0544335532")
+user = User.new(id:31, email: "yechimovich@gmail.com", password: "password", encrypted_password: "$2a$10$Ox2XG9aEo9TtAmrkl2rtBOMgwwcePwH9qfWW03F5yXWcIWrEFxEKO", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-07-20 19:16:19", last_sign_in_at: "2014-07-20 19:16:19", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", confirmation_token: nil, confirmed_at: "2014-07-20 19:16:19", confirmation_sent_at: nil, unconfirmed_email: nil, first_name: "שלי", last_name: "יחימוביץ׳", is_active: true, is_blocked: false, region_id: 31, phone: "0544335532")
 user.skip_confirmation!
 user.save!
 user.add_role 'user'
 
-user = User.new(id:41, email: "saar@gmail.com", password: "johndoe7", encrypted_password: "$2a$10$vlDuYtxF8DWxxvoDyRQoXe8zW1xqPVoGvlEEY0cIv09.o136BtXmK", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-07-20 19:16:19", last_sign_in_at: "2014-07-20 19:16:19", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", confirmation_token: nil, confirmed_at: "2014-07-20 19:16:19", confirmation_sent_at: nil, unconfirmed_email: nil, first_name: "גדעון", last_name: "סער", is_active: true, is_blocked: false, region_id: 31, phone: "0514533354")
+user = User.new(id:41, email: "saar@gmail.com", password: "password", encrypted_password: "$2a$10$Ox2XG9aEo9TtAmrkl2rtBOMgwwcePwH9qfWW03F5yXWcIWrEFxEKO", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-07-20 19:16:19", last_sign_in_at: "2014-07-20 19:16:19", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", confirmation_token: nil, confirmed_at: "2014-07-20 19:16:19", confirmation_sent_at: nil, unconfirmed_email: nil, first_name: "גדעון", last_name: "סער", is_active: true, is_blocked: false, region_id: 31, phone: "0514533354")
 user.skip_confirmation!
 user.save!
 user.add_role 'user'
 
-user = User.new(id:51, email: "piron@gmail.com", password: "johndoe7", encrypted_password: "$2a$10$vlDuYtxF8DWxxvoDyRQoXe8zW1xqPVoGvlEEY0cIv09.o136BtXmK", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-07-20 19:16:19", last_sign_in_at: "2014-07-20 19:16:19", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", confirmation_token: nil, confirmed_at: "2014-07-20 19:16:19", confirmation_sent_at: nil, unconfirmed_email: nil, first_name: "שי", last_name: "פירון", is_active: true, is_blocked: false, region_id: 21, phone: "0513323324")
+user = User.new(id:51, email: "piron@gmail.com", password: "password", encrypted_password: "$2a$10$Ox2XG9aEo9TtAmrkl2rtBOMgwwcePwH9qfWW03F5yXWcIWrEFxEKO", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-07-20 19:16:19", last_sign_in_at: "2014-07-20 19:16:19", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", confirmation_token: nil, confirmed_at: "2014-07-20 19:16:19", confirmation_sent_at: nil, unconfirmed_email: nil, first_name: "שי", last_name: "פירון", is_active: true, is_blocked: false, region_id: 21, phone: "0513323324")
 user.skip_confirmation!
 user.save!
 user.add_role 'user'
@@ -135,7 +135,11 @@ Block.create!([
               ])
 puts 'Adding some wants'
 Want.create!([
-                 {id:1, user_id: 11, item_id: 1, extra_mile: true}
+                 {id:1, user_id: 11, item_id: 101, extra_mile: true},
+                 {id:11, user_id: 11, item_id: 111, extra_mile: true},
+                 {id:21, user_id: 21, item_id: 101, extra_mile: true},
+                 {id:31, user_id: 41, item_id: 11, extra_mile: true},
+                 {id:41, user_id: 41, item_id: 21, extra_mile: true}
              ])
 puts 'Adding some swaps'
 Swap.create!([
