@@ -113,7 +113,7 @@ Item.create!({id:71, user_id: 31, type_id: 11, image_url: 'sample8.jpg', descrip
 Item.create!({id:81, user_id: 31, type_id: 31, image_url: 'sample9.jpg', description: 'התמונה בעלת אנרגיות חיוביות ביותר',price_id: 31,height: '150',width: '110',age_id: 31,state_id: 31})
 Item.create!({id:91, user_id: 31, type_id: 31, image_url: 'sample10.jpg', description: 'התמונה הכי יפה שראיתי מימי!',price_id: 11,height: '110',width: '110',age_id: 11,state_id: 31})
 Item.create!({id:101, user_id: 41, type_id: 21, image_url: 'sample11.jpg', description: 'יופי של תמונה לילדים',price_id: 21,height: '150',width: '210',age_id: 1,state_id: 1})
-Item.create!({id:111, user_id: 51, type_id: 11, image_url: 'sample12.jpg', description: 'התמונה בעלת אנרגיות חיוביות ביותר',price_id: 1,height: '50',width: '110',age_id: 1,state_id: 11})
+Item.create!({id:111, user_id: 51, type_id: 11, image_url: 'sample12.jpg', description: 'נראית מצויין לצד עיצוב מודרני',price_id: 1,height: '50',width: '110',age_id: 1,state_id: 11})
 Item.create!({id:121, user_id: 51, type_id: 31, image_url: 'sample13.jpg', description: 'תמונה מגניבה ביותר, שמורה מאוד',price_id: 1,height: '50',width: '60',age_id: 21,state_id: 11})
 Item.create!({id:131, user_id: 51, type_id: 1, image_url: 'sample14.jpg', description: 'סבבה של תמונה',price_id: 11,height: '150',width: '130',age_id: 1,state_id: 21})
 Item.create!({id:141, user_id: 51, type_id: 11, image_url: 'sample15.jpg', description: 'מתאימה לכל חדר',price_id: 21,height: '150',width: '110',age_id: 21,state_id: 11})
