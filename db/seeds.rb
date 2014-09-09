@@ -76,24 +76,47 @@ puts 'SETTING UP DEFAULT Administrator User role'
 admin.add_role 'admin'
 
 puts 'Adding some users'
-user = User.new(id:11, email: "john.doe@gmail.com", password: "johndoe7", encrypted_password: "$2a$10$vlDuYtxF8DWxxvoDyRQoXe8zW1xqPVoGvlEEY0cIv09.o136BtXmK", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-07-20 19:16:19", last_sign_in_at: "2014-07-20 19:16:19", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", confirmation_token: nil, confirmed_at: "2014-07-20 19:16:19", confirmation_sent_at: nil, unconfirmed_email: nil, first_name: "John", last_name: "Doe", is_active: true, is_blocked: false, region_id: 11, phone: "0545470201")
+user = User.new(id:11, email: "netanyahu@gmail.com", password: "johndoe7", encrypted_password: "$2a$10$vlDuYtxF8DWxxvoDyRQoXe8zW1xqPVoGvlEEY0cIv09.o136BtXmK", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-07-20 19:16:19", last_sign_in_at: "2014-07-20 19:16:19", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", confirmation_token: nil, confirmed_at: "2014-07-20 19:16:19", confirmation_sent_at: nil, unconfirmed_email: nil, first_name: "בנימין", last_name: "נתניהו", is_active: true, is_blocked: false, region_id: 11, phone: "0559977332")
+user.skip_confirmation!
+user.save!
+user.add_role 'user'
+
+user = User.new(id:21, email: "lapid@gmail.com", password: "johndoe7", encrypted_password: "$2a$10$vlDuYtxF8DWxxvoDyRQoXe8zW1xqPVoGvlEEY0cIv09.o136BtXmK", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-07-20 19:16:19", last_sign_in_at: "2014-07-20 19:16:19", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", confirmation_token: nil, confirmed_at: "2014-07-20 19:16:19", confirmation_sent_at: nil, unconfirmed_email: nil, first_name: "יאיר", last_name: "לפיד", is_active: true, is_blocked: false, region_id: 21, phone: "0511232322")
+user.skip_confirmation!
+user.save!
+user.add_role 'user'
+
+user = User.new(id:31, email: "yechimovich@gmail.com", password: "johndoe7", encrypted_password: "$2a$10$vlDuYtxF8DWxxvoDyRQoXe8zW1xqPVoGvlEEY0cIv09.o136BtXmK", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-07-20 19:16:19", last_sign_in_at: "2014-07-20 19:16:19", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", confirmation_token: nil, confirmed_at: "2014-07-20 19:16:19", confirmation_sent_at: nil, unconfirmed_email: nil, first_name: "שלי", last_name: "יחימוביץ׳", is_active: true, is_blocked: false, region_id: 31, phone: "0544335532")
+user.skip_confirmation!
+user.save!
+user.add_role 'user'
+
+user = User.new(id:41, email: "saar@gmail.com", password: "johndoe7", encrypted_password: "$2a$10$vlDuYtxF8DWxxvoDyRQoXe8zW1xqPVoGvlEEY0cIv09.o136BtXmK", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-07-20 19:16:19", last_sign_in_at: "2014-07-20 19:16:19", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", confirmation_token: nil, confirmed_at: "2014-07-20 19:16:19", confirmation_sent_at: nil, unconfirmed_email: nil, first_name: "גדעון", last_name: "סער", is_active: true, is_blocked: false, region_id: 31, phone: "0514533354")
+user.skip_confirmation!
+user.save!
+user.add_role 'user'
+
+user = User.new(id:51, email: "piron@gmail.com", password: "johndoe7", encrypted_password: "$2a$10$vlDuYtxF8DWxxvoDyRQoXe8zW1xqPVoGvlEEY0cIv09.o136BtXmK", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-07-20 19:16:19", last_sign_in_at: "2014-07-20 19:16:19", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", confirmation_token: nil, confirmed_at: "2014-07-20 19:16:19", confirmation_sent_at: nil, unconfirmed_email: nil, first_name: "שי", last_name: "פירון", is_active: true, is_blocked: false, region_id: 21, phone: "0513323324")
 user.skip_confirmation!
 user.save!
 user.add_role 'user'
 
 puts 'Adding some items'
-i1 = Item.new({id:1, user_id: 1,type_id: 21,description: 'תמונה מה זה מדליקה!!!', price_id: 1,height: '100',width: '80',age_id: 1,state_id: 11})
-i11 = Item.new({id:11, user_id: 1,type_id: 1,description: 'התמונה הייתה בחדר שינה - מאוד אלגנטית',price_id: 11,height: '50',width: '80',age_id: 11,state_id: 1})
-i21 = Item.new({id:21, user_id: 11,type_id: 11,description: 'משרה אווירה רומנטית ומיוחדת',price_id: 21,height: '400',width: '180',age_id: 21,state_id: 11})
-i31 = Item.new({id:31, user_id: 11,type_id: 1,description: 'אין לי מה לכתוב על התמונה...',price_id: 1,height: '550',width: '810',age_id: 21,state_id: 31})
-i1.image_url = "http://images.fineartamerica.com/images-medium-large-5/winter-sparkle-original-madart-painting-megan-duncanson.jpg"
-i11.image_url = "http://www.osnatfineart.com/paintings/07-09/07-09-sunrise-painting-3680.jpg"
-i21.image_url = "http://webneel.com/daily/sites/default/files/images/daily/10-2013/5-tree-painting.jpg"
-i31.image_url = "http://www.galleryoilpainting.com/images/tree_of_life_painting_modern_art_01.jpg"
-i1.save!
-i11.save!
-i21.save!
-i31.save!
+Item.create!({id:1, user_id: 11, type_id: 21, image_url: 'sample1.jpg', description: 'תמונה מה זה מדליקה!!!', price_id: 1,height: '100',width: '80',age_id: 1,state_id: 11})
+Item.create!({id:11, user_id: 11, type_id: 1, image_url: 'sample2.jpg', description: 'התמונה הייתה בחדר שינה - מאוד אלגנטית',price_id: 11,height: '50',width: '80',age_id: 11,state_id: 1})
+Item.create!({id:21, user_id: 11, type_id: 11, image_url: 'sample3.jpg', description: 'משרה אווירה רומנטית ומיוחדת',price_id: 21,height: '400',width: '180',age_id: 21,state_id: 11})
+Item.create!({id:31, user_id: 21, type_id: 31, image_url: 'sample4.jpg', description: 'אין לי מה לכתוב על התמונה...',price_id: 31,height: '550',width: '810',age_id: 21,state_id: 31})
+Item.create!({id:41, user_id: 21, type_id: 21, image_url: 'sample5.jpg', description: 'אחלה תמונה, מאוד מומלצת',price_id: 21,height: '50',width: '100',age_id: 31,state_id: 11})
+Item.create!({id:51, user_id: 21, type_id: 11, image_url: 'sample6.jpg', description: 'אין תמונות כאלה!',price_id: 31,height: '250',width: '110',age_id: 11,state_id: 1})
+Item.create!({id:61, user_id: 31, type_id: 1, image_url: 'sample7.jpg', description: 'תמונה שקיבלתי מסבתא שלי',price_id: 11,height: '250',width: '210',age_id: 11,state_id: 1})
+Item.create!({id:71, user_id: 31, type_id: 11, image_url: 'sample8.jpg', description: 'וואלה אחלה תמונה',price_id: 1,height: '50',width: '210',age_id: 21,state_id: 11})
+Item.create!({id:81, user_id: 31, type_id: 31, image_url: 'sample9.jpg', description: 'התמונה בעלת אנרגיות חיוביות ביותר',price_id: 31,height: '150',width: '110',age_id: 31,state_id: 31})
+Item.create!({id:91, user_id: 31, type_id: 31, image_url: 'sample10.jpg', description: 'התמונה הכי יפה שראיתי מימי!',price_id: 11,height: '110',width: '110',age_id: 11,state_id: 31})
+Item.create!({id:101, user_id: 41, type_id: 21, image_url: 'sample11.jpg', description: 'יופי של תמונה לילדים',price_id: 21,height: '150',width: '210',age_id: 1,state_id: 1})
+Item.create!({id:111, user_id: 51, type_id: 11, image_url: 'sample12.jpg', description: 'התמונה בעלת אנרגיות חיוביות ביותר',price_id: 1,height: '50',width: '110',age_id: 1,state_id: 11})
+Item.create!({id:121, user_id: 51, type_id: 31, image_url: 'sample13.jpg', description: 'תמונה מגניבה ביותר, שמורה מאוד',price_id: 1,height: '50',width: '60',age_id: 21,state_id: 11})
+Item.create!({id:131, user_id: 51, type_id: 1, image_url: 'sample14.jpg', description: 'סבבה של תמונה',price_id: 11,height: '150',width: '130',age_id: 1,state_id: 21})
+Item.create!({id:141, user_id: 51, type_id: 11, image_url: 'sample15.jpg', description: 'מתאימה לכל חדר',price_id: 21,height: '150',width: '110',age_id: 21,state_id: 11})
 
 puts 'Adding some taggings'
 Tagging.create!([
