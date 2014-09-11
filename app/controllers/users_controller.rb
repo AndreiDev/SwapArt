@@ -103,6 +103,10 @@ class UsersController < ApplicationController
 
   def modal_contact
     @user
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   private
