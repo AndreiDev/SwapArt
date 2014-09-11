@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :modal]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :modal, :modal_contact]
 
   load_and_authorize_resource
   # respond_to :html, :json
@@ -99,6 +99,10 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
+
+  def modal_contact
+    @user
   end
 
   private

@@ -23,13 +23,18 @@
     font-weight: bold;
     font-size: larger;
   }
-  .wants_to_swap {
+//  .wants_to_swap {
+//    font-weight: bolder;
+//    font-size: larger;
+//  }
+  .user_name {
     font-weight: bolder;
     font-size: larger;
   }
-  .user_info {
-    color: darkred;
+  .user_info a{
+    color: darkred !important;
     font-weight: bolder;
+    font-size: larger;
   }
 }
 

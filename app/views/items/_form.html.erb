@@ -10,7 +10,7 @@
     <%= f.label :image_url %>
     <%= f.file_field :image_url %>
     <br/>
-    <%= f.input :description, input_html: { maxlength: 50 } %> <br/>
+    <%= f.input :description, input_html: { maxlength: 30 } %> <br/>
     <%= f.association :type, input_html: { class: 'short_box' }, label_method: :description, value_method: :id, selected: 11  %>
     <%= f.association :price, input_html: { class: 'short_box' }, label_method: :description, value_method: :id, selected: 11 %><br/>
     <%= f.input :height, input_html: { class: 'short_box', min:30 ,max: 300 } %>
