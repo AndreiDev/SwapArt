@@ -29,7 +29,6 @@
         <% end %>
         </p>
       <% end %>
-      </p>
       <p>
       <% if locals[:item].user == current_user %>
         <%= link_to t('Edit'), edit_item_path(locals[:item]), :class => "btn btn-info" %>
