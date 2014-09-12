@@ -101,12 +101,14 @@ ActiveRecord::Schema.define(version: 20140803185257) do
   create_table "swaps", force: true do |t|
     t.integer  "swapper_id"
     t.integer  "swappee_id"
+    t.integer  "clicked_item_id"
     t.text     "swapper_items"
     t.text     "swappee_items"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "swaps", ["clicked_item_id"], name: "index_swaps_on_clicked_item_id", using: :btree
   add_index "swaps", ["swappee_id"], name: "index_swaps_on_swappee_id", using: :btree
   add_index "swaps", ["swapper_id"], name: "index_swaps_on_swapper_id", using: :btree
 
