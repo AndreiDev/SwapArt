@@ -41,6 +41,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    addressable (2.3.6)
     arel (5.0.1.20140414130214)
     authbuttons-rails (0.1.2)
     aws-sdk (1.52.0)
@@ -92,6 +93,10 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.1)
     jwt (1.0.0)
+    koala (1.10.1)
+      addressable
+      faraday
+      multi_json
     libv8 (3.16.14.3)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -253,6 +258,7 @@ DEPENDENCIES
   high_voltage
   jbuilder (~> 2.0)
   jquery-rails
+  koala
   mail
   mysql2
   nested_form

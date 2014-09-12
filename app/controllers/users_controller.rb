@@ -100,13 +100,9 @@ class UsersController < ApplicationController
   def modal_contact
     @item = Item.find params[:item_id]
     swap = Swap.find_or_initialize_by(swapper: current_user, swappee: @user, clicked_item: @item)
-    if swap.persisted?
-
-    else
-      swap.swapper_items = get_items_by_user2_that_user1_wants(@user, current_user).map{|item| item.id}.to_s
-      swap.swappee_items = get_items_by_user2_that_user1_wants(current_user, @user).map{|item| item.id}.to_s
-      swap.save
-    end
+    swap.swapper_items = get_items_by_user2_that_user1_wants(@user, current_user).map{|item| item.id}.to_s
+    swap.swappee_items = get_items_by_user2_that_user1_wants(current_user, @user).map{|item| item.id}.to_s
+    swap.save
     respond_to do |format|
       format.js
     end
