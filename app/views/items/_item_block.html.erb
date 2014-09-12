@@ -26,14 +26,15 @@
         <%= link_to t('Destroy'), locals[:item], method: :delete, data: { confirm: t('areYouSure') }, :class => "btn btn-info" %>
       <% else %>
         <% if locals[:state] == 2 || locals[:state] == 4  %>
-          <%= link_to t('want'), toggle_wants_path(want: {item_id: locals[:item].id}), format: :json, remote: true, method: :post, :class => "btn btn-success want-btn" %>
+          <%= link_to "", toggle_wants_path(want: {item_id: locals[:item].id}), format: :json, remote: true, method: :post, :class => "btn btn-large btn-success fa fa-thumbs-up" %>
         <% else %>
-          <%= link_to t('want'), toggle_wants_path(want: {item_id: locals[:item].id}), format: :json, remote: true, method: :post, :class => "btn btn-default want-btn" %>
+          <%= link_to "", toggle_wants_path(want: {item_id: locals[:item].id}), format: :json, remote: true, method: :post, :class => "btn btn-large btn-default fa fa-thumbs-up" %>
         <% end %>
       <% end %>
       <% if locals[:state] == 4 %>
       <span class="user_info">
-        <%= link_to "%s" % [t('model.contact')], modal_contact_users_path(user_id: locals[:item].user_id, item_id: locals[:item].id), format: :json, remote: true, :class => "contact_modal_link" %>      </span>
+        <%= link_to "", modal_contact_users_path(user_id: locals[:item].user_id, item_id: locals[:item].id), format: :json, remote: true, :class => "btn btn-large btn-warning pull-left fa fa-info-circle" %>
+      </span>
       <% end %>
       </p>
     </div>
