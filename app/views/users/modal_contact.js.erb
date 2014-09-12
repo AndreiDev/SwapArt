@@ -1,6 +1,7 @@
 $('#UserContactModal .first_name').text("<%= @user.first_name %>");
 $('#UserContactModal .last_name').text(" <%= @user.last_name %>");
 $('#UserContactModal .user_email').text("<%= @user.email %>");
+$('#UserContactModal .user_email').attr("href", "mailto:<%= @user.email %>");
 $('#UserContactModal .user_phone').text("<%= @user.phone %>");
 $('#UserModal').modal('hide');
 $('#UserContactModal').modal();
