@@ -91,19 +91,22 @@ class UsersController < ApplicationController
 
     @states = get_states(@items)
 
-    @my_items_user_wants = Item.find_by_sql ["SELECT DISTINCT items.*
-    FROM users
-    LEFT JOIN wants on users.id = wants.user_id
-    LEFT JOIN items on wants.item_id = items.id
-    WHERE users.id = '?' AND items.user_id = '?'", @user.id, current_user.id]
+    @my_items_user_wants = get_items_by_user2_that_user1_wants(@user, current_user)
     respond_to do |format|
       format.js
     end
   end
 
   def modal_contact
-    swaps.find_or_create_by(swapper: current_user, swappee: @user, swappee_item
+    @item = Item.find params[:item_id]
+    swap = Swap.find_or_initialize_by(swapper: current_user, swappee: @user, clicked_item: @item)
+    if swap.persisted?
 
+    else
+      swap.swapper_items = get_items_by_user2_that_user1_wants(@user, current_user).map{|item| item.id}.to_s
+      swap.swappee_items = get_items_by_user2_that_user1_wants(current_user, @user).map{|item| item.id}.to_s
+      swap.save
+    end
     respond_to do |format|
       format.js
     end
@@ -112,7 +115,7 @@ class UsersController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

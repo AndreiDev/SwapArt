@@ -32,7 +32,7 @@
       <% end %>
       <% if locals[:state] == 4 %>
       <span class="user_info">
-        <%= link_to "%s" % [t('model.contact')], modal_contact_users_path(id: locals[:item].user_id), format: :json, remote: true, :class => "contact_modal_link" %>      </span>
+        <%= link_to "%s" % [t('model.contact')], modal_contact_users_path(user_id: locals[:item].user_id, item_id: locals[:item].id), format: :json, remote: true, :class => "contact_modal_link" %>      </span>
       <% end %>
       </p>
     </div>
