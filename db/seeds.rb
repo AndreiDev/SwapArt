@@ -143,5 +143,5 @@ Want.create!([
              ])
 puts 'Adding some swaps'
 Swap.create!([
-                 {id:1, swapper_id: 1, swappee_id: 11, swapper_items: '21', swappee_items: '31'}
+                 {id:1, swapper_id: 1, swappee_id: 11, clicked_item: 31, swapper_items: '21', swappee_items: '31'}
              ])

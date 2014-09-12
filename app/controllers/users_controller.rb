@@ -102,7 +102,7 @@ class UsersController < ApplicationController
   end
 
   def modal_contact
-    @user.swaps
+    swaps.find_or_create_by(swapper: current_user, swappee: @user, swappee_item
 
     respond_to do |format|
       format.js

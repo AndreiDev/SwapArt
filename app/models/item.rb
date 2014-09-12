@@ -22,4 +22,6 @@ class Item < ActiveRecord::Base
 
   has_many :wants
   has_many :want_users, :through => :wants, :source => :user
+
+  has_many :clicked_item, :class_name => 'Swap', :foreign_key => 'clicked_item_id'
 end

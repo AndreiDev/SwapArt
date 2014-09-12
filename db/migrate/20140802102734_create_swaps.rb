@@ -3,6 +3,7 @@ class CreateSwaps < ActiveRecord::Migration
     create_table :swaps do |t|
       t.references :swapper, index: true
       t.references :swappee, index: true
+      t.references :clicked_item, index: true
       t.text :swapper_items
       t.text :swappee_items
 
