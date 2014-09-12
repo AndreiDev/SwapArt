@@ -99,16 +99,16 @@ ActiveRecord::Schema.define(version: 20140803185257) do
   end
 
   create_table "swaps", force: true do |t|
-    t.integer  "user1_id"
-    t.integer  "user2_id"
-    t.text     "user1_items"
-    t.text     "user2_items"
+    t.integer  "swapper_id"
+    t.integer  "swappee_id"
+    t.text     "swapper_items"
+    t.text     "swappee_items"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "swaps", ["user1_id"], name: "index_swaps_on_user1_id", using: :btree
-  add_index "swaps", ["user2_id"], name: "index_swaps_on_user2_id", using: :btree
+  add_index "swaps", ["swappee_id"], name: "index_swaps_on_swappee_id", using: :btree
+  add_index "swaps", ["swapper_id"], name: "index_swaps_on_swapper_id", using: :btree
 
   create_table "taggings", force: true do |t|
     t.integer  "item_id"

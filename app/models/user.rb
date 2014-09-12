@@ -16,6 +16,9 @@ class User < ActiveRecord::Base
   has_many :wants
   has_many :want_items, :through => :wants, :source => :item
 
+  has_many :swappees, :class_name => 'Swap', :foreign_key => 'swappee_id'
+  has_many :swappers, :class_name => 'Swap', :foreign_key => 'swapper_id'
+
   has_and_belongs_to_many :roles, join_table: :users_roles
   accepts_nested_attributes_for :roles, allow_destroy: false
 

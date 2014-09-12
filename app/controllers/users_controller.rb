@@ -102,7 +102,7 @@ class UsersController < ApplicationController
   end
 
   def modal_contact
-    @user
+    @user.swaps
 
     respond_to do |format|
       format.js
