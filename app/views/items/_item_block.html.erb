@@ -3,12 +3,12 @@
     <div class="thumbnail-image-div">
       <div style="direction: ltr"><p class="thumbnail_image_size"><%= locals[:item].width  %>X<%= locals[:item].height %></p></div>
       <% unless locals[:item].user == current_user %>
-        <%= link_to 'X', apply_blocks_path(block: {item_id: locals[:item].id}), format: :json, remote: true, method: :post, :class => "btn btn-danger thumbnail_close" %>
+        <%= link_to "", apply_blocks_path(block: {item_id: locals[:item].id}), format: :json, remote: true, method: :post, :class => "btn btn-danger thumbnail_close fa fa-trash-o" %>
       <% end %>
       <img src= <%= S3_PATH + locals[:item].image_url %> alt="" class="center-block">
     </div>
     <div class="caption">
-      <p><%= locals[:item].description %></p>
+      <p><%= locals[:item].description.present? ? locals[:item].description : "-" %></p>
       <p class="long-description"><%= locals[:item].type.description %> במצב   <%= locals[:item].state.description %> נקנה לפני  <%= locals[:item].age.description %> ב<%= locals[:item].price.description %></p>
       <br/><br/>
       <p class="user_name">
@@ -22,8 +22,8 @@
       <% end %>
       <p>
       <% if locals[:item].user == current_user %>
-        <%= link_to t('Edit'), edit_item_path(locals[:item]), :class => "btn btn-info" %>
-        <%= link_to t('Destroy'), locals[:item], method: :delete, data: { confirm: t('areYouSure') }, :class => "btn btn-info" %>
+        <%= link_to "", edit_item_path(locals[:item]), :class => "btn btn-info fa fa-edit" %>
+        <%= link_to "", locals[:item], method: :delete, data: { confirm: t('areYouSure') }, :class => "btn btn-danger pull-left fa fa-trash-o" %>
       <% else %>
         <% if locals[:state] == 2 || locals[:state] == 4  %>
           <%= link_to "", toggle_wants_path(want: {item_id: locals[:item].id}), format: :json, remote: true, method: :post, :class => "btn btn-large btn-success fa fa-thumbs-up" %>
