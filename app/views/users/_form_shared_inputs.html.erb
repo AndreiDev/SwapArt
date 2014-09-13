@@ -1,5 +1,11 @@
-<%= f.input :first_name, label: t("model.firstName"), autofocus: true %>
-<%= f.input :last_name, label: t("model.lastName") %><br/>
-<%= f.input :email, label: t("model.email") %>
+<% unless @user.first_name %>
+  <%= f.input :first_name, label: t("model.firstName"), autofocus: true %>
+<% end %>
+<% unless @user.last_name %>
+  <%= f.input :last_name, label: t("model.lastName") %><br/>
+<% end %>
+<% unless @user.email %>
+  <%= f.input :email, label: t("model.email") %>
+<% end %>
 <%= f.input :phone, label: t("model.phone") %> <br/>
 <%= f.association :region, input_html: { class: 'short_box' }, label_method: :description, value_method: :id, label: t("model.region") %>
