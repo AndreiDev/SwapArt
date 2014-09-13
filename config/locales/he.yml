@@ -150,9 +150,10 @@ he:
 
   navigation:
     admin: "ממשק ניהול"
-    edit_account: "עריכת פרטי משתמש"
+    edit_account: "הגדרות חשבון"
     register: "רישום לאתר"
-    items: "ניהול התמונות שלי"
+    items: "התמונות שלי"
+    new_item: "תמונה חדשה"
 
   errors:
     messages:

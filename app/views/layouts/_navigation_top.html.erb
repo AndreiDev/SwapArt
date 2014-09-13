@@ -17,6 +17,7 @@
             <% if current_user.has_role? :admin %>
                 <%= render 'layouts/menu_option', option_path: users_path, option_name: t('navigation.admin') %>
             <% end %>
+            <%= render 'layouts/menu_option', option_path: new_item_path, option_name: t('navigation.new_item') %>
             <%= render 'layouts/menu_option', option_path: items_path, option_name: t('navigation.items') %>
             <%= render 'layouts/menu_option', option_path: edit_user_registration_path, option_name: t('navigation.edit_account') %>
             <%= render 'layouts/menu_option', option_path: destroy_user_session_path, option_name: t('logout'), option_method: 'delete' %>

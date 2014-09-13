@@ -1,5 +1,3 @@
-<%= link_to t('model.all_items'), items_path, class: "btn btn-primary btn-lg" %>
-<%= render "shared/page_title", page_title: t('model.show_item') %>
 <div class="gallery_thumbnail">
   <ul class="row">
     <%= render 'item_block', locals: {item: @item}%>

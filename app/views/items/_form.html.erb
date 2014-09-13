@@ -7,7 +7,11 @@
       <%= f.input :is_active %>
       <%= f.input :is_blocked %>
     <% end %>
-    <%= f.label :image_url %>
+    <% if @item.image_url.present? %>
+      <%= f.label :update_image_url %>
+    <% else %>
+      <%= f.label :image_url %>
+    <% end %>
     <%= f.file_field :image_url %>
     <br/>
     <%= f.input :description, input_html: { maxlength: 30 } %> <br/>
