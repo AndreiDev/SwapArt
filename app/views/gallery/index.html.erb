@@ -57,17 +57,24 @@
   </div>
 </div>
 
-<!--***** MODAL *****-->
-<div class="modal fade" id="BlankUserModal" tabindex="-1" role="dialog" aria-labelledby="BlankUserModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-body">
-        <div id="my-area">
-          <h1>נא להעלות תמונה לפני השימוש באתר</h1>
-          <h1></h1>
+  <% if current_user.items.count == 0 %>
+    <script type="text/javascript">
+      $(window).load(function(){
+        $('#BlankUserModal').modal('show');
+      });
+    </script>
+  <!--***** MODAL *****-->
+  <div class="modal fade" id="BlankUserModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="BlankUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div id="my-area">
+            <h1>נא להעלות תמונה לפני השימוש באתר</h1>
+            <a class="btn fa fa-plus-square-o center-block" style="font-size: 120px" href= <%=new_item_path%>></a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+  <% end %>
 <% end %>

@@ -3,7 +3,7 @@
     <div class="thumbnail-image-div">
       <div style="direction: ltr"><p class="thumbnail_image_size"><%= locals[:item].width  %>X<%= locals[:item].height %></p></div>
       <% unless locals[:item].user == current_user %>
-        <%= link_to "", apply_blocks_path(block: {item_id: locals[:item].id}), format: :json, remote: true, method: :post, :class => "btn btn-danger thumbnail_close fa fa-trash-o" %>
+        <%= link_to "", apply_blocks_path(block: {item_id: locals[:item].id}), format: :json, remote: true, method: :post, :class => "btn btn-danger thumbnail_close fa fa-times" %>
       <% end %>
       <img src= <%= S3_PATH + locals[:item].image_url %> alt="" class="center-block">
     </div>
