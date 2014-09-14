@@ -2,10 +2,10 @@
   <% option_method ||= nil %>
 
   <% if option_method.blank? %>
-      <%= link_to option_name, option_path %>
+      <%= link_to ' ' + option_name, option_path, class: 'fa ' + fa_name %>
   <% else %>
       <%#= link_to 'Logout', destroy_user_session_path, :method => 'delete' %>
-      <%= link_to option_name, option_path, method: option_method %>
+      <%= link_to ' ' + option_name, option_path, method: option_method, class: 'fa ' + fa_name  %>
   <% end %>
 </li>
 
