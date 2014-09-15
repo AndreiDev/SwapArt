@@ -18,7 +18,9 @@
                 <%= render 'layouts/menu_option', option_path: users_path, option_name: t('navigation.admin') %>
             <% end %>
             <%= render 'layouts/menu_option', option_path: new_item_path, option_name: t('navigation.new_item'), fa_name: 'fa-picture-o' %>
-            <%= render 'layouts/menu_option', option_path: items_path, option_name: t('navigation.items'), fa_name: 'fa-list-ul' %>
+            <% if current_user.items.count > 0 %>
+              <%= render 'layouts/menu_option', option_path: items_path, option_name: t('navigation.items'), fa_name: 'fa-list-ul' %>
+            <% end %>
             <%= render 'layouts/menu_option', option_path: edit_user_registration_path, option_name: t('navigation.edit_account'), fa_name: 'fa-wrench' %>
             <%= render 'layouts/menu_option', option_path: destroy_user_session_path, option_name: t('logout'), option_method: 'delete', fa_name: 'fa-sign-out' %>
 

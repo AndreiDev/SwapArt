@@ -64,7 +64,11 @@ class ItemsController < ApplicationController
     S3_BUCKET.objects[@item.image_url].delete
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to items_url, notice: t('model.item_destroy') }
+      if current_user.items.count > 0
+        format.html { redirect_to items_url, notice: t('model.item_destroy') }
+      else
+        format.html { redirect_to new_item_url, notice: t('model.item_destroy') }
+      end
       format.json { head :no_content }
     end
   end
