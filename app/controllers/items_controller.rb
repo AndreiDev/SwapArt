@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :toggle_active]
   before_action :set_s3_direct_post
 
   load_and_authorize_resource
@@ -70,6 +70,14 @@ class ItemsController < ApplicationController
         format.html { redirect_to new_item_url, notice: t('model.item_destroy') }
       end
       format.json { head :no_content }
+    end
+  end
+
+  def toggle_active
+    @item.is_active = !@item.is_active
+    @item.save
+    respond_to do |format|
+      format.js
     end
   end
 

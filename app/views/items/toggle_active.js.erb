@@ -1,0 +1,7 @@
+<% if @item.is_active %>
+  $('.toggle_active').removeClass('glyphicon-eye-close btn-warning');
+  $('.toggle_active').addClass('glyphicon-eye-open btn-success');
+<% else %>
+  $('.toggle_active').removeClass('glyphicon-eye-open btn-success');
+  $('.toggle_active').addClass('glyphicon-eye-close btn-warning');
+<% end %>

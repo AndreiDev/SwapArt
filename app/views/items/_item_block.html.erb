@@ -2,7 +2,13 @@
   <div class="thumbnail">
     <div class="thumbnail-image-div">
       <div style="direction: ltr"><p class="thumbnail_image_size"><%= locals[:item].width  %>X<%= locals[:item].height %></p></div>
-      <% unless locals[:item].user == current_user %>
+      <% if locals[:item].user == current_user %>
+        <% if locals[:item].is_active %>
+          <%= link_to "", toggle_active_items_path(id: locals[:item].id), format: :json, remote: true, method: :post, :class => "btn btn-success thumbnail_close toggle_active glyphicon glyphicon-eye-open" %>
+        <% else %>
+          <%= link_to "", toggle_active_items_path(id: locals[:item].id), format: :json, remote: true, method: :post, :class => "btn btn-warning thumbnail_close toggle_active glyphicon glyphicon-eye-close" %>
+        <% end %>
+      <% else %>
         <%= link_to "", apply_blocks_path(block: {item_id: locals[:item].id}), format: :json, remote: true, method: :post, :class => "btn btn-danger thumbnail_close fa fa-times" %>
       <% end %>
       <img src= <%= S3_PATH + locals[:item].image_url %> alt="" class="center-block">

@@ -18,7 +18,11 @@ Tur::Application.routes.draw do
 
   resources :taggings
 
-  resources :items
+  resources :items do
+    collection do
+      post 'toggle_active'
+    end
+  end
 
   resources :tags
 
