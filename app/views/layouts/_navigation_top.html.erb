@@ -15,7 +15,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
             <% if current_user.has_role? :admin %>
-                <%= render 'layouts/menu_option', option_path: users_path, option_name: t('navigation.admin'), fa_name: 'fa-key' %> %>
+                <%= render 'layouts/menu_option', option_path: users_path, option_name: t('navigation.admin'), fa_name: 'fa-key' %>
             <% end %>
             <%= render 'layouts/menu_option', option_path: new_item_path, option_name: t('navigation.new_item'), fa_name: 'fa-picture-o' %>
             <% if current_user.items.count > 0 %>
