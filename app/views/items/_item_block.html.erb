@@ -4,7 +4,7 @@
       <div style="direction: ltr"><p class="thumbnail_image_size"><%= locals[:item].width  %>X<%= locals[:item].height %></p></div>
       <% if locals[:item].user == current_user %>
         <% if locals[:item].is_active %>
-          <%= link_to "", toggle_active_items_path(id: locals[:item].id), format: :json, remote: true, method: :post, :class => "btn btn-success thumbnail_close toggle_active glyphicon glyphicon-eye-open" %>
+          <%= link_to "", toggle_active_items_path(id: locals[:item].id), format: :json, remote: true, method: :post, :class => "btn btn-success toggle_active glyphicon glyphicon-eye-open" %>
         <% else %>
           <%= link_to "", toggle_active_items_path(id: locals[:item].id), format: :json, remote: true, method: :post, :class => "btn btn-warning thumbnail_close toggle_active glyphicon glyphicon-eye-close" %>
         <% end %>

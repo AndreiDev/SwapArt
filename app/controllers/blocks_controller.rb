@@ -74,6 +74,14 @@ class BlocksController < ApplicationController
     end
   end
 
+  def clear
+    blocks_to_delete = Block.where(user_id: current_user.id)
+    blocks_to_delete.delete_all if blocks_to_delete.present?
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_block

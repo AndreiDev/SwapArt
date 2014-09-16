@@ -13,6 +13,7 @@ Tur::Application.routes.draw do
   resources :blocks do
     collection do
       post 'apply'
+      post 'clear'
     end
   end
 
