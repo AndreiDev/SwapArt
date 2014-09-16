@@ -76,6 +76,10 @@ class ItemsController < ApplicationController
   def toggle_active
     @item.is_active = !@item.is_active
     @item.save
+    # delete all wants that want the item that was just deactivated
+    unless @item.is_active
+      @item.wants.all.delete_all
+    end
     respond_to do |format|
       format.js
     end
