@@ -66,6 +66,9 @@ class BlocksController < ApplicationController
 
   def apply
     @block = Block.find_or_create_by(user_id: @block_params['user_id'], item_id: @block_params['item_id'])
+    # deleting want when block created
+    want_to_delete = Want.find_by_user_id_and_item_id(@block_params['user_id'], @block_params['item_id'])
+    want_to_delete.delete if want_to_delete.present?
     respond_to do |format|
       format.js
     end
