@@ -1,10 +1,10 @@
-<% unless @user.first_name %>
+<% unless @user.first_name.present? && current_user.nil? && @user.errors.messages.count == 0 %>
   <%= f.input :first_name, label: t("model.firstName"), autofocus: true %>
 <% end %>
-<% unless @user.last_name %>
+<% unless @user.last_name.present? && current_user.nil? && @user.errors.messages.count == 0 %>
   <%= f.input :last_name, label: t("model.lastName") %><br/>
 <% end %>
-<% unless @user.email %>
+<% unless @user.email.present? && current_user.nil? && @user.errors.messages.count == 0 %>
   <%= f.input :email, label: t("model.email") %>
 <% end %>
 <%= f.input :phone, label: t("model.phone") %> <br/>
