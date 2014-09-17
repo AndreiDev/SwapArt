@@ -29,7 +29,9 @@
 
         <div id="footer">
           <!--<footer>-->
-          <%= render 'layouts/navigation_footer' %>
+          <% if current_user.present? %>
+            <%= render 'layouts/navigation_footer' %>
+          <% end %>
           <!--</footer>-->
         </div>
       </div>
