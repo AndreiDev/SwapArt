@@ -38,6 +38,7 @@ Tur::Application.routes.draw do
   authenticated :user do
     # root to: 'high_voltage/pages#show', id: 'home', as: :authenticated_root
     root to: 'gallery#index', as: :authenticated_root
+    get '/about' => 'high_voltage/pages#show', id: 'about'
   end
 
   unauthenticated do
@@ -57,7 +58,7 @@ Tur::Application.routes.draw do
 
   # high_voltage
   get '/home', to: redirect('/')
-  get '/about' => 'high_voltage/pages#show', id: 'about'
+
 
   resources :users do
     collection do
