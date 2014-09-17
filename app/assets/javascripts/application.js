@@ -21,6 +21,10 @@
 
 $(document).ready(function () {
 
+    if (window.location.href.indexOf('#_=_') > 0) {
+        window.location = window.location.href.replace(/#.*/, '');
+    }
+
     window.setTimeout(function() {
         $(".alert").fadeTo(1500, 0).slideUp(500, function(){
             $(this).remove();
