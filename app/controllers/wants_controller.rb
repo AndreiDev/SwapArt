@@ -77,6 +77,16 @@ class WantsController < ApplicationController
 
     @state = get_states([@item])[@item.id]
 
+    # send an email to the other user that a swap is awaiting
+    if @state == 4
+      user_swapping_with = Item.find(@want_params['item_id']).user
+      if user_swapping_with.swap_informed_at.nil? || (user_swapping_with.swap_informed_at.present? && user_swapping_with.swap_informed_at < Time.now - 1.hours)
+        SwapMailer.inform(user_swapping_with).deliver
+        user_swapping_with.swap_informed_at = Time.now
+        user_swapping_with.save
+      end
+    end
+
     respond_to do |format|
       format.js
     end

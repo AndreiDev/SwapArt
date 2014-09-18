@@ -136,6 +136,13 @@ ActiveRecord::Schema.define(version: 20140803185257) do
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone"
+    t.integer  "region_id",              default: 1,     null: false
+    t.boolean  "is_active",              default: true,  null: false
+    t.boolean  "is_blocked",             default: false, null: false
+    t.datetime "swap_informed_at"
     t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -151,12 +158,6 @@ ActiveRecord::Schema.define(version: 20140803185257) do
     t.string   "unconfirmed_email"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "phone"
-    t.integer  "region_id",              default: 1,     null: false
-    t.boolean  "is_active",              default: true,  null: false
-    t.boolean  "is_blocked",             default: false, null: false
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
