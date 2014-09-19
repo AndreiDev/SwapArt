@@ -31,6 +31,9 @@ $(document).ready(function () {
         });
     }, 1500);
 
+    $(".toggle_want").click(function() {
+        $(this).attr('disabled','disabled');
+    });
 });
 
 function adjustModalThumbnail() {
