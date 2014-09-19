@@ -6,12 +6,12 @@ Tur::Application.configure do
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
-      :address => "smtp.gmail.com",
-      :port => 587,
-      :user_name => Rails.application.secrets.gmail_user,
-      :password => Rails.application.secrets.gmail_pass,
+      :address => "mail.swapart.co",
+      :port => 26,
+      :user_name => Rails.application.secrets.email_user,
+      :password => Rails.application.secrets.email_pass,
       :authentication => 'plain',
-      :enable_starttls_auto => true}
+      :enable_starttls_auto => false}
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development

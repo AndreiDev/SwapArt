@@ -1,17 +1,17 @@
 Tur::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.action_mailer.default_url_options = {host: "http://shielded-everglades-2939.herokuapp.com/"}
+  config.action_mailer.default_url_options = {host: "http://www.swapart.co/"}
 
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
-      :address => "smtp.gmail.com",
-      :port => 587,
-      :user_name => Rails.application.secrets.gmail_user,
-      :password => Rails.application.secrets.gmail_pass,
+      :address => "mail.swapart.co",
+      :port => 26,
+      :user_name => Rails.application.secrets.email_user,
+      :password => Rails.application.secrets.email_pass,
       :authentication => 'plain',
-      :enable_starttls_auto => true}
+      :enable_starttls_auto => false}
 
   # Code is not reloaded between requests.
   config.cache_classes = true
