@@ -13,9 +13,9 @@
       <ul class="pagination pagination-lg">
         <% @number_of_pages.times do |page_index| %>
           <% if page_index+1 == @page_number %>
-            <li class="active"><a href="" class="pagination-button" id="to-page-<%= page_index+1 %>"><%= page_index+1 %></a></li>
+            <li class="active"><a href="" class="pagination-button inactiveLink"><%= page_index+1 %></a></li>
           <% else %>
-            <li><a href="" class="pagination-button" id="to-page-<%= page_index+1 %>"><%= page_index+1 %></a></li>
+            <li><a href="<%= request.original_url[0..request.original_url.index('page=')-1] + 'page=' + (page_index+1).to_s %>" class="pagination-button"><%= page_index+1 %></a></li>
           <% end %>
         <% end %>
       </ul>

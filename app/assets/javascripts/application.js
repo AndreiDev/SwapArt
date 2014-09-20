@@ -31,14 +31,6 @@ $(document).ready(function () {
         $(this).attr('disabled','disabled');
     });
 
-    $(".pagination-button").click(function(event) {
-        event.preventDefault();
-        var page = getQueryVariable('page');
-        var old_query = window.location.search.substring(1);
-        new_query = old_query.substring(0,old_query.indexOf('page')) + 'page=' + this.text;
-        window.location.href = window.location.origin + '?' + new_query;
-    });
-
 });
 
 function adjustModalThumbnail() {
@@ -47,14 +39,3 @@ function adjustModalThumbnail() {
     var text = $('#modal-injection li .user_modal_link')[0].text;
     $('#modal-injection li .user_modal_link').replaceWith(text);
 };
-
-function getQueryVariable(variable)
-{
-    var query = window.location.search.substring(1);
-    var vars = query.split("&");
-    for (var i=0;i<vars.length;i++) {
-        var pair = vars[i].split("=");
-        if(pair[0] == variable){return pair[1];}
-    }
-    return(false);
-}
