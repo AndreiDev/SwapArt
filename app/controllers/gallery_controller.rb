@@ -4,6 +4,7 @@ class GalleryController < ApplicationController
     @items = Item.where.not(:user => current_user)
     .where(:is_blocked => false)
     .where(:is_active => true)
+    .order('created_at DESC')
     .where.not(id: current_user.block_items.pluck(:id))
 
     if params[:type].present?
