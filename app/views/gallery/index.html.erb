@@ -8,6 +8,19 @@
       <% end %>
     </ul>
   </div>
+  <% if @number_of_pages > 1 %>
+    <div class="text-center">
+      <ul class="pagination pagination-lg">
+        <% @number_of_pages.times do |page_index| %>
+          <% if page_index+1 == @page_number %>
+            <li class="active"><a href="" class="pagination-button" id="to-page-<%= page_index+1 %>"><%= page_index+1 %></a></li>
+          <% else %>
+            <li><a href="" class="pagination-button" id="to-page-<%= page_index+1 %>"><%= page_index+1 %></a></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
 
   <!--***** MODAL *****-->

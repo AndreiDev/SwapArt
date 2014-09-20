@@ -5,6 +5,7 @@ defaults: &defaults
   author: "Andrei Averkin"
   meta_description: "Swap art with people like you"
   meta_keywords: "swap, art, free, network"
+  max_items_per_page: "12"
 
 development:
   <<: *defaults
