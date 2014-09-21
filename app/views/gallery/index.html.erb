@@ -76,23 +76,4 @@
     </div>
   </div>
 </div>
-
-  <% if current_user.items.count == 0 %>
-    <!--***** MODAL *****-->
-    <div class="modal show" id="BlankUserModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="BlankUserModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body">
-            <div id="my-area">
-              <h1 class="text-center">בשביל לראות את מגוון התמונות להחלפה צריך שיהיה לך מה להציע &#9786;</h1>
-              <br/>
-              <div class="round-button center-block"><div class="round-button-circle"><a href="<%= new_item_path %>" class="round-button"><span style="font-size: 40px" class=" glyphicon glyphicon-plus"></span></a></div></div>
-              <br/>
-              <h1 class="text-center">נא להעלות תמונה להחלפה</h1>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %>
 <% end %>
