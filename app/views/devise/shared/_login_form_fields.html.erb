@@ -1,4 +1,4 @@
 <%= f.input :email, autofocus: true, input_html: {class: 'special'}, placeholder: 'user@domain.com' %>
 <%= f.input :password, :required => true %>
-<br/>
+<div class="clearfix"></div>
 <%= f.input :remember_me, label: false, inline_label: true, :as => :boolean if devise_mapping.rememberable? %>
