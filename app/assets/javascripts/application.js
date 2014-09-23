@@ -27,13 +27,7 @@ $(document).ready(function () {
         });
     }, 1500);
     $(".toggle_want").click(function() {
-        if ($(this).hasClass('no-items')) {
-            alert('לפני שמבקשים להתחלף, יש צורך להעלות תמונת קיר להחלפה דרך התפריט שלמעלה');
-            event.preventDefault();
-        }
-        else {
-            $(this).attr('disabled', 'disabled');
-        }
+        $(this).attr('disabled', 'disabled');
     });
 
     $('.pagination-button').click(function(){
