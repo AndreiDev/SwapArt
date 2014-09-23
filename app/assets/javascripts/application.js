@@ -26,7 +26,6 @@ $(document).ready(function () {
             $(this).remove();
         });
     }, 1500);
-
     $(".toggle_want").click(function() {
         if ($(this).hasClass('no-items')) {
             alert('לפני שמבקשים להתחלף, יש צורך להעלות תמונת קיר להחלפה דרך התפריט שלמעלה');
@@ -36,6 +35,12 @@ $(document).ready(function () {
             $(this).attr('disabled', 'disabled');
         }
     });
+
+    $('.pagination-button').click(function(){
+        document.location.href = this.href;
+        event.preventDefault();
+    });
+
 
 });
 
