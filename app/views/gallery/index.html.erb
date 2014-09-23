@@ -1,6 +1,10 @@
 <% content_for :gallery do %>
 
   <div class="gallery_thumbnail">
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#FilterModal">
+      סנן תמונות
+    </button>
+    <div class="clearfix"></div>
     <br/>
     <ul class="row">
       <% @items.each do |item| %>
@@ -76,4 +80,65 @@
     </div>
   </div>
 </div>
+
+  <!--***** MODAL *****-->
+  <div class="modal fade" id="FilterModal" tabindex="-1" role="dialog" aria-labelledby="FilterModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times; &NonBreakingSpace;</span><span class="sr-only">סגור</span></button>
+          <h4 class="modal-title" id="UserModalLabel">אפשרויות סינון</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row filter-subject">
+            <h3>סוג:
+              <%= render 'gallery/filter_subject', locals: {klass: Type}%>
+            </h3>
+          </div>
+          <div class="row filter-subject">
+            <h3>גיל:
+              <%= render 'gallery/filter_subject', locals: {klass: Age}%>
+            </h3>
+          </div>
+          <div class="row filter-subject">
+            <h3>מצב:
+              <%= render 'gallery/filter_subject', locals: {klass: State}%>
+            </h3>
+          </div>
+          <div class="row filter-subject">
+            <h3>מחיר במקור:
+              <%= render 'gallery/filter_subject', locals: {klass: Price}%>
+            </h3>
+          </div>
+          <div class="row filter-subject">
+            <h3>מיקום:
+              <%= render 'gallery/filter_subject', locals: {klass: Region}%>
+            </h3>
+          </div>
+          <div class="row filter-subject">
+            <h3>ותק באתר :
+              <span class="btn-group" data-toggle="buttons">
+                <label class="btn btn-primary active">
+                  <input type="radio" name="options" id="option1" checked> מאז ומתמיד
+                </label>
+                <label class="btn btn-primary">
+                  <input type="radio" name="options" id="option2"> חודש
+                </label>
+                <label class="btn btn-primary">
+                  <input type="radio" name="options" id="option3"> שבוע
+                </label>
+                <label class="btn btn-primary">
+                  <input type="radio" name="options" id="option4"> יום
+                </label>
+              </span>
+            </h3>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="apply-filter" class="btn btn-lg btn-success" data-dismiss="modal">הפעל סינון</button>
+          <button type="button" id="cancel-filter" class="btn btn-lg btn-danger" data-dismiss="modal">בטל סינון</button>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
