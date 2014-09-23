@@ -32,9 +32,7 @@
         <%= link_to "", edit_item_path(locals[:item]), :class => "btn btn-info fa fa-edit" %>
         <%= link_to "", locals[:item], method: :delete, data: { confirm: t('areYouSure') }, :class => "btn btn-danger pull-left fa fa-trash-o" %>
       <% else %>
-        <% if current_user.items.where(is_active: true, is_blocked: false).count == 0 %>
-          <%= link_to "", '#', :class => "btn btn-large btn-default toggle_want fa fa-thumbs-up disabled" %>
-        <% else %>
+        <% unless current_user.items.where(is_active: true, is_blocked: false).count == 0 %>
           <% if locals[:state] == 2 || locals[:state] == 4  %>
             <%= link_to "", toggle_wants_path(want: {item_id: locals[:item].id}), format: :json, remote: true, method: :post, :class => "btn btn-large btn-success toggle_want fa fa-thumbs-up" %>
           <% else %>
@@ -42,13 +40,14 @@
           <% end %>
         <% end %>
       <% end %>
-      <% if current_user.items.where(is_active: true, is_blocked: false).count == 0 %>
-        <%= link_to "בשביל להתחלף צריך לשתף", new_item_path, :class => "" %>
-      <% end %>
-      <% if locals[:state] == 4 %>
-      <span class="user_info">
-        <%= link_to "", modal_contact_users_path(user_id: locals[:item].user_id, item_id: locals[:item].id), format: :json, remote: true, :class => "btn btn-large btn-warning pull-left fa fa-info-circle" %>
-      </span>
+      <% if current_user.items.where(is_active: true, is_blocked: false).count == 0 && locals[:item].user != current_user %>
+        <%= link_to " העלה תמונה בשביל להתחלף", new_item_path, :class => "btn btn-large btn-success fa fa-picture-o", :style => "font-size: 15px" %>
+      <% else %>
+        <% if locals[:state] == 4 %>
+        <span class="user_info">
+          <%= link_to "", modal_contact_users_path(user_id: locals[:item].user_id, item_id: locals[:item].id), format: :json, remote: true, :class => "btn btn-large btn-warning pull-left fa fa-info-circle" %>
+        </span>
+        <% end %>
       <% end %>
       </p>
     </div>
