@@ -86,3 +86,16 @@ h2 {
     color: mintcream;
   }
 }
+
+#FilterModal .filter-title {
+  display: inline-block;
+  width: 60px;
+}
+
+#FilterModal .filter-subject label {
+  width: 100px;
+}
+
+#FilterModal .filter-subject {
+  padding-right: 5px;
+}

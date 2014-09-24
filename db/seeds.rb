@@ -33,7 +33,7 @@ Age.create!([
             ])
 puts 'Adding some ages'
 Price.create!([
-                {id:1, description: 'פחות ממאה שקל'},
+                {id:1, description: 'עד מאה ש״ח'},
                 {id:11, description: '100-200 ש״ח'},
                 {id:21, description: '200-400 ש״ח'},
                 {id:31, description: 'מעל 400 ש״ח'}
@@ -51,7 +51,7 @@ Type.create!([
                  {id:1, description: 'קנבס'},
                  {id:11, description: 'ציור'},
                  {id:21, description: 'צילום'},
-                 {id:31, description: 'תמונה לחדר ילדים'}
+                 {id:31, description: 'לחדר ילדים'}
              ])
 
 puts 'Adding some tags'

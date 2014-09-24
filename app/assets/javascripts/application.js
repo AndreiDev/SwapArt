@@ -35,6 +35,20 @@ $(document).ready(function () {
         event.preventDefault();
     });
 
+    $("#cancel-filter").click(function() {
+        document.location.href = window.location.origin;
+    });
+
+    $("#apply-filter").click(function() {
+        var filter_params = '';
+        var checkedStrings = Array();
+        $('.filter-subject').find('input:checkbox:checked').each( function()
+        {
+            checkedStrings.push(this.attributes.class.value);
+        });
+        debugger;
+        document.location.href = window.location.origin + '/?' + filter_params;
+    });
 
 });
 

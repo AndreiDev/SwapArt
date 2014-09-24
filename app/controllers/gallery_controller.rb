@@ -15,12 +15,36 @@ class GalleryController < ApplicationController
       @items = @items.where(:age => params[:age].split(','))
     end
 
+    if params[:state].present?
+      @items = @items.where(:state => params[:state].split(','))
+    end
+
     if params[:price].present?
       @items = @items.where(:price => params[:price].split(','))
     end
 
     if params[:region].present?
-      @items.joins(:user).where(:users => {:region_id => params[:region].split(',')}).pluck(:id)
+      @items = @items.joins(:user).where(:users => {:region_id => params[:region].split(',')}).pluck(:id)
+    end
+
+    if params[:time].present?
+      case params[:time]
+        when '1'
+          @items = @items.where(
+              'created_at >= :one_days_ago',
+              :one_days_ago  => Time.now - 1.days,
+          )
+        when '2'
+          @items = @items.where(
+              'created_at >= :week_days_ago',
+              :week_days_ago  => Time.now - 7.days,
+          )
+        when '3'
+          @items = @items.where(
+              'created_at >= :month_ago',
+              :month_ago  => Time.now - 1.months,
+          )
+      end
     end
 
     @number_of_pages = (@items.count-1)/AppConfig.max_items_per_page.to_i + 1

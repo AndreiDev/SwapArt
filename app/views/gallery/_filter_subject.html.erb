@@ -1,12 +1,12 @@
-<span class="btn-group" data-toggle="buttons">
+<span class="btn-group subject-<%= locals[:klass].to_s.downcase %> " data-toggle="buttons">
   <% locals[:klass].all.pluck(:id, :description).each do |elem_id, elem_string| %>
     <% if params[locals[:klass].to_s.downcase].nil? || params[locals[:klass].to_s.downcase].split(",").include?(elem_id.to_s) %>
       <label class="btn btn-primary active">
-        <input type="checkbox" checked> <%= elem_string %>
+        <input type="checkbox" class="subject-<%= locals[:klass].to_s.downcase %>-id-<%= elem_id %>" checked> <%= elem_string %>
       </label>
     <% else %>
       <label class="btn btn-primary">
-        <input type="checkbox"> <%= elem_string %>
+        <input type="checkbox" class="subject-<%= locals[:klass].to_s.downcase %>-id-<%= elem_id %>"> <%= elem_string %>
       </label>
     <% end %>
   <% end %>

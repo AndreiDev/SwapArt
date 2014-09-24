@@ -7,6 +7,9 @@
     <div class="clearfix"></div>
     <br/>
     <ul class="row">
+      <% if @items.empty? %>
+        <h3>כל התמונות סוננו....</h3>
+      <% end %>
       <% @items.each do |item| %>
         <%= render 'items/item_block', locals: {item: item, state: @states[item.id]}%>
       <% end %>
@@ -91,32 +94,32 @@
         </div>
         <div class="modal-body">
           <div class="row filter-subject">
-            <h3>סוג:
+            <h3><span class="filter-title">סוג:</span>
               <%= render 'gallery/filter_subject', locals: {klass: Type}%>
             </h3>
           </div>
           <div class="row filter-subject">
-            <h3>גיל:
+            <h3><span class="filter-title">גיל:</span>
               <%= render 'gallery/filter_subject', locals: {klass: Age}%>
             </h3>
           </div>
           <div class="row filter-subject">
-            <h3>מצב:
+            <h3><span class="filter-title">מצב:</span>
               <%= render 'gallery/filter_subject', locals: {klass: State}%>
             </h3>
           </div>
           <div class="row filter-subject">
-            <h3>מחיר במקור:
+            <h3><span class="filter-title">מחיר:</span>
               <%= render 'gallery/filter_subject', locals: {klass: Price}%>
             </h3>
           </div>
           <div class="row filter-subject">
-            <h3>מיקום:
+            <h3><span class="filter-title">מיקום:</span>
               <%= render 'gallery/filter_subject', locals: {klass: Region}%>
             </h3>
           </div>
           <div class="row filter-subject">
-            <h3>ותק באתר :
+            <h3><span class="filter-title">באתר:</span>
               <span class="btn-group" data-toggle="buttons">
                 <label class="btn btn-primary active">
                   <input type="radio" name="options" id="option1" checked> מאז ומתמיד
