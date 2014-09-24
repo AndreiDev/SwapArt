@@ -41,13 +41,20 @@ $(document).ready(function () {
 
     $("#apply-filter").click(function() {
         var filter_params = '';
-        var checkedStrings = Array();
         $('.filter-subject').find('input:checkbox:checked').each( function()
         {
-            checkedStrings.push(this.attributes.class.value);
+            if (filter_params.indexOf(this.attributes[1].value) == -1) {
+                if (filter_params.length == 0) {
+                    filter_params += '/?' + this.attributes[1].value + '=' + this.attributes[2].value;
+                } else {
+                    filter_params += '&' + this.attributes[1].value + '=' + this.attributes[2].value;
+                }
+            } else {
+                filter_params += ',' + this.attributes[2].value;
+            }
         });
         debugger;
-        document.location.href = window.location.origin + '/?' + filter_params;
+        document.location.href = window.location.origin + filter_params;
     });
 
 });

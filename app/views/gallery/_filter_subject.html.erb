@@ -2,11 +2,11 @@
   <% locals[:klass].all.pluck(:id, :description).each do |elem_id, elem_string| %>
     <% if params[locals[:klass].to_s.downcase].nil? || params[locals[:klass].to_s.downcase].split(",").include?(elem_id.to_s) %>
       <label class="btn btn-primary active">
-        <input type="checkbox" class="subject-<%= locals[:klass].to_s.downcase %>-id-<%= elem_id %>" checked> <%= elem_string %>
+        <input type="checkbox" data-filter_subject="<%= locals[:klass].to_s.downcase %>" data-filter_id="<%= elem_id %>" checked> <%= elem_string %>
       </label>
     <% else %>
       <label class="btn btn-primary">
-        <input type="checkbox" class="subject-<%= locals[:klass].to_s.downcase %>-id-<%= elem_id %>"> <%= elem_string %>
+        <input type="checkbox" data-filter_subject="<%= locals[:klass].to_s.downcase %>" data-filter_id="<%= elem_id %>"> <%= elem_string %>
       </label>
     <% end %>
   <% end %>

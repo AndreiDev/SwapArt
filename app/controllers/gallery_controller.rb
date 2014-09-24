@@ -1,11 +1,11 @@
 class GalleryController < ApplicationController
   def index
 
-    @items = Item.where.not(:user => current_user)
+    @items = Item.joins(:user).where.not(:user => current_user)
     .where(:is_blocked => false)
     .where(:is_active => true)
-    .order('created_at DESC')
-    .where.not(id: current_user.block_items.pluck(:id))
+    .order('items.created_at DESC')
+    .where.not(id: current_user.block_items)
 
     if params[:type].present?
       @items = @items.where(:type => params[:type].split(','))
@@ -24,24 +24,24 @@ class GalleryController < ApplicationController
     end
 
     if params[:region].present?
-      @items = @items.joins(:user).where(:users => {:region_id => params[:region].split(',')}).pluck(:id)
+      @items = @items.where(:users => {:region_id => params[:region].split(',')})
     end
 
     if params[:time].present?
       case params[:time]
         when '1'
           @items = @items.where(
-              'created_at >= :one_days_ago',
+              'items.created_at >= :one_days_ago',
               :one_days_ago  => Time.now - 1.days,
           )
         when '2'
           @items = @items.where(
-              'created_at >= :week_days_ago',
+              'items.created_at >= :week_days_ago',
               :week_days_ago  => Time.now - 7.days,
           )
         when '3'
           @items = @items.where(
-              'created_at >= :month_ago',
+              'items.created_at >= :month_ago',
               :month_ago  => Time.now - 1.months,
           )
       end
