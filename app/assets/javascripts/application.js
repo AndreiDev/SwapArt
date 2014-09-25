@@ -41,7 +41,7 @@ $(document).ready(function () {
 
     $("#apply-filter").click(function() {
         var filter_params = '';
-        $('.filter-subject').find('input:checkbox:checked').each( function()
+        $('.filter-subject input:checked').each( function()
         {
             if (filter_params.indexOf(this.attributes[1].value) == -1) {
                 if (filter_params.length == 0) {
@@ -53,7 +53,6 @@ $(document).ready(function () {
                 filter_params += ',' + this.attributes[2].value;
             }
         });
-        debugger;
         document.location.href = window.location.origin + filter_params;
     });
 

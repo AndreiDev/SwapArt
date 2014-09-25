@@ -89,7 +89,6 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times; &NonBreakingSpace;</span><span class="sr-only">סגור</span></button>
           <h4 class="modal-title" id="UserModalLabel">אפשרויות סינון</h4>
         </div>
         <div class="modal-body">
@@ -121,17 +120,17 @@
           <div class="row filter-subject">
             <h3><span class="filter-title">באתר:</span>
               <span class="btn-group" data-toggle="buttons">
-                <label class="btn btn-primary active">
-                  <input type="radio" name="options" id="option1" checked> מאז ומתמיד
+                <label class="btn btn-primary <% if ['1','2','3'].exclude?(params[:time]) %> active <% end %>">
+                  <input type="radio" data-filter_subject="time" data-filter_id="4" name="options" id="option1" <% if ['1','2','3'].exclude?(params[:time]) %> checked <% end %>> מאז ומתמיד
                 </label>
-                <label class="btn btn-primary">
-                  <input type="radio" name="options" id="option2"> חודש
+                <label class="btn btn-primary <% if params[:time] == '3' %> active <% end %>">
+                  <input type="radio" data-filter_subject="time" data-filter_id="3" name="options" id="option2" <% if params[:time] == '3' %> checked <% end %>> חודש
                 </label>
-                <label class="btn btn-primary">
-                  <input type="radio" name="options" id="option3"> שבוע
+                <label class="btn btn-primary <% if params[:time] == '2' %> active <% end %>">
+                  <input type="radio" data-filter_subject="time" data-filter_id="2" name="options" id="option3" <% if params[:time] == '2' %> checked <% end %>> שבוע
                 </label>
-                <label class="btn btn-primary">
-                  <input type="radio" name="options" id="option4"> יום
+                <label class="btn btn-primary <% if params[:time] == '1' %> active <% end %>">
+                  <input type="radio" data-filter_subject="time" data-filter_id="1" name="options" id="option4" <% if params[:time] == '1' %> checked <% end %>> יום
                 </label>
               </span>
             </h3>
