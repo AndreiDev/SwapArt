@@ -57,11 +57,11 @@ class GalleryController < ApplicationController
       @page_number = params[:page].to_i
     end
 
-    @items = @items[(@page_number-1)*AppConfig.max_items_per_page.to_i, @page_number*AppConfig.max_items_per_page.to_i]
-
     @states = get_states(@items)
 
-    @items.sort_by { |item| @states[item.id] }.reverse!
+    @items = @items.sort_by { |item| [@states[item.id], item.created_at] }.reverse!
+
+    @items = @items[(@page_number-1)*AppConfig.max_items_per_page.to_i, @page_number*AppConfig.max_items_per_page.to_i]
 
   end
 end
