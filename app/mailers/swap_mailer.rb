@@ -3,6 +3,10 @@ class SwapMailer < ActionMailer::Base
 
   def inform(user)
     @user = user
-    mail(to: "\"#{@user.first_name} #{@user.last_name}\" <#{@user.email}>" , subject: 'החלפה מוכנה ב-SwapArt.co')
+    if Rails.env == 'development'
+      mail(to: "andrei.averkin@gmail.com" , subject: "\"#{@user.first_name} #{@user.last_name}\" <#{@user.email}>" + '---' + 'החלפה מוכנה ב-SwapArt.co')
+    else
+      mail(to: "\"#{@user.first_name} #{@user.last_name}\" <#{@user.email}>" , subject: 'החלפה מוכנה ב-SwapArt.co')
+    end
   end
 end
