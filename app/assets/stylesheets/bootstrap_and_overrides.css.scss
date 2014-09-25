@@ -99,3 +99,12 @@ h2 {
 #FilterModal .filter-subject {
   padding-right: 5px;
 }
+
+#FilterModal .modal-body{
+  .btn.active, .btn:active {
+    background-color: forestgreen;
+  }
+  .btn, .btn {
+    background-color: indianred;
+  }
+}
