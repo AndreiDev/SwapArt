@@ -26,9 +26,6 @@ $(document).ready(function () {
             $(this).remove();
         });
     }, 1500);
-    $(".toggle_want").click(function() {
-        $(this).attr('disabled', 'disabled');
-    });
 
     $('.pagination-button').click(function(){
         document.location.href = this.href;
@@ -56,6 +53,10 @@ $(document).ready(function () {
         document.location.href = window.location.origin + filter_params;
     });
 
+});
+
+$(document).on('click',".toggle_want", function () {
+    $(this).attr('disabled', 'disabled');
 });
 
 function adjustModalThumbnail() {
