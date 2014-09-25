@@ -3,11 +3,11 @@
     <% if params[locals[:klass].to_s.downcase].nil? || params[locals[:klass].to_s.downcase].split(",").include?(elem_id.to_s) %>
       <label class="btn btn-primary active">
         <input type="checkbox" data-filter_subject="<%= locals[:klass].to_s.downcase %>" data-filter_id="<%= elem_id %>" checked> <%= elem_string %>
-      </label>
+      </label><% if elem_id == 11 %><div class="clearfix visible-xs-block"></div><% end %>
     <% else %>
       <label class="btn btn-primary">
         <input type="checkbox" data-filter_subject="<%= locals[:klass].to_s.downcase %>" data-filter_id="<%= elem_id %>"> <%= elem_string %>
-      </label>
+      </label><% if elem_id == 11 %><div class="clearfix visible-xs-block"></div><% end %>
     <% end %>
   <% end %>
 </span>
