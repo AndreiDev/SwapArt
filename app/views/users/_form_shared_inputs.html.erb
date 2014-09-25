@@ -2,10 +2,10 @@
   <%= f.input :first_name, label: t("model.firstName"), autofocus: true %>
 <% end %>
 <% unless @user.last_name.present? && current_user.nil? && @user.errors.messages.count == 0 %>
-  <%= f.input :last_name, label: t("model.lastName") %><br/>
+  <%= f.input :last_name, label: t("model.lastName") %><div class="clearfix"></div>
 <% end %>
 <% unless @user.email.present? && current_user.nil? && @user.errors.messages.count == 0 %>
   <%= f.input :email, label: t("model.email") %>
 <% end %>
-<%= f.input :phone, label: t("model.phone") %> <br/>
+<%= f.input :phone, label: t("model.phone") %> <div class="clearfix"></div>
 <%= f.association :region, input_html: { class: 'short_box' }, label_method: :description, value_method: :id, label: t("model.region") %>
