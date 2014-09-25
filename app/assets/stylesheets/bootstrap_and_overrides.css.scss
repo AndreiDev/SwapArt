@@ -72,7 +72,7 @@ body {
   z-index:1;
 }
 p, label, h1, h2, h3, h4, h5,th, td {
-  color: #bbbbbb;
+  color: #666666;
 }
 
 h2 {
@@ -107,4 +107,8 @@ h2 {
   .btn, .btn {
     background-color: indianred;
   }
+}
+
+.form-inline .form-group {
+  padding-bottom: 10px;
 }

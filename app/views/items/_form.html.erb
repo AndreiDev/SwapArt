@@ -13,18 +13,17 @@
       <%= f.label :image_url %>
     <% end %>
     <%= f.file_field :image_url %>
-    <br/>
-    <%= f.input :description, input_html: { maxlength: 30 } %> <br/>
+    <%= f.input :description, input_html: { maxlength: 30 } %> <div class="clearfix"></div>
     <%= f.association :type, input_html: { class: 'short_box' }, label_method: :description, value_method: :id, selected: 11  %>
-    <%= f.association :price, input_html: { class: 'short_box' }, label_method: :description, value_method: :id, selected: 11 %><br/>
+    <%= f.association :price, input_html: { class: 'short_box' }, label_method: :description, value_method: :id, selected: 11 %><div class="clearfix"></div>
     <%= f.input :height, input_html: { class: 'short_box', min:30 ,max: 300 } %>
-    <%= f.input :width, input_html: { class: 'short_box', min:30 ,max: 300 } %><br/>
+    <%= f.input :width, input_html: { class: 'short_box', min:30 ,max: 300 } %><div class="clearfix"></div>
     <%= f.association :age, input_html: { class: 'short_box' }, label_method: :description, value_method: :id, selected: 11 %>
     <%= f.association :state, input_html: { class: 'short_box' }, label_method: :description, value_method: :id, selected: 11 %>
   </div>
 
   <div class="form-actions">
-    <br/>
+    <div class="clearfix"></div>
     <%	if @item.image_url.present? && @item.height.present? && @item.width.present? %>
       <%= f.button :submit %>
     <% else %>
