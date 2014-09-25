@@ -47,7 +47,7 @@ class GalleryController < ApplicationController
       end
     end
 
-    @number_of_pages = (@items.count-1)/8 + 1
+    @number_of_pages = (@items.count-1)/AppConfig.max_items_per_page.to_i + 1
 
     if params[:page].nil? || params[:page].to_i <= 0
       @page_number = 1
@@ -57,7 +57,7 @@ class GalleryController < ApplicationController
       @page_number = params[:page].to_i
     end
 
-    @items = @items[(@page_number-1)*8, @page_number*8]
+    @items = @items[(@page_number-1)*AppConfig.max_items_per_page.to_i, @page_number*AppConfig.max_items_per_page.to_i]
 
     @states = get_states(@items)
 
