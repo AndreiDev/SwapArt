@@ -52,11 +52,14 @@ $(document).ready(function () {
         });
         document.location.href = window.location.origin + filter_params;
     });
-
 });
 
 $(document).on('click',".toggle_want", function () {
     $(this).attr('disabled', 'disabled');
+});
+
+$(document).on('click',"#file_upload_btn",function () {
+    $('#file_upload').click();
 });
 
 function adjustModalThumbnail() {
