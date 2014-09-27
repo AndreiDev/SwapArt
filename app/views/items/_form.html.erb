@@ -8,9 +8,9 @@
       <%= f.input :is_blocked %>
   <% end %>
     <% if @item.image_url.present? %>
-      <button type="button" class="btn btn-primary" id="file_upload_btn"><%= t('simple_form.labels.item.update_image_url') %></button>
+      <button type="button" class="btn btn-info" id="file_upload_btn"><%= t('simple_form.labels.item.update_image_url') %></button>
   <% else %>
-      <button type="button" class="btn btn-primary" id="file_upload_btn"><%= t('simple_form.labels.item.image_url') %></button>
+      <button type="button" class="btn btn-info" id="file_upload_btn"><%= t('simple_form.labels.item.image_url') %></button>
   <% end %>
 
     <%= f.file_field :image_url, class: 'hidden', id: 'file_upload' %>
@@ -26,9 +26,9 @@
   <div class="form-actions">
     <div class="clearfix"></div>
     <%	if @item.image_url.present? && @item.height.present? && @item.width.present? %>
-      <%= f.button :submit %>
+      <%= f.button :submit, class: 'btn btn-primary' %>
     <% else %>
-      <%= f.button :submit, disabled: true%>
+      <%= f.button :submit, disabled: true, class: 'btn btn-primary'%>
     <% end %>
   </div>
 <% end %>

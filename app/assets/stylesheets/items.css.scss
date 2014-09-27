@@ -92,17 +92,21 @@
   display: none;
 }
 
+.new-item-placeholder-filler {
+  height: 403px;
+}
+
 .new-item-placeholder {
-  display:table-cell;
-  vertical-align:middle;
-  height: 401px;
-  width: 253px;
+  padding-top: 45%;
+  height: 100%;
+  width: 100%;
+}
+
+.new-item-placeholder-filler a:hover {
+  text-decoration: none;
+  background-color: #bbbbbb;
 }
 
 .new-item-placeholder-inside {
-  font-size: 80px;
-}
-
-.new-item-placeholder:hover {
-  text-decoration: none;
+  font-size: 100px;
 }

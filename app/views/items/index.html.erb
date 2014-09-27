@@ -4,8 +4,8 @@
     <% @items.each do |item| %>
       <%= render 'item_block', locals: {item: item}%>
     <% end %>
-    <li class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-      <a href="<%= new_item_path %>" class="thumbnail new-item-placeholder">
+    <li class="col-lg-3 col-md-4 col-sm-6 col-xs-12 new-item-placeholder-filler">
+      <a class="thumbnail new-item-placeholder" href="<%= new_item_path %>" >
         <p class="new-item-placeholder-inside text-center">+</p>
       </a>
     </li>
