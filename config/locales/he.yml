@@ -136,7 +136,7 @@ he:
       invalid_param_id: "Parameter id is not correct."
   welcome:
     question1: "נמאס לך מהתמונה בסלון?"
-    question2: "הילדים רוצים תמונה חדשה בחדר?"
+    question2: "הילד רוצה תמונה חדשה בחדר?"
     answer: "מחליפים תמונות קיר בקליק"
 
   sign_in:
