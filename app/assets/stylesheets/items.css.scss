@@ -91,3 +91,18 @@
   color:   white;
   display: none;
 }
+
+.new-item-placeholder {
+  display:table-cell;
+  vertical-align:middle;
+  height: 401px;
+  width: 253px;
+}
+
+.new-item-placeholder-inside {
+  font-size: 80px;
+}
+
+.new-item-placeholder:hover {
+  text-decoration: none;
+}

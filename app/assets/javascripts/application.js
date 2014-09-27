@@ -20,46 +20,11 @@
 //= require_tree .
 
 $(document).ready(function () {
-
-    window.setTimeout(function() {
-        $(".alert").fadeTo(1500, 0).slideUp(500, function(){
+    window.setTimeout(function () {
+        $(".alert").fadeTo(1500, 0).slideUp(500, function () {
             $(this).remove();
         });
     }, 1500);
-
-    $('.pagination-button').click(function(){
-        document.location.href = this.href;
-        event.preventDefault();
-    });
-
-    $("#cancel-filter").click(function() {
-        document.location.href = window.location.origin;
-    });
-
-    $("#apply-filter").click(function() {
-        var filter_params = '';
-        $('.filter-subject input:checked').each( function()
-        {
-            if (filter_params.indexOf(this.attributes[1].value) == -1) {
-                if (filter_params.length == 0) {
-                    filter_params += '/?' + this.attributes[1].value + '=' + this.attributes[2].value;
-                } else {
-                    filter_params += '&' + this.attributes[1].value + '=' + this.attributes[2].value;
-                }
-            } else {
-                filter_params += ',' + this.attributes[2].value;
-            }
-        });
-        document.location.href = window.location.origin + filter_params;
-    });
-});
-
-$(document).on('click',".toggle_want", function () {
-    $(this).attr('disabled', 'disabled');
-});
-
-$(document).on('click',"#file_upload_btn",function () {
-    $('#file_upload').click();
 });
 
 function adjustModalThumbnail() {
