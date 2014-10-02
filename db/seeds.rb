@@ -43,7 +43,7 @@ State.create!([
                   {id:1, description: 'כמו חדש'},
                   {id:11, description: 'טוב מאוד'},
                   {id:21, description: 'טוב'},
-                  {id:31, description: 'ישן'}
+                  {id:31, description: 'ענתיקה'}
               ])
 
 puts 'Adding some types'
