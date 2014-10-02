@@ -20,11 +20,11 @@ he:
       unconfirmed: "נא לאשר את הרישום לאתר"
     mailer:
       confirmation_instructions:
-        subject: "אישור הרישום לאתר"
+        subject: "אישור הרישום לאתר SwapArt"
       reset_password_instructions:
-        subject: "הוראות לאיפוס סיסמא"
+        subject: "הוראות לאיפוס סיסמא לאתר SwapArt"
       unlock_instructions:
-        subject: "הוראות לשחרור החשבון"
+        subject: "הוראות לשחרור החשבון לאתר SwapArt"
     omniauth_callbacks:
       failure: "לא הצליחה ההתחברות דרך  %{kind} בגלל \"%{reason}\"."
       success: "ההתחברות דרך חשבון %{kind} הצליחה"
