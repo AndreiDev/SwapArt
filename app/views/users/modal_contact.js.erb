@@ -3,6 +3,7 @@ $('#UserContactModal .last_name').text(" <%= @user.last_name %>");
 $('#UserContactModal .region').text("<%= @user.region.description %>");
 $('#UserContactModal .user_email').text("<%= @user.email %>");
 $('#UserContactModal .user_email').attr("href", "mailto:<%= @user.email %>");
-$('#UserContactModal .user_phone').text("<%= @user.phone %>");
+$('#UserContactModal .user_phone a').attr("href", "tel:<%= @user.phone %>");
+$('#UserContactModal .user_phone a').text("<%= @user.phone %>");
 $('#UserModal').modal('hide');
 $('#UserContactModal').modal();
