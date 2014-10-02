@@ -12,11 +12,11 @@
         <%= link_to "", apply_blocks_path(block: {item_id: locals[:item].id}), format: :json, remote: true, method: :post, :class => "btn btn-danger thumbnail_close fa fa-times" %>
       <% end %>
       <p class="text-center item-date"> <%= locals[:item].created_at.strftime("%d.%m.%Y") %> </p>
-      <img src= <%= S3_PATH + locals[:item].image_url %> alt="" class="center-block">
+      <img src= <%= S3_PATH + url_encode(locals[:item].image_url) %> alt="" class="center-block">
     </div>
     <div class="caption">
       <p><%= locals[:item].description.present? ? locals[:item].description : "-" %></p>
-      <p class="long-description"><%= locals[:item].type.description %> במצב   <%= locals[:item].state.description %> נקנה לפני  <%= locals[:item].age.description %> ב<%= locals[:item].price.description %></p>
+      <p class="long-description"><%= locagstgstls[:item].type.description %> במצב   <%= locals[:item].state.description %> נקנה לפני  <%= locals[:item].age.description %> ב<%= locals[:item].price.description %></p>
       <br/><br/>
       <p class="user_name">
       <% if locals[:item].user == current_user || current_user.items.where(is_active: true, is_blocked: false).count == 0 || (locals[:item].user.items.count == 1 && locals[:state] < 3 )%>
