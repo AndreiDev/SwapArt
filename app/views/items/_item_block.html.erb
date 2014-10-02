@@ -16,7 +16,7 @@
     </div>
     <div class="caption">
       <p><%= locals[:item].description.present? ? locals[:item].description : "-" %></p>
-      <p class="long-description"><%= locagstgstls[:item].type.description %> במצב   <%= locals[:item].state.description %> נקנה לפני  <%= locals[:item].age.description %> ב<%= locals[:item].price.description %></p>
+      <p class="long-description"><%= locals[:item].type.description %> במצב   <%= locals[:item].state.description %> נקנה לפני  <%= locals[:item].age.description %> ב<%= locals[:item].price.description %></p>
       <br/><br/>
       <p class="user_name">
       <% if locals[:item].user == current_user || current_user.items.where(is_active: true, is_blocked: false).count == 0 || (locals[:item].user.items.count == 1 && locals[:state] < 3 )%>
