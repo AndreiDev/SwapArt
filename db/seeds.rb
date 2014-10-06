@@ -67,81 +67,89 @@ Tag.create!([
             ])
 
 puts 'SETTING UP DEFAULT Administrator User'
-admin = User.new(id:1, email: 'andrei.averkin@gmail.com', first_name: 'Andrei', last_name: 'Averkin',
+admin1 = User.new(id:1, email: 'andrei.averkin@gmail.com', first_name: 'אנדרי', last_name: 'אברקין',
                  password: Rails.application.secrets.admin_pass, password_confirmation: Rails.application.secrets.admin_pass)
-admin.skip_confirmation!
-admin.save!
+admin1.skip_confirmation!
+admin1.save!
+
+admin2 = User.new(id:11, email: 'ilana.averkin@gmail.com', first_name: 'אילנה', last_name: 'אברקין',
+                  password: Rails.application.secrets.admin_pass, password_confirmation: Rails.application.secrets.admin_pass)
+admin2.skip_confirmation!
+admin2.save!
 
 puts 'SETTING UP DEFAULT Administrator User role'
-admin.add_role 'admin'
+admin1.add_role 'admin'
+admin2.add_role 'admin'
 
-puts 'Adding some users'
-user = User.new(id:11, email: "netanyahu@gmail.com", password: "password", encrypted_password: "$2a$10$Ox2XG9aEo9TtAmrkl2rtBOMgwwcePwH9qfWW03F5yXWcIWrEFxEKO", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-07-20 19:16:19", last_sign_in_at: "2014-07-20 19:16:19", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", confirmation_token: nil, confirmed_at: "2014-07-20 19:16:19", confirmation_sent_at: nil, unconfirmed_email: nil, first_name: "בנימין", last_name: "נתניהו", is_active: true, is_blocked: false, region_id: 11, phone: "0559977332")
-user.skip_confirmation!
-user.save!
-user.add_role 'user'
+if Rails.env == "development"
+  puts 'Adding some users'
+  user = User.new(id:11, email: "netanyahu@gmail.com", password: "password", encrypted_password: "$2a$10$Ox2XG9aEo9TtAmrkl2rtBOMgwwcePwH9qfWW03F5yXWcIWrEFxEKO", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-07-20 19:16:19", last_sign_in_at: "2014-07-20 19:16:19", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", confirmation_token: nil, confirmed_at: "2014-07-20 19:16:19", confirmation_sent_at: nil, unconfirmed_email: nil, first_name: "בנימין", last_name: "נתניהו", is_active: true, is_blocked: false, region_id: 11, phone: "0559977332")
+  user.skip_confirmation!
+  user.save!
+  user.add_role 'user'
 
-user = User.new(id:21, email: "lapid@gmail.com", password: "password", encrypted_password: "$2a$10$Ox2XG9aEo9TtAmrkl2rtBOMgwwcePwH9qfWW03F5yXWcIWrEFxEKO", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-07-20 19:16:19", last_sign_in_at: "2014-07-20 19:16:19", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", confirmation_token: nil, confirmed_at: "2014-07-20 19:16:19", confirmation_sent_at: nil, unconfirmed_email: nil, first_name: "יאיר", last_name: "לפיד", is_active: true, is_blocked: false, region_id: 21, phone: "0511232322")
-user.skip_confirmation!
-user.save!
-user.add_role 'user'
+  user = User.new(id:21, email: "lapid@gmail.com", password: "password", encrypted_password: "$2a$10$Ox2XG9aEo9TtAmrkl2rtBOMgwwcePwH9qfWW03F5yXWcIWrEFxEKO", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-07-20 19:16:19", last_sign_in_at: "2014-07-20 19:16:19", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", confirmation_token: nil, confirmed_at: "2014-07-20 19:16:19", confirmation_sent_at: nil, unconfirmed_email: nil, first_name: "יאיר", last_name: "לפיד", is_active: true, is_blocked: false, region_id: 21, phone: "0511232322")
+  user.skip_confirmation!
+  user.save!
+  user.add_role 'user'
 
-user = User.new(id:31, email: "yechimovich@gmail.com", password: "password", encrypted_password: "$2a$10$Ox2XG9aEo9TtAmrkl2rtBOMgwwcePwH9qfWW03F5yXWcIWrEFxEKO", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-07-20 19:16:19", last_sign_in_at: "2014-07-20 19:16:19", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", confirmation_token: nil, confirmed_at: "2014-07-20 19:16:19", confirmation_sent_at: nil, unconfirmed_email: nil, first_name: "שלי", last_name: "יחימוביץ׳", is_active: true, is_blocked: false, region_id: 31, phone: "0544335532")
-user.skip_confirmation!
-user.save!
-user.add_role 'user'
+  user = User.new(id:31, email: "yechimovich@gmail.com", password: "password", encrypted_password: "$2a$10$Ox2XG9aEo9TtAmrkl2rtBOMgwwcePwH9qfWW03F5yXWcIWrEFxEKO", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-07-20 19:16:19", last_sign_in_at: "2014-07-20 19:16:19", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", confirmation_token: nil, confirmed_at: "2014-07-20 19:16:19", confirmation_sent_at: nil, unconfirmed_email: nil, first_name: "שלי", last_name: "יחימוביץ׳", is_active: true, is_blocked: false, region_id: 31, phone: "0544335532")
+  user.skip_confirmation!
+  user.save!
+  user.add_role 'user'
 
-user = User.new(id:41, email: "saar@gmail.com", password: "password", encrypted_password: "$2a$10$Ox2XG9aEo9TtAmrkl2rtBOMgwwcePwH9qfWW03F5yXWcIWrEFxEKO", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-07-20 19:16:19", last_sign_in_at: "2014-07-20 19:16:19", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", confirmation_token: nil, confirmed_at: "2014-07-20 19:16:19", confirmation_sent_at: nil, unconfirmed_email: nil, first_name: "גדעון", last_name: "סער", is_active: true, is_blocked: false, region_id: 31, phone: "0514533354")
-user.skip_confirmation!
-user.save!
-user.add_role 'user'
+  user = User.new(id:41, email: "saar@gmail.com", password: "password", encrypted_password: "$2a$10$Ox2XG9aEo9TtAmrkl2rtBOMgwwcePwH9qfWW03F5yXWcIWrEFxEKO", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-07-20 19:16:19", last_sign_in_at: "2014-07-20 19:16:19", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", confirmation_token: nil, confirmed_at: "2014-07-20 19:16:19", confirmation_sent_at: nil, unconfirmed_email: nil, first_name: "גדעון", last_name: "סער", is_active: true, is_blocked: false, region_id: 31, phone: "0514533354")
+  user.skip_confirmation!
+  user.save!
+  user.add_role 'user'
 
-user = User.new(id:51, email: "piron@gmail.com", password: "password", encrypted_password: "$2a$10$Ox2XG9aEo9TtAmrkl2rtBOMgwwcePwH9qfWW03F5yXWcIWrEFxEKO", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-07-20 19:16:19", last_sign_in_at: "2014-07-20 19:16:19", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", confirmation_token: nil, confirmed_at: "2014-07-20 19:16:19", confirmation_sent_at: nil, unconfirmed_email: nil, first_name: "שי", last_name: "פירון", is_active: true, is_blocked: false, region_id: 21, phone: "0513323324")
-user.skip_confirmation!
-user.save!
-user.add_role 'user'
+  user = User.new(id:51, email: "piron@gmail.com", password: "password", encrypted_password: "$2a$10$Ox2XG9aEo9TtAmrkl2rtBOMgwwcePwH9qfWW03F5yXWcIWrEFxEKO", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-07-20 19:16:19", last_sign_in_at: "2014-07-20 19:16:19", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", confirmation_token: nil, confirmed_at: "2014-07-20 19:16:19", confirmation_sent_at: nil, unconfirmed_email: nil, first_name: "שי", last_name: "פירון", is_active: true, is_blocked: false, region_id: 21, phone: "0513323324")
+  user.skip_confirmation!
+  user.save!
+  user.add_role 'user'
 
-puts 'Adding some items'
-Item.create!({id:1, user_id: 11, type_id: 21, image_url: 'sample1.jpg', description: 'תמונה מה זה מדליקה!!!', price_id: 1,height: '100',width: '80',age_id: 1,state_id: 11})
-Item.create!({id:11, user_id: 11, type_id: 1, image_url: 'sample2.jpg', description: 'התמונה הייתה בחדר שינה - מאוד אלגנטית',price_id: 11,height: '50',width: '80',age_id: 11,state_id: 1})
-Item.create!({id:21, user_id: 11, type_id: 11, image_url: 'sample3.jpg', description: 'משרה אווירה רומנטית ומיוחדת',price_id: 21,height: '400',width: '180',age_id: 21,state_id: 11})
-Item.create!({id:31, user_id: 21, type_id: 31, image_url: 'sample4.jpg', description: 'אין לי מה לכתוב על התמונה...',price_id: 31,height: '550',width: '810',age_id: 21,state_id: 31})
-Item.create!({id:41, user_id: 21, type_id: 21, image_url: 'sample5.jpg', description: 'אחלה תמונה, מאוד מומלצת',price_id: 21,height: '50',width: '100',age_id: 31,state_id: 11})
-Item.create!({id:51, user_id: 21, type_id: 11, image_url: 'sample6.jpg', description: 'אין תמונות כאלה!',price_id: 31,height: '250',width: '110',age_id: 11,state_id: 1})
-Item.create!({id:61, user_id: 31, type_id: 1, image_url: 'sample7.jpg', description: 'תמונה שקיבלתי מסבתא שלי',price_id: 11,height: '250',width: '210',age_id: 11,state_id: 1})
-Item.create!({id:71, user_id: 31, type_id: 11, image_url: 'sample8.jpg', description: 'וואלה אחלה תמונה',price_id: 1,height: '50',width: '210',age_id: 21,state_id: 11})
-Item.create!({id:81, user_id: 31, type_id: 31, image_url: 'sample9.jpg', description: 'התמונה בעלת אנרגיות חיוביות ביותר',price_id: 31,height: '150',width: '110',age_id: 31,state_id: 31})
-Item.create!({id:91, user_id: 31, type_id: 31, image_url: 'sample10.jpg', description: 'התמונה הכי יפה שראיתי מימי!',price_id: 11,height: '110',width: '110',age_id: 11,state_id: 31})
-Item.create!({id:101, user_id: 41, type_id: 21, image_url: 'sample11.jpg', description: 'יופי של תמונה לילדים',price_id: 21,height: '150',width: '210',age_id: 1,state_id: 1})
-Item.create!({id:111, user_id: 51, type_id: 11, image_url: 'sample12.jpg', description: 'נראית מצויין לצד עיצוב מודרני',price_id: 1,height: '50',width: '110',age_id: 1,state_id: 11})
-Item.create!({id:121, user_id: 51, type_id: 31, image_url: 'sample13.jpg', description: 'תמונה מגניבה ביותר, שמורה מאוד',price_id: 1,height: '50',width: '60',age_id: 21,state_id: 11})
-Item.create!({id:131, user_id: 51, type_id: 1, image_url: 'sample14.jpg', description: 'סבבה של תמונה',price_id: 11,height: '150',width: '130',age_id: 1,state_id: 21})
-Item.create!({id:141, user_id: 51, type_id: 11, image_url: 'sample15.jpg', description: 'מתאימה לכל חדר',price_id: 21,height: '150',width: '110',age_id: 21,state_id: 11})
+  puts 'Adding some items'
+  Item.create!({id:1, user_id: 11, type_id: 21, image_url: 'sample1.jpg', description: 'תמונה מה זה מדליקה!!!', price_id: 1,height: '100',width: '80',age_id: 1,state_id: 11})
+  Item.create!({id:11, user_id: 11, type_id: 1, image_url: 'sample2.jpg', description: 'התמונה הייתה בחדר שינה - מאוד אלגנטית',price_id: 11,height: '50',width: '80',age_id: 11,state_id: 1})
+  Item.create!({id:21, user_id: 11, type_id: 11, image_url: 'sample3.jpg', description: 'משרה אווירה רומנטית ומיוחדת',price_id: 21,height: '400',width: '180',age_id: 21,state_id: 11})
+  Item.create!({id:31, user_id: 21, type_id: 31, image_url: 'sample4.jpg', description: 'אין לי מה לכתוב על התמונה...',price_id: 31,height: '550',width: '810',age_id: 21,state_id: 31})
+  Item.create!({id:41, user_id: 21, type_id: 21, image_url: 'sample5.jpg', description: 'אחלה תמונה, מאוד מומלצת',price_id: 21,height: '50',width: '100',age_id: 31,state_id: 11})
+  Item.create!({id:51, user_id: 21, type_id: 11, image_url: 'sample6.jpg', description: 'אין תמונות כאלה!',price_id: 31,height: '250',width: '110',age_id: 11,state_id: 1})
+  Item.create!({id:61, user_id: 31, type_id: 1, image_url: 'sample7.jpg', description: 'תמונה שקיבלתי מסבתא שלי',price_id: 11,height: '250',width: '210',age_id: 11,state_id: 1})
+  Item.create!({id:71, user_id: 31, type_id: 11, image_url: 'sample8.jpg', description: 'וואלה אחלה תמונה',price_id: 1,height: '50',width: '210',age_id: 21,state_id: 11})
+  Item.create!({id:81, user_id: 31, type_id: 31, image_url: 'sample9.jpg', description: 'התמונה בעלת אנרגיות חיוביות ביותר',price_id: 31,height: '150',width: '110',age_id: 31,state_id: 31})
+  Item.create!({id:91, user_id: 31, type_id: 31, image_url: 'sample10.jpg', description: 'התמונה הכי יפה שראיתי מימי!',price_id: 11,height: '110',width: '110',age_id: 11,state_id: 31})
+  Item.create!({id:101, user_id: 41, type_id: 21, image_url: 'sample11.jpg', description: 'יופי של תמונה לילדים',price_id: 21,height: '150',width: '210',age_id: 1,state_id: 1})
+  Item.create!({id:111, user_id: 51, type_id: 11, image_url: 'sample12.jpg', description: 'נראית מצויין לצד עיצוב מודרני',price_id: 1,height: '50',width: '110',age_id: 1,state_id: 11})
+  Item.create!({id:121, user_id: 51, type_id: 31, image_url: 'sample13.jpg', description: 'תמונה מגניבה ביותר, שמורה מאוד',price_id: 1,height: '50',width: '60',age_id: 21,state_id: 11})
+  Item.create!({id:131, user_id: 51, type_id: 1, image_url: 'sample14.jpg', description: 'סבבה של תמונה',price_id: 11,height: '150',width: '130',age_id: 1,state_id: 21})
+  Item.create!({id:141, user_id: 51, type_id: 11, image_url: 'sample15.jpg', description: 'מתאימה לכל חדר',price_id: 21,height: '150',width: '110',age_id: 21,state_id: 11})
 
-puts 'Adding some taggings'
-Tagging.create!([
-                    {id:1, item_id: 1, tag_id: 21},
-                    {id:11, item_id: 1, tag_id: 1},
-                    {id:21, item_id: 1, tag_id: 11},
-                    {id:31, item_id: 11, tag_id: 31},
-                    {id:41, item_id: 21, tag_id: 1},
-                    {id:51, item_id: 21, tag_id: 51},
-                    {id:61, item_id: 31, tag_id: 61},
-                    {id:71, item_id: 31, tag_id: 71},
+  puts 'Adding some taggings'
+  Tagging.create!([
+                      {id:1, item_id: 1, tag_id: 21},
+                      {id:11, item_id: 1, tag_id: 1},
+                      {id:21, item_id: 1, tag_id: 11},
+                      {id:31, item_id: 11, tag_id: 31},
+                      {id:41, item_id: 21, tag_id: 1},
+                      {id:51, item_id: 21, tag_id: 51},
+                      {id:61, item_id: 31, tag_id: 61},
+                      {id:71, item_id: 31, tag_id: 71},
+                  ])
+  puts 'Adding some blocks'
+  Block.create!([
+                    {id:1, user_id: 1, item_id: 31}
                 ])
-puts 'Adding some blocks'
-Block.create!([
-                  {id:1, user_id: 1, item_id: 31}
-              ])
-puts 'Adding some wants'
-Want.create!([
-                 {id:1, user_id: 11, item_id: 101, extra_mile: true},
-                 {id:11, user_id: 11, item_id: 111, extra_mile: true},
-                 {id:21, user_id: 21, item_id: 101, extra_mile: true},
-                 {id:31, user_id: 41, item_id: 11, extra_mile: true},
-                 {id:41, user_id: 41, item_id: 21, extra_mile: true}
-             ])
-puts 'Adding some swaps'
-Swap.create!([
-                 {id:1, swapper_id: 1, swappee_id: 11, clicked_item_id: 31, swapper_items: '21', swappee_items: '31'}
-             ])
+  puts 'Adding some wants'
+  Want.create!([
+                   {id:1, user_id: 11, item_id: 101, extra_mile: true},
+                   {id:11, user_id: 11, item_id: 111, extra_mile: true},
+                   {id:21, user_id: 21, item_id: 101, extra_mile: true},
+                   {id:31, user_id: 41, item_id: 11, extra_mile: true},
+                   {id:41, user_id: 41, item_id: 21, extra_mile: true}
+               ])
+  puts 'Adding some swaps'
+  Swap.create!([
+                   {id:1, swapper_id: 1, swappee_id: 11, clicked_item_id: 31, swapper_items: '21', swappee_items: '31'}
+               ])
+end
