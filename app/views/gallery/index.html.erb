@@ -8,7 +8,7 @@
     <br/>
     <ul class="row">
       <% if @items.empty? %>
-        <h3>כל התמונות סוננו....</h3>
+        <h3>לא נמצאו תמונות...</h3>
       <% end %>
       <% @items.each do |item| %>
         <%= render 'items/item_block', locals: {item: item, state: @states[item.id]}%>
