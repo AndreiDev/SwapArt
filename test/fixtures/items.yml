@@ -1,0 +1,169 @@
+item_1:
+  user: user_11
+  type: type_21
+  image_url: sample1.jpg
+  description: 'תמונה מה זה מדליקה!!!'
+  price: price_1
+  height: 100
+  width: 80
+  age: age_1
+  state: state_11
+
+item_11:
+  user: user_1
+  type: type_31
+  image_url: sample2.jpg
+  description: 'התמונה הייתה בחדר שינה - מאוד אלגנטית'
+  price: price_1
+  height: 50
+  width: 120
+  age: age_11
+  state: state_1
+
+item_21:
+  user: user_11
+  type: type_11
+  image_url: sample3.jpg
+  description: 'משרה אווירה רומנטית ומיוחדת'
+  price: price_21
+  height: 400
+  width: 180
+  age: age_21
+  state: state_1
+
+item_31:
+  user: user_21
+  type: type_11
+  image_url: sample4.jpg
+  description: ה לכתוב על התמונה...
+  price: price_11
+  height: 200
+  width: 180
+  age: age_1
+  state: state_1
+
+item_41:
+  user: user_21
+  type: type_21
+  image_url: sample5.jpg
+  description: 'אחלה תמונה, מאוד מומלצת'
+  price: price_11
+  height: 100
+  width: 130
+  age: age_31
+  state: state_1
+
+item_51:
+  user: user_21
+  type: type_11
+  image_url: sample6.jpg
+  description: 'אין תמונות כאלה!'
+  price: price_21
+  height: 100
+  width: 110
+  age: age_31
+  state: state_11
+
+item_61:
+  user: user_21
+  type: type_31
+  image_url: sample7.jpg
+  description: 'תמונה שקיבלתי מסבתא שלי'
+  price: price_11
+  height: 120
+  width: 180
+  age: age_21
+  state: state_31
+
+item_71:
+  user: user_21
+  type: type_11
+  image_url: sample8.jpg
+  description: 'וואלה אחלה תמונה'
+  price: price_31
+  height: 150
+  width: 180
+  age: age_21
+  state: state_1
+
+item_81:
+  user: user_21
+  type: type_31
+  image_url: sample9.jpg
+  description: 'התמונה בעלת אנרגיות חיוביות ביותר'
+  price: price_21
+  height: 200
+  width: 120
+  age: age_31
+  state: state_31
+
+item_91:
+  user: user_21
+  type: type_11
+  image_url: sample10.jpg
+  description: 'התמונה הכי יפה שראיתי מימי!'
+  price: price_11
+  height: 210
+  width: 110
+  age: age_1
+  state: state_21
+
+item_101:
+  user: user_31
+  type: type_21
+  image_url: sample11.jpg
+  description: 'יופי של תמונה לילדים'
+  price: price_11
+  height: 20
+  width: 110
+  age: age_1
+  state: state_1
+
+item_111:
+  user: user_31
+  type: type_1
+  image_url: sample12.jpg
+  description: 'נראית מצויין לצד עיצוב מודרני'
+  price: price_1
+  height: 20
+  width: 110
+  age: age_21
+  state: state_31
+
+item_121:
+  user: user_31
+  type: type_1
+  image_url: sample13.jpg
+  description: 'תמונה מגניבה ביותר, שמורה מאוד'
+  price: price_31
+  height: 90
+  width: 130
+  age: age_11
+  state: state_1
+
+item_131:
+  user: user_41
+  type: type_1
+  image_url: sample14.jpg
+  description: 'סבבה של תמונה'
+  price: price_1
+  height: 80
+  width: 180
+  age: age_21
+  state: state_11
+
+item_141:
+  user: user_51
+  type: type_31
+  image_url: sample15.jpg
+  description: 'מתאימה לכל חדר'
+  price: price_11
+  height: 50
+  width: 180
+  age: age_11
+  state: state_1
+
+
+
+
+
