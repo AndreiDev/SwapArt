@@ -1,0 +1,12 @@
+role_1:
+  name: admin
+  flg_default: 0
+role_11:
+  name: moderator
+  flg_default: 0
+role_21:
+  name: user
+  flg_default: 1
+role_31:
+  name: read_only
+  flg_default: 0

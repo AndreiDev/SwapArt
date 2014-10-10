@@ -1,0 +1,8 @@
+price_1:
+  description: 'עד מאה ש״ח'
+price_11:
+  description: '100-200 ש״ח'
+price_21:
+  description: '200-400 ש״ח'
+price_31:
+  description: 'מעל 400 ש״ח'

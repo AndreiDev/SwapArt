@@ -1,0 +1,6 @@
+swap_1:
+  swapper: swapper_1
+  swappee: swapee_11
+  clicked_item: item_31
+  swapper_items: '21'
+  swappee_items: '31'

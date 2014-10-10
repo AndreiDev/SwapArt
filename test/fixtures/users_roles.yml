@@ -1,0 +1,15 @@
+users_role_1:
+  user_id: <%= ActiveRecord::FixtureSet.identify(:user_11) %>
+  role_id: <%= ActiveRecord::FixtureSet.identify(:role_21) %>
+users_role_2:
+  user_id: <%= ActiveRecord::FixtureSet.identify(:user_21) %>
+  role_id: <%= ActiveRecord::FixtureSet.identify(:role_21) %>
+users_role_3:
+  user_id: <%= ActiveRecord::FixtureSet.identify(:user_31) %>
+  role_id: <%= ActiveRecord::FixtureSet.identify(:role_21) %>
+users_role_4:
+  user_id: <%= ActiveRecord::FixtureSet.identify(:user_41) %>
+  role_id: <%= ActiveRecord::FixtureSet.identify(:role_21) %>
+users_role_5:
+  user_id: <%= ActiveRecord::FixtureSet.identify(:user_51) %>
+  role_id: <%= ActiveRecord::FixtureSet.identify(:role_21) %>

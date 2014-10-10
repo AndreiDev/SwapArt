@@ -71,15 +71,15 @@ admin1 = User.new(id:1, email: 'andrei.averkin@gmail.com', first_name: 'אנדר
                  password: Rails.application.secrets.admin_pass, password_confirmation: Rails.application.secrets.admin_pass)
 admin1.skip_confirmation!
 admin1.save!
-
-admin2 = User.new(id:11, email: 'ilana.averkin@gmail.com', first_name: 'אילנה', last_name: 'אברקין',
-                  password: Rails.application.secrets.admin_pass, password_confirmation: Rails.application.secrets.admin_pass)
-admin2.skip_confirmation!
-admin2.save!
-
-puts 'SETTING UP DEFAULT Administrator User role'
 admin1.add_role 'admin'
-admin2.add_role 'admin'
+
+if Rails.env == "production"
+  admin2 = User.new(id:11, email: 'ilana.averkin@gmail.com', first_name: 'אילנה', last_name: 'אברקין',
+                    password: Rails.application.secrets.admin_pass, password_confirmation: Rails.application.secrets.admin_pass)
+  admin2.skip_confirmation!
+  admin2.save!
+  admin2.add_role 'admin'
+end
 
 if Rails.env == "development"
   puts 'Adding some users'

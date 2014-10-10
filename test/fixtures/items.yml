@@ -10,7 +10,7 @@ item_1:
   state: state_11
 
 item_11:
-  user: user_1
+  user: user_21
   type: type_31
   image_url: sample2.jpg
   description: 'התמונה הייתה בחדר שינה - מאוד אלגנטית'
@@ -152,16 +152,16 @@ item_131:
   age: age_21
   state: state_11
 
-item_141:
-  user: user_51
-  type: type_31
-  image_url: sample15.jpg
-  description: 'מתאימה לכל חדר'
-  price: price_11
-  height: 50
-  width: 180
-  age: age_11
-  state: state_1
+#item_141:
+#  user: user_51
+#  type: type_31
+#  image_url: sample15.jpg
+#  description: 'מתאימה לכל חדר'
+#  price: price_11
+#  height: 50
+#  width: 180
+#  age: age_11
+#  state: state_1
 
 
 

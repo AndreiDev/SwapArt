@@ -1,5 +1,16 @@
 Tur::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  config.action_mailer.default_url_options = {host: "localhost", port: 3000}
+
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+      :address => "mail.swapart.co",
+      :port => 26,
+      :user_name => Rails.application.secrets.email_user,
+      :password => Rails.application.secrets.email_pass,
+      :authentication => 'plain',
+      :enable_starttls_auto => false}
 
   # The test environment is used exclusively to run your application's
   # test suite. You never need to work with it otherwise. Remember that
