@@ -1,12 +1,12 @@
 class Item < ActiveRecord::Base
 
   validates :image_url, :presence => {:message => "יש להעלות תמונה"}
-  validates :price, :presence => {:message => "price undefined"}
-  validates :height, :presence => {:message => "height undefined"}
-  validates :width, :presence => {:message => "width undefined"}
-  validates :type, :presence => {:message => "type undefined"}
-  validates :age, :presence => {:message => "age undefined"}
-  validates :state, :presence => {:message => "state undefined"}
+  validates :price, :presence => {:message => ""}
+  validates :height, :presence => {:message => ""}
+  validates :width, :presence => {:message => ""}
+  validates :type, :presence => {:message => ""}
+  validates :age, :presence => {:message => ""}
+  validates :state, :presence => {:message => ""}
 
   belongs_to :user
   belongs_to :type
