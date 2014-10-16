@@ -81,3 +81,10 @@ gem 'rails-i18n', '~> 4.0.0' # For 4.0.x
 gem 'aws-sdk'
 
 gem 'koala'
+
+group :test do
+  gem 'cucumber-rails', :require => false
+  gem 'launchy'
+  gem 'database_cleaner'
+  gem 'selenium-webdriver'
+end
