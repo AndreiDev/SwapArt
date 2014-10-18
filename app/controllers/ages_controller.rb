@@ -63,7 +63,7 @@ class AgesController < ApplicationController
     end
 
     def age_scope
-      Age.blank_scope
+      Age.all
     end
 
 end
