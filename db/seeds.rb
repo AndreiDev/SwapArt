@@ -142,11 +142,11 @@ if Rails.env == "development"
                 ])
   puts 'Adding some wants'
   Want.create!([
-                   {id:1, user_id: 11, item_id: 101, extra_mile: true},
-                   {id:11, user_id: 11, item_id: 111, extra_mile: true},
-                   {id:21, user_id: 21, item_id: 101, extra_mile: true},
-                   {id:31, user_id: 41, item_id: 11, extra_mile: true},
-                   {id:41, user_id: 41, item_id: 21, extra_mile: true}
+                   {id:1, user_id: 11, item_id: 101},
+                   {id:11, user_id: 11, item_id: 111},
+                   {id:21, user_id: 21, item_id: 101},
+                   {id:31, user_id: 41, item_id: 11},
+                   {id:41, user_id: 41, item_id: 21}
                ])
   puts 'Adding some swaps'
   Swap.create!([

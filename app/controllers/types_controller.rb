@@ -1,76 +1,68 @@
 class TypesController < ApplicationController
-  before_action :set_type, only: [:show, :edit, :update, :destroy]
 
   load_and_authorize_resource
 
-  # GET /types
-  # GET /types.json
   def index
-    @types = Type.all
+    load_types
   end
 
-  # GET /types/1
-  # GET /types/1.json
   def show
+    load_type
   end
 
-  # GET /types/new
   def new
-    @type = Type.new
+    build_type
   end
 
-  # GET /types/1/edit
-  def edit
-  end
-
-  # POST /types
-  # POST /types.json
   def create
-    @type = Type.new(type_params)
-
-    respond_to do |format|
-      if @type.save
-        format.html { redirect_to @type, notice: 'Type was successfully created.' }
-        format.json { render :show, status: :created, location: @type }
-      else
-        format.html { render :new }
-        format.json { render json: @type.errors, status: :unprocessable_entity }
-      end
-    end
+    build_type
+    save_type or render 'new'
   end
 
-  # PATCH/PUT /types/1
-  # PATCH/PUT /types/1.json
+  def edit
+    load_type
+    build_type
+  end
+
   def update
-    respond_to do |format|
-      if @type.update(type_params)
-        format.html { redirect_to @type, notice: 'Type was successfully updated.' }
-        format.json { render :show, status: :ok, location: @type }
-      else
-        format.html { render :edit }
-        format.json { render json: @type.errors, status: :unprocessable_entity }
-      end
-    end
+    load_type
+    build_type
+    save_type or render 'edit'
   end
 
-  # DELETE /types/1
-  # DELETE /types/1.json
   def destroy
+    load_type
     @type.destroy
-    respond_to do |format|
-      format.html { redirect_to types_url, notice: 'Type was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to types_path
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_type
-      @type = Type.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def type_params
-      params.require(:type).permit(:description)
+  def load_types
+    @types ||= type_scope.to_a
+  end
+
+  def load_type
+    @type ||= type_scope.find(params[:id])
+  end
+
+  def build_type
+    @type ||= type_scope.build
+    @type.attributes = type_params
+  end
+
+  def save_type
+    if @type.save
+      redirect_to @type
     end
+  end
+
+  def type_params
+    type_params = params[:type]
+    type_params ? type_params.permit(:description) : {}
+  end
+
+  def type_scope
+    Type.all
+  end
 end

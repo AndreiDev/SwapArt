@@ -34,9 +34,9 @@
       <% else %>
         <% unless current_user.items.where(is_active: true, is_blocked: false).count == 0 %>
           <% if locals[:state] == 2 || locals[:state] == 4  %>
-            <%= link_to "", toggle_wants_path(want: {item_id: locals[:item].id}), format: :json, remote: true, method: :post, :class => "btn btn-large btn-success toggle_want fa fa-thumbs-up" %>
+            <%= link_to "", want_path(Want.find_by_user_id_and_item_id(current_user.id, locals[:item].id).id), format: :json, remote: true, method: :delete, :class => "btn btn-large btn-success toggle_want fa fa-thumbs-up" %>
           <% else %>
-            <%= link_to "", toggle_wants_path(want: {item_id: locals[:item].id}), format: :json, remote: true, method: :post, :class => "btn btn-large btn-default toggle_want fa fa-thumbs-up" %>
+            <%= link_to "", wants_path(want: {item_id: locals[:item].id}), format: :json, remote: true, method: :post, :class => "btn btn-large btn-default toggle_want fa fa-thumbs-up" %>
           <% end %>
         <% end %>
       <% end %>

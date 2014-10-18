@@ -4,11 +4,7 @@ Tur::Application.routes.draw do
 
   resources :swaps
 
-  resources :wants do
-    collection do
-      post 'toggle'
-    end
-  end
+  resources :wants
 
   resources :blocks do
     collection do

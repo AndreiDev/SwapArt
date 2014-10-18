@@ -15,6 +15,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def set_current_user
+    User.current = current_user
+  end
+
   def get_states(items)
     users_that_want_my_items = User.find_by_sql ["SELECT DISTINCT users.*
     FROM users
