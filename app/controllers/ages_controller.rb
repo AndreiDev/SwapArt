@@ -1,76 +1,69 @@
 class AgesController < ApplicationController
-  before_action :set_age, only: [:show, :edit, :update, :destroy]
 
   load_and_authorize_resource
 
-  # GET /ages
-  # GET /ages.json
   def index
-    @ages = Age.all
+    load_ages
   end
 
-  # GET /ages/1
-  # GET /ages/1.json
   def show
+    load_age
   end
 
-  # GET /ages/new
   def new
-    @age = Age.new
+    build_age
   end
 
-  # GET /ages/1/edit
-  def edit
-  end
-
-  # POST /ages
-  # POST /ages.json
   def create
-    @age = Age.new(age_params)
-
-    respond_to do |format|
-      if @age.save
-        format.html { redirect_to @age, notice: 'Age was successfully created.' }
-        format.json { render :show, status: :created, location: @age }
-      else
-        format.html { render :new }
-        format.json { render json: @age.errors, status: :unprocessable_entity }
-      end
-    end
+    build_age
+    save_age or render 'new'
   end
 
-  # PATCH/PUT /ages/1
-  # PATCH/PUT /ages/1.json
+  def edit
+    load_age
+    build_age
+  end
+
   def update
-    respond_to do |format|
-      if @age.update(age_params)
-        format.html { redirect_to @age, notice: 'Age was successfully updated.' }
-        format.json { render :show, status: :ok, location: @age }
-      else
-        format.html { render :edit }
-        format.json { render json: @age.errors, status: :unprocessable_entity }
-      end
-    end
+    load_age
+    build_age
+    save_age or render 'edit'
   end
 
-  # DELETE /ages/1
-  # DELETE /ages/1.json
   def destroy
+    load_age
     @age.destroy
-    respond_to do |format|
-      format.html { redirect_to ages_url, notice: 'Age was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to ages_path
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_age
-      @age = Age.find(params[:id])
+
+    def load_ages
+      @ages ||= age_scope.to_a
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def age_params
-      params.require(:age).permit(:description)
+    def load_age
+      @age ||= age_scope.find(params[:id])
     end
+
+    def build_age
+      @age ||= age_scope.build
+      @age.attributes = age_params
+    end
+
+    def save_age
+      if @age.save
+        redirect_to @age
+      end
+    end
+
+    def age_params
+      age_params = params[:age]
+      age_params ? age_params.permit(:description) : {}
+    end
+
+    def age_scope
+      Age.blank_scope
+    end
+
 end
