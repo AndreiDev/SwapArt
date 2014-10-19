@@ -5,6 +5,8 @@ class Want < ActiveRecord::Base
   before_create :assign_current_user
   after_create :calculate_state, :send_email_to_swapee
 
+  validates_presence_of :item_id
+
   attr_accessor :state
 
   private
