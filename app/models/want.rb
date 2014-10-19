@@ -5,6 +5,8 @@ class Want < ActiveRecord::Base
   before_create :assign_current_user
   after_create :calculate_state, :send_email_to_swapee
 
+  attr_accessor :state
+
   private
 
   def assign_current_user
@@ -12,12 +14,12 @@ class Want < ActiveRecord::Base
   end
 
   def calculate_state
-    @state = User.current.get_states([self.item])[self.item.id]
+    self.state = User.get_states([self.item])[self.item.id]
   end
 
   def send_email_to_swapee
     # send an email to the other user that a swap is awaiting
-    if @state == 4
+    if self.state == 4
       user_swapping_with = Item.find(self['item_id']).user
       if user_swapping_with.swap_informed_at.nil? || (user_swapping_with.swap_informed_at.present? && user_swapping_with.swap_informed_at < Time.now - 1.hours)
         SwapMailer.inform(user_swapping_with).deliver

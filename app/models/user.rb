@@ -51,7 +51,7 @@ class User < ActiveRecord::Base
     user_roles.join(", ") unless self.roles.first.nil?
   end
 
-  def get_states(items)
+  def self.get_states(items)
     users_that_want_my_items = User.find_by_sql ["SELECT DISTINCT users.*
     FROM users
     LEFT JOIN wants on users.id = wants.user_id
