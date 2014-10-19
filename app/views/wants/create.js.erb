@@ -1,6 +1,5 @@
 <%
-  @item = Item.find @want['item_id']
-  @state = User.current.get_states([@item])[@item.id]
+  @state = User.current.get_states([@want.item])[@want.item.id]
 %>
-$("<%= escape_javascript render(:file => 'items/_item_block', locals: {locals: {item: @item, state: @state}}) %>").replaceAll('li[data-item-id="<%= @item.id %>"]');
+$("<%= escape_javascript render(:file => 'items/_item_block', locals: {locals: {item: @want.item, state: @state}}) %>").replaceAll('li[data-item-id="<%= @want.item.id %>"]');
 adjustModalThumbnail();

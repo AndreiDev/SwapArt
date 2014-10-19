@@ -12,8 +12,7 @@ class Want < ActiveRecord::Base
   end
 
   def calculate_state
-    @item = Item.find self['item_id']
-    @state = User.current.get_states([@item])[@item.id]
+    @state = User.current.get_states([self.item])[self.item.id]
   end
 
   def send_email_to_swapee
