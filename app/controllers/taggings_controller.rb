@@ -1,76 +1,68 @@
 class TaggingsController < ApplicationController
-  before_action :set_tagging, only: [:show, :edit, :update, :destroy]
 
   load_and_authorize_resource
 
-  # GET /taggings
-  # GET /taggings.json
   def index
-    @taggings = Tagging.all
+    load_taggings
   end
 
-  # GET /taggings/1
-  # GET /taggings/1.json
   def show
+    load_tagging
   end
 
-  # GET /taggings/new
   def new
-    @tagging = Tagging.new
+    build_tagging
   end
 
-  # GET /taggings/1/edit
-  def edit
-  end
-
-  # POST /taggings
-  # POST /taggings.json
   def create
-    @tagging = Tagging.new(tagging_params)
-
-    respond_to do |format|
-      if @tagging.save
-        format.html { redirect_to @tagging, notice: 'Tagging was successfully created.' }
-        format.json { render :show, status: :created, location: @tagging }
-      else
-        format.html { render :new }
-        format.json { render json: @tagging.errors, status: :unprocessable_entity }
-      end
-    end
+    build_tagging
+    save_tagging or render 'new'
   end
 
-  # PATCH/PUT /taggings/1
-  # PATCH/PUT /taggings/1.json
+  def edit
+    load_tagging
+    build_tagging
+  end
+
   def update
-    respond_to do |format|
-      if @tagging.update(tagging_params)
-        format.html { redirect_to @tagging, notice: 'Tagging was successfully updated.' }
-        format.json { render :show, status: :ok, location: @tagging }
-      else
-        format.html { render :edit }
-        format.json { render json: @tagging.errors, status: :unprocessable_entity }
-      end
-    end
+    load_tagging
+    build_tagging
+    save_tagging or render 'edit'
   end
 
-  # DELETE /taggings/1
-  # DELETE /taggings/1.json
   def destroy
+    load_tagging
     @tagging.destroy
-    respond_to do |format|
-      format.html { redirect_to taggings_url, notice: 'Tagging was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to taggings_path
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_tagging
-      @tagging = Tagging.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def tagging_params
-      params.require(:tagging).permit(:item_id, :tag_id)
+  def load_taggings
+    @taggings ||= tagging_scope.to_a
+  end
+
+  def load_tagging
+    @tagging ||= tagging_scope.find(params[:id])
+  end
+
+  def build_tagging
+    @tagging ||= tagging_scope.build
+    @tagging.attributes = tagging_params
+  end
+
+  def save_tagging
+    if @tagging.save
+      redirect_to @tagging
     end
+  end
+
+  def tagging_params
+    tagging_params = params[:tagging]
+    tagging_params ? tagging_params.permit(:item_id, tag_id) : {}
+  end
+
+  def tagging_scope
+    Tagging.all
+  end
 end
