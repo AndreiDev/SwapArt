@@ -6,12 +6,8 @@ Tur::Application.routes.draw do
 
   resources :wants
 
-  resources :blocks do
-    collection do
-      post 'apply'
-      post 'clear'
-    end
-  end
+  resources :blocks
+  delete 'batch_blocks/destroy'
 
   resources :taggings
 

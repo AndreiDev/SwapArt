@@ -9,7 +9,7 @@
           <%= link_to "", toggle_active_items_path(id: locals[:item].id), format: :json, remote: true, method: :post, :class => "btn btn-warning thumbnail_close toggle_active glyphicon glyphicon-eye-close" %>
         <% end %>
       <% else %>
-        <%= link_to "", apply_blocks_path(block: {item_id: locals[:item].id}), format: :json, remote: true, method: :post, :class => "btn btn-danger thumbnail_close fa fa-times" %>
+        <%= link_to "", blocks_path(block: {item_id: locals[:item].id}), format: :json, remote: true, method: :post, :class => "btn btn-danger thumbnail_close fa fa-times" %>
       <% end %>
       <p class="text-center item-date"> <%= locals[:item].created_at.strftime("%d.%m.%Y") %> </p>
       <img src= <%= S3_PATH + url_encode(locals[:item].image_url) %> alt="" class="center-block">

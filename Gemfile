@@ -82,6 +82,8 @@ gem 'aws-sdk'
 
 gem 'koala'
 
+gem 'active_type'
+
 group :test do
   gem 'cucumber-rails', :require => false
   gem 'launchy'
