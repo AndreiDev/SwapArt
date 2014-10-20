@@ -1,4 +1,7 @@
 class GalleryController < ApplicationController
+  
+  before_filter :set_current_user
+
   def index
 
     @items = Item.joins(:user).where.not(:user => current_user)
@@ -57,7 +60,7 @@ class GalleryController < ApplicationController
       @page_number = params[:page].to_i
     end
 
-    @states = get_states(@items)
+    @states = User.get_states(@items)
 
     @items = @items.sort_by { |item| [@states[item.id], item.created_at] }.reverse!
 
