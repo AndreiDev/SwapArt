@@ -77,6 +77,14 @@ class User < ActiveRecord::Base
     return states
   end
 
+  def self.get_items_by_user2_that_user1_wants(user1, user2)
+    return Item.find_by_sql ["SELECT DISTINCT items.*
+    FROM users
+    LEFT JOIN wants on users.id = wants.user_id
+    LEFT JOIN items on wants.item_id = items.id
+    WHERE users.id = '?' AND items.user_id = '?'", user1.id, user2.id]
+  end
+
   def self.current
     Thread.current[:user]
   end

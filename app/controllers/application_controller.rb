@@ -19,40 +19,6 @@ class ApplicationController < ActionController::Base
     User.current = current_user
   end
 
-  def get_states(items)
-    users_that_want_my_items = User.find_by_sql ["SELECT DISTINCT users.*
-    FROM users
-    LEFT JOIN wants on users.id = wants.user_id
-    LEFT JOIN items on wants.item_id = items.id
-    WHERE users.is_active = 1 AND users.is_blocked = 0
-    AND items.user_id = '?'", current_user.id]
-
-    states = {}
-    items.each { |item|
-      user_wants_item = item.want_users.include? current_user
-      item_owner_wants_users_item = users_that_want_my_items.include? item.user
-      case [user_wants_item, item_owner_wants_users_item]
-        when [false, false]
-          states[item.id] = 1
-        when [true, false]
-          states[item.id] = 2
-        when [false, true]
-          states[item.id] = 3
-        when [true, true]
-          states[item.id] = 4
-      end
-    }
-    return states
-  end
-
-  def get_items_by_user2_that_user1_wants(user1, user2)
-  return Item.find_by_sql ["SELECT DISTINCT items.*
-    FROM users
-    LEFT JOIN wants on users.id = wants.user_id
-    LEFT JOIN items on wants.item_id = items.id
-    WHERE users.id = '?' AND items.user_id = '?'", user1.id, user2.id]
-  end
-
   private
 
   def check_registration

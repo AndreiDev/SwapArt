@@ -89,9 +89,9 @@ class UsersController < ApplicationController
     .where(:is_active => true)
     .where.not(id: current_user.block_items.pluck(:id))
 
-    @states = get_states(@items)
+    @states = User.get_states(@items)
 
-    @my_items_user_wants = get_items_by_user2_that_user1_wants(@user, current_user)
+    @my_items_user_wants = User.get_items_by_user2_that_user1_wants(@user, current_user)
     respond_to do |format|
       format.js
     end
@@ -100,8 +100,8 @@ class UsersController < ApplicationController
   def modal_contact
     @item = Item.find params[:item_id]
     swap = Swap.find_or_initialize_by(swapper: current_user, swappee: @user, clicked_item: @item)
-    swap.swapper_items = get_items_by_user2_that_user1_wants(@user, current_user).map{|item| item.id}.to_s
-    swap.swappee_items = get_items_by_user2_that_user1_wants(current_user, @user).map{|item| item.id}.to_s
+    swap.swapper_items = User.get_items_by_user2_that_user1_wants(@user, current_user).map{|item| item.id}.to_s
+    swap.swappee_items = User.get_items_by_user2_that_user1_wants(current_user, @user).map{|item| item.id}.to_s
     swap.save
     respond_to do |format|
       format.js
