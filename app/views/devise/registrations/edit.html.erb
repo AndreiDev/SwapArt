@@ -4,7 +4,7 @@
   <div class="jumbotron">
   <%= render 'devise/registrations/form' %>
   <% if @current_user.blocks.present? %>
-    <%= link_to " החזר תמונות מוסתרות", batch_blocks_destroy_path, format: :json, remote: true, method: :delete %> <div class="clearfix"></div>
+    <%= link_to " החזר תמונות מוסתרות", '/user_blocks/' + current_user.id.to_s, format: :json, remote: true, method: :delete %> <div class="clearfix"></div>
   <% end %>
   <%= link_to t('devise.registrations.delete'), registration_path(resource_name), :data => {:confirm => t('devise.registrations.delete_user') }, :method => :delete%>
   </div>

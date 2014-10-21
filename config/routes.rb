@@ -7,7 +7,7 @@ Tur::Application.routes.draw do
   resources :wants
 
   resources :blocks
-  delete 'batch_blocks/destroy'
+  delete 'user_blocks/:user_id', to: 'user_blocks#destroy'
 
   resources :taggings
 
