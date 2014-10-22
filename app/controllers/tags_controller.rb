@@ -3,7 +3,7 @@ class TagsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    load_tag
+    load_tags
   end
 
   def show

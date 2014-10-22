@@ -1,0 +1,11 @@
+str = $('*[data-id=<%= @item.id %>]').attr("href");
+index = str.indexOf("=");
+<% if @item.is_active %>
+  $('*[data-id=<%= @item.id %>]').removeClass('glyphicon-eye-close btn-warning');
+  $('*[data-id=<%= @item.id %>]').addClass('glyphicon-eye-open btn-success');
+  $('*[data-id=<%= @item.id %>]').attr("href",str.substring(0,index+1) + 'false');
+<% else %>
+  $('*[data-id=<%= @item.id %>]').removeClass('glyphicon-eye-open btn-success');
+  $('*[data-id=<%= @item.id %>]').addClass('glyphicon-eye-close btn-warning');
+  $('*[data-id=<%= @item.id %>]').attr("href",str.substring(0,index+1) + 'true');
+<% end %>

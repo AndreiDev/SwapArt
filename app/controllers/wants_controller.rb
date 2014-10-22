@@ -5,7 +5,7 @@ class WantsController < ApplicationController
   before_filter :set_current_user
 
   def index
-    load_want
+    load_wants
   end
 
   def show

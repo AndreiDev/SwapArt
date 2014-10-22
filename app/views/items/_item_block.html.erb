@@ -4,9 +4,9 @@
       <div style="direction: ltr"><p class="thumbnail_image_size"><%= locals[:item].width  %>X<%= locals[:item].height %></p></div>
       <% if locals[:item].user == current_user %>
         <% if locals[:item].is_active %>
-          <%= link_to "", toggle_active_items_path(id: locals[:item].id), format: :json, remote: true, method: :post, :class => "btn btn-success toggle_active glyphicon glyphicon-eye-open" %>
+          <%= link_to "", item_path(id: locals[:item].id, item: {is_active: false}), :data => { :id => locals[:item].id}, format: :json, remote: true, method: :put, :class => "btn btn-success toggle_active glyphicon glyphicon-eye-open" %>
         <% else %>
-          <%= link_to "", toggle_active_items_path(id: locals[:item].id), format: :json, remote: true, method: :post, :class => "btn btn-warning thumbnail_close toggle_active glyphicon glyphicon-eye-close" %>
+          <%= link_to "", item_path(id: locals[:item].id, item: {is_active: true}), :data => { :id => locals[:item].id}, format: :json, remote: true, method: :put, :class => "btn btn-warning thumbnail_close toggle_active glyphicon glyphicon-eye-close" %>
         <% end %>
       <% else %>
         <%= link_to "", blocks_path(block: {item_id: locals[:item].id}), format: :json, remote: true, method: :post, :class => "btn btn-danger thumbnail_close fa fa-times" %>
