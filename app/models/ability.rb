@@ -33,8 +33,6 @@ class Ability
           can :manage, Block, :user_id => user.id
           cannot :index, Block
 
-          can :destroy, UserBlock, :user_id => user.id
-
           can :manage, Want, :user_id => user.id
           cannot [:index], Want
 
