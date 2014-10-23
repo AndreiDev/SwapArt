@@ -22,7 +22,7 @@
       <% if locals[:item].user == current_user || current_user.items.where(is_active: true, is_blocked: false).count == 0 || (locals[:state].nil?) || (locals[:item].user.items.count == 1 && locals[:state] < 3 )%>
         <%= locals[:item].user.first_name %> (<%= locals[:item].user.region.description %>)
       <% else %>
-        <%= link_to "%s (%s)" % [locals[:item].user.first_name, locals[:item].user.region.description], modal_users_path(user_id: locals[:item].user_id), format: :json, remote: true, :class => "user_modal_link" %>
+        <%= link_to "%s (%s)" % [locals[:item].user.first_name, locals[:item].user.region.description], '/user_items/' + locals[:item].user_id.to_s, format: :json, method: :get, remote: true, :class => "user_modal_link" %>
       <% end %>
       <% if locals[:state] == 3 || locals[:state] == 4 %>
         <span class="wants_to_swap">רוצה להתחלף!</span>

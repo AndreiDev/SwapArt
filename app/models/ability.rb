@@ -22,8 +22,6 @@ class Ability
 
           can [:read, :update], User, :id => user.id
 
-          can [:modal, :modal_contact], User
-
           can :index, [Age, Region, State, Tag, Type]
 
           can :manage, Tagging, :item_id => user.item_ids

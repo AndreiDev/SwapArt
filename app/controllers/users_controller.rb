@@ -1,122 +1,68 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :modal, :modal_contact]
-
   load_and_authorize_resource
-  # respond_to :html, :json
 
-  # GET /users
-  # GET /users.json
   def index
-    authorize! :index, @user, :message => 'Not authorized as an administrator.'
-    @users = User.all
+    load_users
   end
 
-  # GET /users/1
-  # GET /users/1.json
   def show
-    #@user = User.find(params[:id])
-    #respond_with(@user)
+    load_user
   end
 
-#  def new
-    #@user = User.new
-    #respond_with(@user)
-#  end
-
-
-  # GET /users/1/edit
-  def edit
-    @user = User.find(params[:id])
+  def new
+    build_user
   end
 
-  # POST /users
-  # POST /users.json
   def create
-    authorize! :create, @user, :message => 'Not authorized as an administrator.'
-
-    @user = User.new(user_params)
-
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
-
-    after_save(nil, @user)
+    build_user
+    save_user or render 'new'
   end
 
-  # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
+  def edit
+    load_user
+    build_user
+  end
+
   def update
-    authorize! :update, @user, :message => 'Not authorized as an administrator.'
-
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
-    after_save(nil, @user)
+    load_user
+    build_user
+    save_user or render 'edit'
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
   def destroy
-    authorize! :destroy, @user, :message => 'Not authorized as an administrator.'
-
+    load_user
     @user.destroy
-    @user.identity.destroy if @user.identity.present?
-
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-    #respond_with(@user)
-  end
-
-  def modal
-
-    @items = @user.items
-    .where(:is_blocked => false)
-    .where(:is_active => true)
-    .where.not(id: current_user.block_items.pluck(:id))
-
-    @states = User.get_states(@items)
-
-    @my_items_user_wants = User.get_items_by_user2_that_user1_wants(@user, current_user)
-    respond_to do |format|
-      format.js
-    end
-  end
-
-  def modal_contact
-    @item = Item.find params[:item_id]
-    swap = Swap.find_or_initialize_by(swapper: current_user, swappee: @user, clicked_item: @item)
-    swap.swapper_items = User.get_items_by_user2_that_user1_wants(@user, current_user).map{|item| item.id}.to_s
-    swap.swappee_items = User.get_items_by_user2_that_user1_wants(current_user, @user).map{|item| item.id}.to_s
-    swap.save
-    respond_to do |format|
-      format.js
-    end
+    redirect_to users_path
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
-  def set_user
-    @user = User.find(params[:user_id])
+
+  def load_users
+    @users ||= user_scope.to_a
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
+  def load_user
+    @user ||= user_scope.find(params[:id])
+  end
+
+  def build_user
+    @user ||= user_scope.build
+    @user.attributes = user_params
+  end
+
+  def save_user
+    if @user.save
+      redirect_to @user
+    end
+  end
+
   def user_params
-    params.require(:user).permit(:email, :first_name, :last_name, :phone, :region_id, :is_active, :is_blocked, :role_ids => [])
+    user_params = params[:user]
+    user_params ? user_params.permit(:email, :first_name, :last_name, :phone, :region_id, :is_active, :is_blocked, :role_ids => []) : {}
   end
 
+  def user_scope
+    User.all
+  end
 end

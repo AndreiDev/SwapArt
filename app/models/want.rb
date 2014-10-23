@@ -4,6 +4,7 @@ class Want < ActiveRecord::Base
 
   before_create :assign_current_user
   after_create :calculate_state, :send_email_to_swapee
+  after_destroy :calculate_state
 
   validates_presence_of :item_id
 

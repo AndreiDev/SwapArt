@@ -31,6 +31,11 @@ class User < ActiveRecord::Base
                       allow_blank: true,
                       message: I18n.t("model.messages.emailError")
 
+  after_destroy :clear_identity
+
+  def clear_identity
+    self.identity_was.destroy if self.identity_was.present?
+  end
 
   def full_name
     "#{first_name} #{last_name}"

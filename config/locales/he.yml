@@ -108,7 +108,7 @@ he:
 
     buttons:
       save: "שמור"
-      saveAndAddAnother: "שמור והוסך עוד"
+      saveAndAddAnother: "שמור והוסף עוד"
       backToRegistry: "בטל וחזור אחורה"
 
     messages:
