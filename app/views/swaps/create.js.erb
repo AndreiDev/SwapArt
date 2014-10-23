@@ -1,3 +1,5 @@
+<% @user = User.find @swap.swappee_id %>
+
 $('#UserContactModal .first_name').text("<%= @user.first_name %>");
 $('#UserContactModal .last_name').text(" <%= @user.last_name %>");
 $('#UserContactModal .region').text("<%= @user.region.description %>");

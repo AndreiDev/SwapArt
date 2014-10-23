@@ -36,7 +36,7 @@ class Ability
           can :manage, Want, :user_id => user.id
           cannot [:index], Want
 
-          can [:read, :create], Swap, :user1_id => user.id
+          can [:read, :create], Swap, :swapper_id => user.id
           cannot [:index], Swap
         else #read-only
           can :index, Region

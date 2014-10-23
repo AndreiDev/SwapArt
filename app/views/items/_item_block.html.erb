@@ -45,7 +45,7 @@
       <% else %>
         <% if locals[:state] == 4 %>
         <span class="user_info">
-          <%= link_to "", modal_contact_users_path(user_id: locals[:item].user_id, item_id: locals[:item].id), format: :json, remote: true, :class => "btn btn-large btn-warning pull-left fa fa-info-circle" %>
+          <%= link_to "", swaps_path(swap: {swappee_id: locals[:item].user_id, clicked_item_id: locals[:item].id}), format: :json, method: :post, remote: true, :class => "btn btn-large btn-warning pull-left fa fa-info-circle" %>
         </span>
         <% end %>
       <% end %>

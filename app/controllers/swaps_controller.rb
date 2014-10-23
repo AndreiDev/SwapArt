@@ -2,6 +2,8 @@ class SwapsController < ApplicationController
 
   load_and_authorize_resource
 
+  before_filter :set_current_user
+
   def index
     load_swaps
   end
@@ -16,7 +18,14 @@ class SwapsController < ApplicationController
 
   def create
     build_swap
-    save_swap or render 'new'
+    respond_to do |format|
+      format.html {
+        save_swap or render 'new'
+      }
+      format.js {
+        @swap.save
+      }
+    end
   end
 
   def edit
@@ -59,7 +68,7 @@ class SwapsController < ApplicationController
 
   def swap_params
     swap_params = params[:swap]
-    swap_params ? swap_params.permit(:user1_id, :user2_id, :user1_items, :user2_items) : {}
+    swap_params ? swap_params.permit(:swapper_id, :swappee_id, :clicked_item_id, :user1_items, :user2_items) : {}
   end
 
   def swap_scope
