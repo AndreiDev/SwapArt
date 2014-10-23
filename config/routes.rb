@@ -12,7 +12,6 @@ Tur::Application.routes.draw do
   resources :taggings
 
   resources :items
-  get 'user_items/:user_id', to: 'user_items#index'
 
   resources :tags
 
