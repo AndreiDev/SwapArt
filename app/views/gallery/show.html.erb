@@ -7,19 +7,19 @@
     <div class="clearfix"></div>
     <br/>
     <ul class="row">
-      <% if @items.empty? %>
+      <% if @gallery.items.empty? %>
         <h3>לא נמצאו תמונות...</h3>
       <% end %>
-      <% @items.each do |item| %>
-        <%= render 'items/item_block', locals: {item: item, state: @states[item.id]}%>
+      <% @gallery.items.each do |item| %>
+        <%= render 'items/item_block', locals: {item: item, state: @gallery.states[item.id]}%>
       <% end %>
     </ul>
   </div>
-  <% if @number_of_pages > 1 %>
+  <% if @gallery.number_of_pages > 1 %>
     <div class="text-center">
       <ul class="pagination pagination-lg">
-        <% @number_of_pages.times do |page_index| %>
-          <% if page_index+1 == @page_number %>
+        <% @gallery.number_of_pages.times do |page_index| %>
+          <% if page_index+1 == @gallery.page_number %>
             <li class="active"><a href="" class="pagination-button inactiveLink"><%= page_index+1 %></a></li>
           <% else %>
             <% if request.original_url.index('page=').present? %>
