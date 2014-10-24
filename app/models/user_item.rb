@@ -9,6 +9,7 @@ class UserItem < ActiveType::Object
   attribute :states, :array
   attribute :user_id
 
+  # associations
   belongs_to :swappee, class_name: 'User'
 
   after_initialize :assign_current_user, :prepare_user_data
