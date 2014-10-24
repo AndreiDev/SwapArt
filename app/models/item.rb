@@ -32,7 +32,7 @@ class Item < ActiveRecord::Base
   private
 
   def assign_current_user
-    self.user_id = User.current.try(:id)
+    self.user_id ||= User.current.try(:id)
   end
 
   def remove_wants_of_inactive_item
