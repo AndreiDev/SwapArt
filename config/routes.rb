@@ -48,7 +48,7 @@ Tur::Application.routes.draw do
   get '/home', to: redirect('/')
 
   resources :users
-  get 'user_items/:user_id', to: 'user_items#show'
+  get 'user_items/:swappee_id', to: 'user_items#show'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

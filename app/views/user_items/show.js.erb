@@ -1,19 +1,13 @@
-<%
-    @states = User.get_states(@user_items)
-    @user = @user_items.first.user
-    @my_items_user_wants = User.get_items_by_user2_that_user1_wants(@user, current_user)
-%>
-
 $('#modal-injection').empty();
 $('#my-area').empty();
 <% @from = "מ" %>
 <% @pictures_by = "התמונות של" %>
-$('#UserModalLabel').text("<%= @pictures_by %> <%= @user.first_name %> <%= @from %><%= @user.region.description %>")
-<% if @my_items_user_wants.present? %>
-$("<%= escape_javascript render(:file => 'items/_my_items', locals: {locals: {user: @user, my_items_user_wants: @my_items_user_wants}}) %>").appendTo('#my-area');
+$('#UserModalLabel').text("<%= @pictures_by %> <%= @user_items.swappee.first_name %> <%= @from %><%= @user_items.swappee.region.description %>")
+<% if @user_items.my_items_user_wants.present? %>
+$("<%= escape_javascript render(:file => 'items/_my_items', locals: {locals: {user: @user_items.swappee, my_items_user_wants: @user_items.my_items_user_wants}}) %>").appendTo('#my-area');
 <% end %>
-<% @user_items.each do |item| %>
-$("<%= escape_javascript render(:file => 'items/_item_block', locals: {locals: {item: item, state: @states[item.id]}}) %>").appendTo('#modal-injection');
+<% @user_items.items.each do |item| %>
+$("<%= escape_javascript render(:file => 'items/_item_block', locals: {locals: {item: item, state: @user_items.states[item.id]}}) %>").appendTo('#modal-injection');
 <% end %>
 adjustModalThumbnail();
 $('#UserModal').modal();
