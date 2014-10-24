@@ -13,7 +13,7 @@ class Want < ActiveRecord::Base
   private
 
   def assign_current_user
-    self.user_id = User.current.id
+    self.user_id = User.current.try(:id)
   end
 
   def calculate_state

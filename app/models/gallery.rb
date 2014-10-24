@@ -21,7 +21,7 @@ class Gallery < ActiveType::Object
   private
 
   def assign_current_user
-    self.user_id = User.current.id
+    self.user_id = User.current.try(:id)
   end
 
   def prepare_gallery
@@ -72,7 +72,7 @@ class Gallery < ActiveType::Object
       end
     end
 
-    self.number_of_pages = (self.items.count-1)/8 + 1
+    self.number_of_pages = (self.items.count-1)/AppConfig.max_items_per_page.to_i + 1
 
     if self.page.nil? || self.page.to_i <= 0
       self.page_number = 1
@@ -86,7 +86,7 @@ class Gallery < ActiveType::Object
 
     self.items = self.items.sort_by { |item| [self.states[item.id], item.created_at] }.reverse!
 
-    self.items = self.items[(self.page_number-1)*8, self.page_number*8]
+    self.items = self.items[(self.page_number-1)*AppConfig.max_items_per_page.to_i, AppConfig.max_items_per_page.to_i]
 
   end
 

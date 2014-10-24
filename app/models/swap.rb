@@ -8,7 +8,7 @@ class Swap < ActiveRecord::Base
   private
 
   def assign_current_user
-    self.swapper_id = User.current.id
+    self.swapper_id ||= User.current.try(:id)
   end
 
   def prepare_swap_data

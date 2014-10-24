@@ -62,7 +62,7 @@ class User < ActiveRecord::Base
     LEFT JOIN wants on users.id = wants.user_id
     LEFT JOIN items on wants.item_id = items.id
     WHERE users.is_active = 1 AND users.is_blocked = 0
-    AND items.user_id = '?'", User.current.id]
+    AND items.user_id = '?'", User.current.try(:id)]
 
     states = {}
     items.each { |item|

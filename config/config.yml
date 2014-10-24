@@ -4,7 +4,7 @@ defaults: &defaults
   site_name: "SwapArt"
   author: "Andrei Averkin"
   meta_description: "Swap art with people like you"
-  meta_keywords: "swap, art, free, network"
+  meta_keywords: "swapart, swap, art, free, network"
   max_items_per_page: "8"
 
 development:
