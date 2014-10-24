@@ -20,7 +20,6 @@ class UserItem < ActiveType::Object
   end
 
   def prepare_user_data
-
     self.swappee = User.find(swappee_id)
 
     self.items = Item
