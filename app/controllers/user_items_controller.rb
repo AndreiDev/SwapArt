@@ -4,7 +4,6 @@ class UserItemsController < ApplicationController
 
   def show
     load_user_items
-    # authorize! :index, @user_items.first
     respond_to do |format|
       format.js
     end
