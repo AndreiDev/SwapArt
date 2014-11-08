@@ -1,6 +1,6 @@
 class BlocksController < ApplicationController
 
-  load_and_authorize_resource
+  authorize_resource
 
   before_filter :set_current_user
 
@@ -68,6 +68,6 @@ class BlocksController < ApplicationController
   end
 
   def block_scope
-    Block.all
+    Block::AsUser.all
   end
 end
