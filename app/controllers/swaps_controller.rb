@@ -48,14 +48,17 @@ class SwapsController < ApplicationController
   private
 
   def load_swaps
+    @swaps = @swaps.to_a.becomes(Swap::AsUser) if @swaps && @swaps.class.name == 'ActiveRecord::Relation'
     @swaps ||= swap_scope.to_a
   end
 
   def load_swap
+    @swap = @swap.becomes(Swap::AsUser) if @swap
     @swap ||= swap_scope.find(params[:id])
   end
 
   def build_swap
+    @swap = @swap.becomes(Swap::AsUser) if @swap
     @swap ||= swap_scope.build
     @swap.attributes = swap_params
   end
@@ -72,6 +75,6 @@ class SwapsController < ApplicationController
   end
 
   def swap_scope
-    Swap.all
+    Swap::AsUser.all
   end
 end
