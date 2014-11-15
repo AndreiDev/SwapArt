@@ -50,14 +50,17 @@ class ItemsController < ApplicationController
   private
 
   def load_items
+    @items = @items.to_a.becomes(Item::AsUser) if @items && @items.class.name == 'ActiveRecord::Relation'
     @items ||= item_scope.to_a
   end
 
   def load_item
+    @item = @item.becomes(Item::AsUser) if @item
     @item ||= item_scope.find(params[:id])
   end
 
   def build_item
+    @item = @item.becomes(Item::AsUser) if @item
     @item ||= item_scope.build
     @item.attributes = item_params
   end
@@ -74,7 +77,7 @@ class ItemsController < ApplicationController
   end
 
   def item_scope
-    Item.all
+    Item::AsUser.all
   end
 
   def set_s3_direct_post

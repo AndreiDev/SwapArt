@@ -1,6 +1,6 @@
 class BlocksController < ApplicationController
 
-  authorize_resource
+  load_and_authorize_resource
 
   before_filter :set_current_user
 
@@ -41,14 +41,17 @@ class BlocksController < ApplicationController
   private
 
   def load_blocks
+    @blocks = @blocks.to_a.becomes(Block::AsUser) if @blocks && @blocks.class.name == 'ActiveRecord::Relation'
     @blocks ||= block_scope.to_a
   end
 
   def load_block
+    @block = @block.becomes(Block::AsUser) if @block
     @block ||= block_scope.find(params[:id])
   end
 
   def build_block
+    @block = @block.becomes(Block::AsUser) if @block
     @block ||= block_scope.build
     @block.attributes = block_params
   end
