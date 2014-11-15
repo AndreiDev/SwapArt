@@ -44,14 +44,17 @@ class WantsController < ApplicationController
   private
 
   def load_wants
+    @wants = @wants.to_a.becomes(Want::AsUser) if @wants && @wants.class.name == 'ActiveRecord::Relation'
     @wants ||= want_scope.to_a
   end
 
   def load_want
+    @want = @want.becomes(Want::AsUser) if @want
     @want ||= want_scope.find(params[:id])
   end
 
   def build_want
+    @want = @want.becomes(Want::AsUser) if @want
     @want ||= want_scope.build
     @want.attributes = want_params
   end
