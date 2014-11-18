@@ -1,6 +1,6 @@
 want_1:
   user: user_11
-  item: item_101
+  item: item_31
   extra_mile: true
 want_11:
   user: user_11
@@ -8,11 +8,11 @@ want_11:
   extra_mile: true
 want_21:
   user: user_21
-  item: item_101
+  item: item_1
   extra_mile: true
 item_31:
-  user: user_41
-  item: item_11
+  user: user_11
+  item: item_61
   extra_mile: true
 item_41:
   user: user_41
