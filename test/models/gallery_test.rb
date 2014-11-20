@@ -66,7 +66,7 @@ class GalleryTest < ActiveSupport::TestCase
   test "should_sort_right" do
     User.current = User.first
     gal = Gallery.new()
-    assert_equal(1 ,gal.items.count)
+    assert_equal([4, 3, 3, 3, 3, 3, 3, 3] ,User.get_states(gal.items).values)
   end
 
 end
